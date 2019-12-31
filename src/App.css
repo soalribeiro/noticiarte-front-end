@@ -1,38 +1,82 @@
-.App {
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.Caminho_156 {
+  filter: drop-shadow(8px 3px 20px rgba(43, 43, 43, 0.349));
+  overflow: visible;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: -0.84px;
+  top: -50px;
+  transform: matrix(1,0,0,1,0,0);
+}
+
+.home{
+  position: relative;
   text-align: center;
+  text-decoration: none;
+  list-style-type: none;
+  margin-top:150px ;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.suggestions{
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.listas{
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  list-style-type: none;
+  background-color: rgb(231, 231, 231);
+  width: 20%;
+  color: rgb(155, 155, 155);
+  margin: auto;
+  margin-top: 15px;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.btn_deletesearch{
+  background-color: white;
+  border: 20;
+  border-radius: 20px;
+  border-width: 2px;
+  border-color: #FC4747;
+  width: 100px;
+  height: 30px;
+  margin: 0 0 10px 10px;
+  margin-left: 10px;
+  color: #FC4747;
+  font-size: 15px;
+  
+}
+.btn_deletesearch:hover{
+  background-color: #FC4747;
+  border:none;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.text_p_pequeno{
+  font-size: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input_text{
+  background-color: white;
+  border: 20;
+  border-radius: 20px;
+  border-color: #0554F2;
+  font-size: 18px;
+  width: 20%;
+  height: auto;
+  padding: 10px;
+  color: rgb(93, 144, 248);
+  text-align: center;
+}
+.input_text:active{
+  background-color: white;
+  border-color: rgba(5, 84, 242, 0.445);
+  color: #0554F2;
 }
