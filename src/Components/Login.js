@@ -80,16 +80,16 @@ export default class Login extends Component {
         //     }
         // };
 
-        // fetch('http://192.168.1.5:3000/api/login', {
-        //     method: 'post',
-        //     mode: 'no-cors',
-        //     headers: {'Content-Type':'application/json','Access-Control-Allow-Origin': '*'},
-        //     body: {
-        //         username: this.state.userInput,
-        //         password: this.state.password
-        //     }
-        //    }).then( response => { console.log(response);})
-        //    .catch(err => console.log(err))
+        fetch('http://noticiarte.test/api/login', {
+            method: 'post',
+            mode: 'no-cors',
+            headers: {'Content-Type':'application/json','Access-Control-Allow-Origin': '*'},
+            body: {
+                username: this.state.userInput,
+                password: this.state.password
+            }
+           }).then( response => { console.log(response);})
+           .catch(err => console.log(err))
 
 
 
