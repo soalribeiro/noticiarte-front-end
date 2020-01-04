@@ -108,6 +108,34 @@ body {
   
 }
 
+.duvida_btn{
+  background-image: url('./images_app/duvida.png');
+  background-color: transparent;
+  border: none;
+  width:35px;
+  padding: 25px;
+  margin: 0 0 15px 15px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.p_login{
+  text-align: center;
+  margin-left: 200px;
+}
+
+.p_login_membro {
+  text-align: center;
+}
+
+.p_registate{
+  text-align: center;
+  color: #0554F2;
+}
+.p_registate a{
+  color: #0554F2;
+  text-decoration: none;
+}
 
 
 .login{
