@@ -1,32 +1,36 @@
-body{
+body {
   margin: 0;
   padding: 0;
+}
+
+.logo_branco {
+  position: absolute;
+  top: 28px;
+  left: 50px;
+  width: 182px;
 }
 
 .Caminho_156 {
   filter: drop-shadow(8px 3px 20px rgba(43, 43, 43, 0.349));
   overflow: visible;
-  position: absolute;
   width: 100%;
   height: auto;
-  left: -0.84px;
-  top: -50px;
-  transform: matrix(1,0,0,1,0,0);
+  transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
-.home{
+.home {
   position: relative;
   text-align: center;
   text-decoration: none;
   list-style-type: none;
-  margin-top:150px ;
+  margin-top: 150px;
 }
 
-.suggestions{
+.suggestions {
   padding: 0;
 }
 
-.listas{
+.listas {
   font-size: 15px;
   text-align: center;
   text-decoration: none;
@@ -40,43 +44,72 @@ body{
   cursor: pointer;
 }
 
-.btn_deletesearch{
+.btn_normal{
   background-color: white;
   border: 20;
   border-radius: 20px;
-  border-width: 2px;
-  border-color: #FC4747;
+  border: 2px solid #0554F2;
+  width: 143px;
+  padding: 10px;
+  margin: 10px 10px 10px 10px;
+  color: #0554F2;
+  font-size: 15px;
+  transition: 0.3s ease-in;
+  margin: auto;
+  display: block;
+}
+.btn_normal:hover{
+  cursor: pointer;
+  border: none;
+  color: white;
+  background-color: #0554F2;
+  border: 2px solid #0554F2;
+}
+
+.btn_deletesearch {
+  background-color: white;
+  border: 20;
+  border-radius: 20px;
+  border: 2px solid #FC4747;
   width: 100px;
-  height: 30px;
-  margin: 0 0 10px 10px;
-  margin-left: 10px;
+  padding: 10px;
+  margin: auto;
+  display: block;
   color: #FC4747;
   font-size: 15px;
-  
+  cursor: pointer;
 }
-.btn_deletesearch:hover{
+
+.btn_deletesearch:hover {
   background-color: #FC4747;
-  border:none;
+  border: 2px solid #FC4747;;
   color: white;
+  cursor: pointer;
 }
-.text_p_pequeno{
+
+.text_p_pequeno {
   font-size: 15px;
 }
 
-.input_text{
+.input_text {
+  display: block;
   background-color: white;
   border: 20;
   border-radius: 20px;
   border-color: #0554F2;
   font-size: 18px;
-  width: 20%;
-  height: auto;
+  width: 450px;
   padding: 10px;
   color: rgb(93, 144, 248);
   text-align: center;
+  margin:auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  
 }
-.input_text:active{
-  background-color: white;
-  border-color: rgba(5, 84, 242, 0.445);
-  color: #0554F2;
+
+
+
+.login{
+  
 }

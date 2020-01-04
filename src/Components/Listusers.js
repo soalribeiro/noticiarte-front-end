@@ -30,12 +30,12 @@ export default class Listusers extends Component {
           suggestions.push(users[i].username, users[i].email);
           //para guardar o username na pesquisa
         }
-        console.log(response.data);
-        console.log(response.data[0].profissao.nome_profissao);
-        console.log(response.status);
-        console.log(response.statusText);
-        console.log(response.headers);
-        console.log(response.config);
+        // console.log(response.data);
+        // console.log(response.data[0].profissao.nome_profissao);
+        // console.log(response.status);
+        // console.log(response.statusText);
+        // console.log(response.headers);
+        // console.log(response.config);
       });
 
   }
@@ -149,6 +149,9 @@ export default class Listusers extends Component {
             onKeyDown={onKeyDown}
             value={userInput}
           />
+           <button className="btn_normal" onClick={this.login}>
+                    Adicionar
+                </button>
           <button className="btn_deletesearch" onClick={this.apagartexto}>
             Apagar
           </button>
