@@ -35,23 +35,24 @@ export default class Login extends Component {
     };
 
     login = () => {
+        var bodyFormData = new FormData();
+        bodyFormData.set('username', this.state.userInput);
+        bodyFormData.set('password', this.state.password);
+
         const options = {
             method: 'post',
             url: 'http://192.168.1.5:3000/api/login',
-            body: {
-                username: this.state.userInput,
-                password: this.state.password
+            headers: {
+                'Content-Type': 'multipart/form-data'
             },
-            // xsrfCookieName: 'XSRF-TOKEN',
-            // xsrfHeaderName: 'X-XSRF-TOKEN',
+            data: bodyFormData
         };
 
         axios(options).then((response) => {
-            console.log(response.data.message)
-        }).catch((erro)=>{console.log(erro)})
-
-
-
+            console.log(response);
+        }).catch((erro) => {
+            console.log(erro)
+        })
     }
 
     render() {
