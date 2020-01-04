@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import password_img from '../images_app/duvida.png';
 import axios from 'axios';
 export default class Login extends Component {
     constructor(props) {
@@ -74,9 +75,14 @@ export default class Login extends Component {
                     onClick={this.inputuser2}
                 />
 
+                    <p className="p_login">Esqueci-me da palavra-passe
+                    <button className="duvida_btn" href=""></button></p>
                 <button className="btn_normal" onClick={this.login}>
                     Entrar
                 </button>
+                <p className="p_login_membro">Ainda não és membro?</p>
+                <p className="p_registate">Regista-te <a href=""><b>aqui.</b></a></p>
+                
             </div>
         );
     }
