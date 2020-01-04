@@ -19,7 +19,7 @@ export default class Listusers extends Component {
   };
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/user')
+    axios.get('http://192.168.1.5:3000/api/user')
       .then((response) => {
         this.setState({
           data: response.data
