@@ -1,16 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
+}
+
+
+/* fontes */
+@font-face {
+  font-family: Axiforma-Light;
+  src: url('./fonts/AxiformaLight.otf');
+}
+
+@font-face {
+  font-family: Axiforma-Regular;
+  src: url('./fonts/AxiformaRegular.otf');
+}
+
+@font-face {
+  font-family: Axiforma-Medium;
+  src: url('./fonts/AxiformaMedium.otf');
+}
+
+@font-face {
+  font-family: Axiforma-Semi;
+  src: url('./fonts/AxiformaSemiBold.otf');
+}
+
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+/* geral */
+.conteudo {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+#header {
+  overflow: hidden;
 }
 
 .logo_branco {
   position: absolute;
   top: 28px;
   left: 50px;
-  width: 182px;
+  width: 150px;
 }
 
-.Caminho_156 {
+#onda {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
   filter: drop-shadow(8px 3px 20px rgba(43, 43, 43, 0.349));
   overflow: visible;
   width: 100%;
@@ -18,14 +80,159 @@ body {
   transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
-.home {
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  list-style-type: none;
-  margin-top: 150px;
+.btn_normal {
+  clear: both;
+  width: 143px;
+  padding: 10px;
+  margin: 10px auto 10px auto;
+  display: block;
+  color: white;
+  background-color: #0554F2;
+  transition: 0.3s ease-in;
+  border: 2px solid #0554F2;
+  border-radius: 30px;
+  font-family: Axiforma-Semi;
+  font-size: 0.9rem;
 }
 
+.btn_normal:hover {
+  cursor: pointer;
+  color: #0554F2;
+  background-color: white;
+  border: 2px solid #0554F2;
+}
+
+h1 {
+  font-family: Axiforma-Medium;
+  color: white;
+  opacity: 0.8;
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  margin: 60px 0 0 100px;
+}
+
+h2 {
+  font-family: Axiforma-Regular;
+  color: white;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 54px 0 0 90px;
+  width: 300px;
+  line-height: 3rem;
+}
+
+
+/* login */
+.text_p_pequeno {
+  font-size: 15px;
+}
+
+.login {
+  width: 460px;
+  margin: 200px auto 0 auto;
+}
+
+#img_login {
+  width: 50%;
+  margin: auto;
+  display: block;
+}
+
+.inputs {
+  width: 99%;
+  display: block;
+  margin: auto;
+  position: relative;
+}
+
+.inputs:first-of-type .input_text {
+  margin-top: 40px;
+}
+
+.labelInput {
+  width: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0554F2;
+  border-radius: 30px;
+  padding: 12px 0;
+  color: white;
+  font-family: Axiforma-Medium;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.input_text {
+  width: 99%;
+  display: block;
+  margin: 15px auto 15px;
+  padding: 8px 0;
+  background-color: white;
+  border-radius: 30px;
+  border: 2px solid #0554F2;
+  font-family: Axiforma-Light;
+  font-size: 1rem;
+  color: #2b2b2b;
+  text-align: center;
+}
+
+#olho {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.duvida_btn {
+  width: 58%;
+  background-color: transparent;
+  cursor: pointer;
+  float: right;
+}
+
+.duvida_btn img {
+  width: 30px;
+}
+
+.p_login {
+  float: left;
+  margin: 5px 0 40px 0;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+}
+
+.p_message {
+  clear: both;
+  text-align: center;
+  color: #FC4747;
+  font-size: 0.9rem;
+  font-family: Axiforma-Medium;
+}
+
+.p_login_membro {
+  margin-top: 30px;
+  text-align: center;
+  font-family: Axiforma-Regular;
+  font-size: 0.8rem;
+}
+
+.p_registate {
+  text-align: center;
+  color: #0554F2;
+  font-family: Axiforma-Semi;
+  font-size: 0.8rem;
+  padding-bottom: 80px;
+}
+
+.p_registate a {
+  color: #0554F2;
+  text-decoration: none;
+}
+
+
+/* listusers */
 .suggestions {
   padding: 0;
 }
@@ -44,28 +251,6 @@ body {
   cursor: pointer;
 }
 
-.btn_normal{
-  background-color: white;
-  border: 20;
-  border-radius: 20px;
-  border: 2px solid #0554F2;
-  width: 143px;
-  padding: 10px;
-  margin: 10px 10px 10px 10px;
-  color: #0554F2;
-  font-size: 15px;
-  transition: 0.3s ease-in;
-  margin: auto;
-  display: block;
-}
-.btn_normal:hover{
-  cursor: pointer;
-  border: none;
-  color: white;
-  background-color: #0554F2;
-  border: 2px solid #0554F2;
-}
-
 .btn_deletesearch {
   background-color: white;
   border: 20;
@@ -82,62 +267,199 @@ body {
 
 .btn_deletesearch:hover {
   background-color: #FC4747;
-  border: 2px solid #FC4747;;
+  border: 2px solid #FC4747;
+  ;
   color: white;
   cursor: pointer;
 }
 
-.text_p_pequeno {
-  font-size: 15px;
+
+/* menu */
+#menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.input_text {
-  display: block;
-  background-color: white;
-  border: 20;
-  border-radius: 20px;
-  border-color: #0554F2;
-  font-size: 18px;
-  width: 450px;
-  padding: 10px;
-  color: rgb(93, 144, 248);
-  text-align: center;
-  margin:auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  
+#menu ul {
+  display: inline-block;
+  list-style-type: none;
+  margin: auto;
+  padding: 20px 0;
 }
 
-.duvida_btn{
-  background-image: url('./images_app/duvida.png');
-  background-color: transparent;
-  border: none;
-  width:35px;
-  padding: 25px;
-  margin: 0 0 15px 15px;
-  background-repeat: no-repeat;
-  cursor: pointer;
+#menu li {
+  float: left;
+  padding: 0 20px;
+  font-family: Axiforma-Medium;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: white;
 }
 
-.p_login{
-  text-align: center;
-  margin-left: 200px;
+#menu a {
+  color: white;
+  text-decoration: none;
+  padding-bottom: 5px;
 }
 
-.p_login_membro {
-  text-align: center;
+.notactive {
+  border-bottom: 2px solid transparent;
 }
 
-.p_registate{
-  text-align: center;
-  color: #0554F2;
+.active {
+  border-bottom: 2px solid white;
 }
-.p_registate a{
-  color: #0554F2;
+
+
+/* BotoesJornal.js */
+#botoesJornal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#botoesJornal a {
+  float: left;
+  background-color: #3D9DD9;
+  color: white;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 10px 20px 7px;
+  border-radius: 30px;
+  margin: 12px 12px 60px;
+}
+
+#botoesJornal a {
   text-decoration: none;
 }
 
+#botoesJornal a.activeBotaoJornal {
+  background-color: white;
+  color: #3D9DD9;
+  border: 2px solid #3D9DD9;
+  padding: 9px 20px 6px;
+}
 
-.login{
-  
+
+/* JornalNot.js */
+#jornalNot {
+  margin-bottom: 80px;
+}
+
+#criarNoticia {
+  background-color: #3D9DD9;
+  color: white;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 10px 40px 7px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#criarNotLink {
+  text-decoration: none;
+}
+
+#criarNotDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noticias {
+  width: 75%;
+  margin: 40px auto 10px;
+  background-color: #F2F2F2;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #2b2b2b;
+}
+
+.cols {
+  width: 20%;
+  float: left;
+}
+
+.cols h3 {
+  font-size: 1rem;
+  font-family: Axiforma-Medium;
+  text-transform: uppercase;
+}
+
+.cols p {
+  font-size: 0.9rem;
+  font-family: Axiforma-Light;
+}
+
+.cols h3:nth-of-type(2) {
+  margin-top: 20px;
+}
+
+.col1,
+.col2,
+.col3,
+.col4 {
+  margin: 20px 2% 0 3%;
+}
+
+.pEstado {
+  color: #0554F2;
+}
+
+#botoesNot {
+  clear: both;
+  float: right;
+  margin: 10px 40px 20px 0;
+}
+
+#botoesNot a {
+  background-color: #0554F2;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px 8px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-family: Axiforma-Semi;
+  margin-right: 10px;
+}
+
+#botoesNot button.botaoDif {
+  background-color: #0554F2;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px 8px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-family: Axiforma-Semi;
+  margin-right: 10px;
+  line-height: 1;
+}
+
+.botaoDif {
+  cursor: pointer;
+}
+
+#botoesNot a.botaoDif {
+  background-color: #3D9DD9;
+}
+
+#botoesNot a.botaoDif:last-of-type {
+  margin-right: 0;
+}
+
+.comManchete {
+  background-color: transparent !important;
+  border: 2px solid #3D9DD9 !important;
+  color: #3D9DD9 !important;
+  padding: 9px 20px 7px !important;
+}
+
+.semManchete {
+  background-color: #0554F2 !important;
+  color: white !important;
+  border: 0 !important;
+  padding: 10px 20px 8px !important;
 }

@@ -1,39 +1,69 @@
-import React, { Component } from 'react'
-import password_img from '../images_app/duvida.png';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+
+import password_img from '../images_app/mostrar_password.png';
+import nao_password_img from '../images_app/naomostrar_password.png';
+import superarte_ve from '../images_app/superarte_ve.jpg';
+import superarte_naove from '../images_app/superarte_naove.jpg';
+import duvida from '../images_app/duvida.png';
 import axios from 'axios';
+
 export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: null,
             userInput: '',
-            password: ''
+            password: '',
+            message: null,
+            hidden: true,
+            olho: nao_password_img,
+            superarte: superarte_ve,
+            redirect: false
         };
     }
 
-
-
     onChange = (e) => {
-
-
         const userInput = e.currentTarget.value;
-        console.log(userInput);
-
         this.setState({
             userInput: e.currentTarget.value
         });
     };
 
     onChangepassword = (password) => {
-
-
         const userInput = password.currentTarget.value;
-        console.log(userInput);
-
         this.setState({
             password: password.currentTarget.value
         });
     };
+
+    toggleShow = () => {
+        if (this.state.olho == nao_password_img) {
+            this.setState({
+                hidden: !this.state.hidden,
+                olho: password_img,
+                superarte: superarte_naove
+            });
+        } else {
+            this.setState({
+                hidden: !this.state.hidden,
+                olho: nao_password_img,
+                superarte: superarte_naove
+            });
+        }
+    }
+
+    superarteVe = () => {
+        this.setState({
+            superarte: superarte_naove
+        });
+    }
+
+    superarteNaoVe = () => {
+        this.setState({
+            superarte: superarte_ve
+        });
+    }
 
     login = () => {
         var bodyFormData = new FormData();
@@ -51,38 +81,73 @@ export default class Login extends Component {
 
         axios(options).then((response) => {
             console.log(response);
+            if (response.data.code === 501) {
+                this.setState({
+                    message: response.data.message
+                })
+            } else if (response.data.code === 200) {
+                this.setState({
+                    redirect: true
+                })
+            }
         }).catch((erro) => {
             console.log(erro)
         })
     }
 
     render() {
+
+        if (this.state.message !== null) {
+            this.timer = setTimeout(() => {
+                this.setState({ message: null })
+            }, 5000);
+        }
+
+        if (this.state.redirect) {
+            return <Redirect to='/jornais' />;
+        }
+
         return (
             <div className="login">
-                <input className="input_text"
-                    type="email"
-                    placeholder="email"
-                    onChange={this.onChange}
-                    value={this.state.userInput}
-                    onClick={this.inputuser}
-                />
+                <img id="img_login" className="superarte_login" src={this.state.superarte} />
 
-                <input className="input_text"
-                    type="password"
-                    placeholder="password"
-                    onChange={this.onChangepassword}
-                    value={this.state.password}
-                    onClick={this.inputuser2}
-                />
+                <div class="inputs">
+                    <div class="labelInput">Username</div>
+                    <input className="input_text"
+                        type="email"
+                        placeholder="email"
+                        onChange={this.onChange}
+                        value={this.state.userInput}
+                    />
+                </div>
 
-                    <p className="p_login">Esqueci-me da palavra-passe
-                    <button className="duvida_btn" href=""></button></p>
+                <div class="inputs">
+                    <div class="labelInput">Password</div>
+                    <input className="input_text"
+                        type={this.state.hidden ? "password" : "text"}
+                        placeholder="password"
+                        onChange={this.onChangepassword}
+                        value={this.state.password}
+                        onFocus={this.superarteVe}
+                        onBlur={this.superarteNaoVe}
+                    />
+                    <button id="olho" onClick={this.toggleShow}>
+                        <img src={this.state.olho} />
+                    </button>
+                </div>
+
+                <button className="duvida_btn">
+                    <p className="p_login">Esqueci-me da palavra-passe</p>
+                    <img src={duvida} />
+                </button>
+
+                <p className="p_message">{this.state.message}</p>
+
                 <button className="btn_normal" onClick={this.login}>
                     Entrar
                 </button>
                 <p className="p_login_membro">Ainda não és membro?</p>
                 <p className="p_registate">Regista-te <a href=""><b>aqui.</b></a></p>
-                
             </div>
         );
     }

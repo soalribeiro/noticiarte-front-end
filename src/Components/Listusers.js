@@ -70,7 +70,7 @@ export default class Listusers extends Component {
 
   apagartexto = () => {
     this.setState({
-      userInput:''
+      userInput: ''
     })
   }
 
@@ -118,30 +118,13 @@ export default class Listusers extends Component {
 
     if (this.state.data === null) {
       return (
-        <div  className="home">
+        <div>
           <h2>A carregar...</h2>
         </div>
       );
     } else {
-
-      // var users = this.state.data;
-      // let listItems = users.map((data, index) => {
-      //   return (
-      //     <div className="home">
-      //       <input value={text} type="text" onChange={this.onTextChanged} />
-      //       {this.renderSugestions}
-
-      //       <h4 key={index}>{users[index].nome}</h4>
-      //       <li key={index}>{users[index].email}</li>
-      //       <li key={index}>{users[index].username}</li>
-      //       <li key={index}>{users[index].profissao.nome_profissao}</li>
-      //       <img src={`http://localhost:3000/uploads/${users[index].image}`} />
-      //     </div>
-      //   );
-      // });
-
       return (
-        <div className="home">
+        <div>
           <input className="input_text"
             type="text"
             placeholder="Procure pelo username ou nome"
@@ -149,8 +132,8 @@ export default class Listusers extends Component {
             onKeyDown={onKeyDown}
             value={userInput}
           />
-           <button className="btn_normal" onClick={this.login}>
-                    Adicionar
+          <button className="btn_normal" onClick={this.login}>
+            Adicionar
                 </button>
           <button className="btn_deletesearch" onClick={this.apagartexto}>
             Apagar
