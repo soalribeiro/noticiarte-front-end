@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -44,7 +50,7 @@ body {
   cursor: pointer;
 }
 
-.btn_normal{
+.btn_normal {
   background-color: white;
   border: 20;
   border-radius: 20px;
@@ -58,7 +64,8 @@ body {
   margin: auto;
   display: block;
 }
-.btn_normal:hover{
+
+.btn_normal:hover {
   cursor: pointer;
   border: none;
   color: white;
@@ -82,7 +89,8 @@ body {
 
 .btn_deletesearch:hover {
   background-color: #FC4747;
-  border: 2px solid #FC4747;;
+  border: 2px solid #FC4747;
+  ;
   color: white;
   cursor: pointer;
 }
@@ -102,24 +110,23 @@ body {
   padding: 10px;
   color: rgb(93, 144, 248);
   text-align: center;
-  margin:auto;
+  margin: auto;
   margin-top: 15px;
   margin-bottom: 15px;
-  
 }
 
-.duvida_btn{
+.duvida_btn {
   background-image: url('./images_app/duvida.png');
   background-color: transparent;
   border: none;
-  width:35px;
+  width: 35px;
   padding: 25px;
   margin: 0 0 15px 15px;
   background-repeat: no-repeat;
   cursor: pointer;
 }
 
-.p_login{
+.p_login {
   text-align: center;
   margin-left: 200px;
 }
@@ -128,16 +135,191 @@ body {
   text-align: center;
 }
 
-.p_registate{
+.p_registate {
   text-align: center;
   color: #0554F2;
 }
-.p_registate a{
+
+.p_registate a {
   color: #0554F2;
   text-decoration: none;
 }
 
+.login {}
 
-.login{
-  
+.p_message {
+  text-align: center;
+  color: #FC4747;
+}
+
+.superarte_login {
+  width: 300px;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+/****JORNAL */
+
+.feedJornal {}
+
+.card-outros-jornais {
+  margin: auto;
+  display: block;
+}
+
+.card-jornal {
+  float: left;
+  background-color: #F2F2F2;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  width: 300px;
+  padding: 10px;
+}
+
+.btn_back {
+  display: inline-block;
+  background-color: #3D9DD9;
+  border-radius: 20px;
+  border: 2px solid #3D9DD9;
+  padding: 10px 30px;
+  margin: 10px 10px 50px 70px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  transition: 0.3s ease-in;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: Axiforma-Medium;
+}
+
+.btn_back:hover {
+  cursor: pointer;
+  border: 2px solid #3D9DD9;
+  color: #3D9DD9;
+  background-color: #ffffff;
+}
+
+/**** Especifico jornal */
+#singleJor {
+  margin-bottom: 80px;
+}
+
+.image_jornal {
+  width: 65px;
+  height: 65px;
+  margin: 15px auto;
+  display: block;
+  border-radius: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nav_jornal {
+  float: right;
+  margin-right: 40px;
+  margin: 16px 60px 0 0;
+}
+
+.nav_jornal ul {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.nav_jornal li {
+  float: left;
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+.nav_jornal li a {
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+}
+
+.nav_jornal li a:hover {
+  opacity: 0.7;
+}
+
+h4 {
+  font-size: 1.2rem;
+  float: left;
+  text-transform: uppercase;
+  margin: 15px 0 15px 60px;
+}
+
+.manchete_div {
+  clear: both;
+  width: 90%;
+  margin: auto;
+  margin-top: 60px;
+  overflow: hidden;
+}
+
+.manchete_img {
+  width: 65%;
+  height: 240px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  margin-right: 25px;
+}
+
+.manchete_div a {
+  text-decoration: none;
+  color: black;
+}
+
+.manchete_div a:hover {
+  opacity: 0.7s;
+}
+
+.manchete_titulo h5 {
+  font-size: 1.1rem;
+  font-family: Axiforma-Medium;
+  text-transform: uppercase;
+  line-height: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.manchete_titulo p {
+  font-family: Axiforma-Light;
+  font-size: 0.9rem;
+  color: #2b2b2b;
+}
+
+.manchete_div2 {
+  clear: both;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.manchete2_div a {
+  text-decoration: none;
+  color: black;
+}
+
+.manchete_img2 {
+  width: 90%;
+  height: 240px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.manchete_titulo2 h5 {
+  margin-left: 65px;
+  font-size: 1.6rem;
+}
+
+.manchete2_div:hover {
+  opacity: 0.7;
+}
+
+.manchete_subtitulo2 h6 {
+  font-size: 1.2rem;
+  margin-left: 65px;
 }
