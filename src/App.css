@@ -161,6 +161,25 @@ body {
 
 /****JORNAL */
 
+#modal{
+  width: 100%;
+  height: 100%;
+  background-color: #2b2b2b93;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.p_modal{
+  margin: auto;
+  text-align: center;
+  margin-top: 236px;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #0554F2;
+}
+
+
 .feedJornal {}
 
 .card-outros-jornais {
@@ -200,6 +219,7 @@ body {
 }
 
 /**** Especifico jornal */
+
 #singleJor {
   margin-bottom: 80px;
 }
@@ -246,14 +266,20 @@ h4 {
   float: left;
   text-transform: uppercase;
   margin: 15px 0 15px 60px;
+  font-family: Axiforma-Semi;
 }
 
 .manchete_div {
   clear: both;
   width: 90%;
-  margin: auto;
-  margin-top: 60px;
+  margin: 60px auto 70px;
   overflow: hidden;
+}
+
+#noManchete {
+  font-family: Axiforma-Medium;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .manchete_img {
@@ -322,4 +348,168 @@ h4 {
 .manchete_subtitulo2 h6 {
   font-size: 1.2rem;
   margin-left: 65px;
+}
+
+#noticiasTodas {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.NotIndividual {
+  -ms-flex: 0 0 30.5%;
+  flex: 0 0 30.5%;
+  max-width: 30.5%;
+  padding-right: 4%;
+  float: left;
+}
+
+.NotIndividual:last-of-type {
+  padding-right: 0;
+}
+
+.NotIndividual .imgNot {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 15px;
+}
+
+.NotIndividual h6 {
+  font-family: Axiforma-Semi;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.NotIndividual p {
+  font-family: Axiforma-Light;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}
+
+.NotIndividual2 {
+  overflow: hidden;
+  -ms-flex: 0 0 48%;
+  flex: 0 0 48%;
+  max-width: 48%;
+  padding-right: 4%;
+  float: left;
+}
+
+.NotIndividual2:last-of-type {
+  padding-right: 0;
+}
+
+.NotIndividual2 .imgNot {
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin-bottom: 15px;
+}
+
+.NotIndividual2 h6 {
+  font-family: Axiforma-Semi;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.NotIndividual2 p {
+  font-family: Axiforma-Light;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}
+
+.single_noticia{
+  margin: auto;
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+.noticia_img {
+  width: 100%;
+  height: 240px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 25px;
+}
+
+.single_noticia h4{
+  float: none;
+  margin: 20px;
+  padding-top: 10px;
+  display: block;
+  text-align: center;
+}
+.single_noticia h5{
+  clear: both;
+  color: #4d4d4d;
+  font-family: Axiforma-Semi;
+  font-size: 1.0rem;
+}
+.single_noticia h6{
+  clear: both;
+  margin: auto;
+  margin: 20px 0px;
+  color: #0554F2;
+  font-size: 0.9rem;
+}
+p{
+  font-family: Axiforma-Semi;
+  font-size: 1.4rem;
+}
+.single_noticia p{
+  margin: 20px;
+  justify-content: center;
+  text-align: left;
+}
+/* media queries */
+
+@media screen and (max-width: 800px) {
+  .NotIndividual {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 0;
+    float: none;
+    margin-bottom: 50px;
+  }
+  h4 {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    
+  }
+  .nav_jornal {
+    float: none;
+    margin: 0 auto 20px;
+  }
+  .nav_jornal {
+    float: none;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clear: both;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .NotIndividual2 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 0;
+    float: none;
+    margin-bottom: 50px;
+  }
 }

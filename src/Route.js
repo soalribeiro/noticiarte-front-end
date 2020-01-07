@@ -5,6 +5,7 @@ import Listusers from './Components/Listusers';
 import Jornais from './Components/Jornais';
 import SingleJornal from './Components/SingleJornal';
 import SingleNoticia from './Components/SingleNoticia';
+import SingleNoticiaSeccao from './Components/SingleNoticiaSeccao';
 import Navbar from './Components/CriarNoticias/Navbar';
 
 export default class Routes extends React.Component {
@@ -27,7 +28,8 @@ export default class Routes extends React.Component {
                         <Jornais />
                     </Route>
                         <Route path='/verjornal/:id' component={SingleJornal}></Route>
-                        <Route path='/verjornal/:id/:id' component={SingleNoticia}></Route>
+                        <Route path='/vernoticias/:id' component={SingleNoticia}></Route>
+                        <Route path='/vernoticiaseccao/:id/:id' component={SingleNoticiaSeccao}></Route>
 
                 </Switch>
             </BrowserRouter>

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import Navbar from './CriarNoticias/Navbar';
 import Manchete from './CriarNoticias/Manchete';
 import Manchete2 from './CriarNoticias/Manchete2';
-// import { useParams } from 'react-router-dom';
-// let id  = useParams();
+import OutrasNot from './CriarNoticias/OutrasNot';
+import OutrasNot2 from './CriarNoticias/OutrasNot2';
 
 export default class SingleJornal extends Component {
 
@@ -38,6 +38,45 @@ export default class SingleJornal extends Component {
 
     }
 
+    renderSwitch(param) {
+        switch (param.Manchete && param.colunas) {
+            case 'Manchete' && 'coluna_not1':
+                return (
+                    <div>
+                        <Manchete id_jornal={this.props.location.state.jornal_id}
+                            palete={this.state.jornaldapagina.cor_id} />
+                        <OutrasNot id_jornal={this.props.location.state.jornal_id}
+                            palete={this.state.jornaldapagina.cor_id} />
+                    </div>
+                );
+
+            case 'Manchete' && 'coluna_not2':
+                return (
+                    <div>
+                        <Manchete id_jornal={this.props.location.state.jornal_id}
+                            palete={this.state.jornaldapagina.cor_id} />
+                        <OutrasNot2 id_jornal={this.props.location.state.jornal_id}
+                            palete={this.state.jornaldapagina.cor_id} />
+                    </div>
+                );
+
+            case 'Manchete2' && 'coluna_not1':
+                return (<div>
+                    <Manchete id_jornal={this.props.location.state.jornal_id}
+                        palete={this.state.jornaldapagina.cor_id} />
+                    <OutrasNot id_jornal={this.props.location.state.jornal_id}
+                            palete={this.state.jornaldapagina.cor_id} />
+                </div>);
+            case 'Manchete2' && 'coluna_not2':
+                return (<div>
+                    <Manchete id_jornal={this.props.location.state.jornal_id}
+                        palete={this.state.jornaldapagina.cor_id} />
+                    <OutrasNot2 id_jornal={this.props.location.state.jornal_id}
+                            palete={this.state.jornaldapagina.cor_id} />
+                </div>);
+        }
+    }
+
     render() {
 
         if (!this.state.jornaldapagina || !this.state.seccoes) {
@@ -49,40 +88,24 @@ export default class SingleJornal extends Component {
         } else {
             let conso = JSON.parse(this.state.jornaldapagina.html_json);
 
-            if (conso.Manchete === "Manchete") {
-                return (
-                    <div id="singleJor">
-                        <Link className="btn_back" to={'/jornais'}>Voltar</Link>
 
-                        <Navbar id_jornal={this.props.location.state.jornal_id}
-                            nomejornal={this.state.jornaldapagina.nome_jornal}
-                            imagejornal={this.state.jornaldapagina.imagem_jornal}
-                            palete={this.state.jornaldapagina.cor_id}
-                            seccoes={this.state.seccoes}
-                        />
+            return (
+                <div id="singleJor">
+                    <Link className="btn_back" to={'/jornais'}>Voltar</Link>
 
-                        <Manchete id_jornal={this.props.location.state.jornal_id}
-                            palete={this.state.jornaldapagina.cor_id} />
-                    </div>
+                    <Navbar id_jornal={this.props.location.state.jornal_id}
+                        nomejornal={this.state.jornaldapagina.nome_jornal}
+                        imagejornal={this.state.jornaldapagina.imagem_jornal}
+                        palete={this.state.jornaldapagina.cor_id}
+                        seccoes={this.state.seccoes}
+                    />
 
-                );
-            } else if (conso.Manchete === "Manchete2") {
-                return (
-                    <div id="singleJor">
-                        <Link className="btn_back" to={'/jornais'}>Voltar</Link>
+                    {this.renderSwitch(conso)}
+                    {/* <Manchete id_jornal={this.props.location.state.jornal_id}
+                            palete={this.state.jornaldapagina.cor_id} /> */}
+                </div>
 
-                        <Navbar id_jornal={this.props.location.state.jornal_id}
-                            nomejornal={this.state.jornaldapagina.nome_jornal}
-                            imagejornal={this.state.jornaldapagina.imagem_jornal}
-                            palete={this.state.jornaldapagina.cor_id}
-                            seccoes={this.state.seccoes}
-                        />
-
-                        <Manchete2 id_jornal={this.props.location.state.jornal_id}
-                            palete={this.state.jornaldapagina.cor_id} />
-                    </div>
-                );
-            }
+            );
 
         }
 

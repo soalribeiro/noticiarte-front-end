@@ -54,7 +54,10 @@ export default class Manchete extends Component {
             }else{
                 return (
                     <div className="manchete2_div">
-                        <Link to={'/noticias/' + this.state.noticiasjornalmanchete[0].id}>
+                        <Link to={{
+                                pathname: '/vernoticias/' + this.state.noticiasjornalmanchete[0].id,
+                                state: { noticia_id: this.state.noticiasjornalmanchete[0].id, jornal_id:this.props.id_jornal }
+                            }}>
                             <div className="manchete_titulo2">
                                 <h5 style={{ textAlign: 'left', color: this.state.palete_cores.cor4 }}>{this.state.noticiasjornalmanchete[0].titulo_noticia}</h5>
                             </div>

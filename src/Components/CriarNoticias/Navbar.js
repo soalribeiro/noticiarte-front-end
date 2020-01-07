@@ -38,7 +38,7 @@ export default class Navbar extends Component {
             let listItems = this.state.seccoes.map((data, index) => {
                 return (
                     <li key={index} >
-                        <Link to={'/jornal/' + this.state.id_jornal + '/' + this.state.seccoes[index].seccao.id}
+                        <Link to={'/vernoticiaseccao/' + this.state.id_jornal + '/' + this.state.seccoes[index].seccao.id}
                             style={{ color: this.state.palete_cores.cor3 }}>
                             {this.state.seccoes[index].seccao.nome_seccao}</Link></li>
                 );
