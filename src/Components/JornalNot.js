@@ -9,7 +9,7 @@ export default class JornalNot extends React.Component {
         this.state = {
             noticias: null,
             editor: null,
-            idjornal: 1,
+            idjornal: 1, //MUDAR
             manchete: null
         };
     }
@@ -40,8 +40,9 @@ export default class JornalNot extends React.Component {
     }
 
     tornaManchete = (id) => {
+
         if (this.state.manchete) {
-            axios.put('http://noticiarte.ddns.net/api/noticias/' + id, {
+            axios.put('http://noticiarte.ddns.net/api/atualizamanchete/' + id, {
                 manchete: 1
             }).then((res) => {
                 console.log(res);
@@ -55,8 +56,8 @@ export default class JornalNot extends React.Component {
         }
     }
 
-    tiraManchete = (id) => {
-        axios.put('http://noticiarte.ddns.net/api/noticias/' + id, {
+   /*  tiraManchete = (id) => {
+        axios.put('http://noticiarte.ddns.net/api/atualizamanchete/' + id, {
             manchete: 0
         }).then((res) => {
             console.log(res);
@@ -67,7 +68,7 @@ export default class JornalNot extends React.Component {
         }).catch((err) => {
             console.log(err);
         })
-    }
+    }  */
 
     render() {
         console.log(this.state);
@@ -115,7 +116,7 @@ export default class JornalNot extends React.Component {
                             }}>Editar</Link>
 
                             {noticia.manchete === 1 ?
-                                <button key={'mancheteBtn' + i} className="botaoDif comManchete" id={"btn" + i} onClick={() => this.tiraManchete(noticia.id)}>Manchete</button> :
+                                <button key={'mancheteBtn' + i} className="botaoDif comManchete" id={"btn" + i} onClick={() => this.tornaManchete(noticia.id)}>Manchete</button> :
                                 <button key={'mancheteBtn' + i} className="botaoDif semManchete" id={"btn" + i} onClick={() => this.tornaManchete(noticia.id)}>Manchete</button>
                             }
 
@@ -141,7 +142,7 @@ export default class JornalNot extends React.Component {
                         </Link>
                     </div>
 
-                    {noticias}
+                    {noticias} 
                 </div>
             );
         }
