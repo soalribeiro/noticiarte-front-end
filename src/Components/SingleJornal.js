@@ -12,7 +12,7 @@ export default class SingleJornal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id_jornal: this.props.location.state.jornal_id,
+            id_jornal: this.props.match.params.idjornal,
             jornaldapagina: null,
             seccoes: null,
             teste: null
@@ -20,6 +20,8 @@ export default class SingleJornal extends Component {
     }
 
     componentDidMount() {
+
+
 
         axios.get('http://noticiarte.ddns.net/api/jornais/' + this.state.id_jornal)
             .then((response) => {
@@ -36,6 +38,7 @@ export default class SingleJornal extends Component {
             });
 
 
+
     }
 
     renderSwitch(param) {
@@ -43,9 +46,9 @@ export default class SingleJornal extends Component {
             case 'Manchete' && 'coluna_not1':
                 return (
                     <div>
-                        <Manchete id_jornal={this.props.location.state.jornal_id}
+                        <Manchete id_jornal={this.state.id_jornal}
                             palete={this.state.jornaldapagina.cor_id} />
-                        <OutrasNot id_jornal={this.props.location.state.jornal_id}
+                        <OutrasNot id_jornal={this.state.id_jornal}
                             palete={this.state.jornaldapagina.cor_id} />
                     </div>
                 );
@@ -53,26 +56,26 @@ export default class SingleJornal extends Component {
             case 'Manchete' && 'coluna_not2':
                 return (
                     <div>
-                        <Manchete id_jornal={this.props.location.state.jornal_id}
+                        <Manchete id_jornal={this.state.id_jornal}
                             palete={this.state.jornaldapagina.cor_id} />
-                        <OutrasNot2 id_jornal={this.props.location.state.jornal_id}
+                        <OutrasNot2 id_jornal={this.state.id_jornal}
                             palete={this.state.jornaldapagina.cor_id} />
                     </div>
                 );
 
             case 'Manchete2' && 'coluna_not1':
                 return (<div>
-                    <Manchete id_jornal={this.props.location.state.jornal_id}
+                    <Manchete2 id_jornal={this.state.id_jornal}
                         palete={this.state.jornaldapagina.cor_id} />
-                    <OutrasNot id_jornal={this.props.location.state.jornal_id}
-                            palete={this.state.jornaldapagina.cor_id} />
+                    <OutrasNot id_jornal={this.state.id_jornal}
+                        palete={this.state.jornaldapagina.cor_id} />
                 </div>);
             case 'Manchete2' && 'coluna_not2':
                 return (<div>
-                    <Manchete id_jornal={this.props.location.state.jornal_id}
+                    <Manchete2 id_jornal={this.state.id_jornal}
                         palete={this.state.jornaldapagina.cor_id} />
-                    <OutrasNot2 id_jornal={this.props.location.state.jornal_id}
-                            palete={this.state.jornaldapagina.cor_id} />
+                    <OutrasNot2 id_jornal={this.state.id_jornal}
+                        palete={this.state.jornaldapagina.cor_id} />
                 </div>);
         }
     }
@@ -93,16 +96,16 @@ export default class SingleJornal extends Component {
                 <div id="singleJor">
                     <Link className="btn_back" to={'/jornais'}>Voltar</Link>
 
-                    <Navbar id_jornal={this.props.location.state.jornal_id}
+                    <Navbar id_jornal={this.state.id_jornal}
                         nomejornal={this.state.jornaldapagina.nome_jornal}
                         imagejornal={this.state.jornaldapagina.imagem_jornal}
                         palete={this.state.jornaldapagina.cor_id}
                         seccoes={this.state.seccoes}
+                        id_sec={'non'}
                     />
 
                     {this.renderSwitch(conso)}
-                    {/* <Manchete id_jornal={this.props.location.state.jornal_id}
-                            palete={this.state.jornaldapagina.cor_id} /> */}
+
                 </div>
 
             );

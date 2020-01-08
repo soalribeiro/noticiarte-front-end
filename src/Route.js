@@ -27,9 +27,9 @@ export default class Routes extends React.Component {
                     <Route path='/jornais'>
                         <Jornais />
                     </Route>
-                        <Route path='/verjornal/:id' component={SingleJornal}></Route>
+                        <Route path='/verjornal/:idjornal' component={SingleJornal}></Route>
                         <Route path='/vernoticias/:id' component={SingleNoticia}></Route>
-                        <Route path='/vernoticiaseccao/:id/:id' component={SingleNoticiaSeccao}></Route>
+                        <Route path='/vernoticiaseccao/:idjornal/:idseccao/:idpalete' component={SingleNoticiaSeccao}></Route>
 
                 </Switch>
             </BrowserRouter>
