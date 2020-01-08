@@ -208,7 +208,8 @@ h2 {
   text-align: center;
   color: #FC4747;
   font-size: 0.9rem;
-  font-family: Axiforma-Medium;
+  font-family: Axiforma-Semi;
+  margin-bottom: 20px;
 }
 
 .p_login_membro {
@@ -511,6 +512,160 @@ h2 {
   color: #2B2B2B;
 }
 
+
+/* EscolherTipoNot.js */
+.escolheTipo {
+  width: 28%;
+  flex: 0 0 30.5%;
+  float: left;
+  max-width: 30.5%;
+  margin-right: 7%;
+  border: 3px solid #0554F2;
+  border-radius: 25px;
+  min-height: 220px;
+  display: table;
+  text-decoration: none;
+}
+
+.escolheTipo:last-of-type {
+  margin-right: 0;
+}
+
+.escolheTipo h3 {
+  width: 90%;
+  margin: 20px auto 10px;
+  color: #2B2B2B;
+  font-family: Axiforma-Medium;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.escolheTipo p {
+  width: 80%;
+  margin: 0 auto 25px;
+  color: #2B2B2B;
+  text-align: center;
+}
+
+
+/* CriarNoticia.js */
+#criarNot {
+  width: 88%;
+  margin: 80px 6%;
+  overflow: hidden;
+  color: #2B2B2B;
+}
+
+#criarNot h4 {
+  font-family: Axiforma-Semi;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 100px;
+  overflow: hidden;
+}
+
+#dir {
+  width: 40%;
+  float: left;
+  overflow: hidden;
+}
+
+#esq {
+  width: 56%;
+  float: left;
+  overflow: hidden;
+  margin-right: 4%;
+}
+
+#criarNot input[name='tituloNot'] {
+  width: 100%;
+  font-family: Axiforma-Semi;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+#criarNot input[name='subtituloNot'] {
+  width: 100%;
+  font-family: Axiforma-Semi;
+  font-size: 1.2rem;
+  color: #585858;
+  margin-bottom: 40px;
+}
+
+#criarNot textarea {
+  width: 100%;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  max-width: 700px;
+}
+
+#imagemNot {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+#criarNot label[for="imagemNot"] {
+  width: 80%;
+  display: inline-block;
+  margin: 0 auto 40px;
+  padding: 40px 9%;
+  font-size: 0.9rem;
+  font-family: Axiforma-Light;
+  color: #5D5D5D;
+  border: 2px dashed #B9B9B9;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#imagemNot img,
+#criarNot label img {
+  width: 50px;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.labelNot {
+  width: 100%;
+  display: block;
+  font-size: 0.9rem;
+  font-family: Axiforma-Medium;
+  margin: 40px 0 10px;
+}
+
+select#seccaoNot {
+  width: 100%;
+  display: block;
+  font-size: 0.9rem;
+  font-family: Axiforma-Regular;
+  padding: 10px 10px 14px;
+  background-color: white;
+  border: 2px solid #2B2B2B;
+  border-radius: 30px;
+}
+
+select#seccaoNot option {
+  background-color: rgb(238, 238, 238);
+  padding: 10px 10px 14px;
+  border-radius: 30px;
+}
+
+input#keywords {
+  width: 95%;
+  border: 2px solid blue;
+  border-radius: 30px;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  font-family: Axiforma-Regular;
+}
+
+
 /* media queries */
 @media screen and (max-width: 1285px) {
   h1 {
@@ -526,6 +681,10 @@ h2 {
 
 @media screen and (max-width: 1110px) {
   .escolheJornal {
+    min-height: 250px;
+  }
+
+  .escolheTipo {
     min-height: 250px;
   }
 }
@@ -555,6 +714,21 @@ h2 {
     min-height: auto;
     display: block;
     margin-bottom: 40px;
+  }
+
+  .escolheTipo {
+    width: 80%;
+    flex: 0 0 80%;
+    max-width: 80%;
+    float: none;
+    margin-right: 0;
+    min-height: auto;
+    display: block;
+    margin: 0 auto 40px;
+  }
+
+  .escolheTipo:last-of-type {
+    margin-right: auto;
   }
 
   .content {

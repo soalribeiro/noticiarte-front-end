@@ -6,7 +6,7 @@ export default class Noticia extends React.Component {
     constructor() {
         super();
         this.state = {
-            id_user: 3,//this.props.location.state.user_id,
+            id_user: sessionStorage.getItem('id_user'),
             jornais: null
         };
     }
@@ -14,7 +14,7 @@ export default class Noticia extends React.Component {
     componentDidMount() {
         axios.get('http://noticiarte.ddns.net/api/userjornais/' + this.state.id_user)
             .then((res) => {
-                console.log(res);
+                console.log(res.data);
                 this.setState({
                     jornais: res.data
                 })
@@ -36,8 +36,12 @@ export default class Noticia extends React.Component {
             if (this.state.jornais.length > 0) {
                 const jornal = this.state.jornais.map((jornal, i) => {
                     return (
-                        <Link to="/noticia" className="escolheJornal">
-                            <div key={'content' + i} class="content">
+                        <Link key={'link' + i} to={{
+                            pathname: "/escolhertiponot", state: {
+                                idjornal: jornal.id
+                            }
+                        }} className="escolheJornal">
+                            <div key={'content' + i} className="content">
                                 <h3 key={'titulo' + i}>{jornal.jornal.nome_jornal}</h3>
                                 <p key={'p' + i}>{jornal.jornal.descricao}</p>
                             </div>

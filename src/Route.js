@@ -8,12 +8,14 @@ import Redacao from './Components/Redacao';
 import Noticia from './Components/Noticia';
 import JornalNot from './Components/JornalNot';
 import EditarNoticia from './Components/EditarNoticia';
+import CriarNoticia from './Components/CriarNoticia';
+import EscolherTipoNot from './Components/EscolherTipoNot';
 
 export default class Routes extends React.Component {
     render() {
         return (
             <Switch>
-                <Route exact path='/' component={Login} />
+                <Route exact path='/' component={Jornais} />
                 <Route path='/listausers' component={Listusers} />
                 <Route path='/jornais' component={Jornais} />
                 <Route path='/inserirjornal' component={InserirJornal} />
@@ -21,6 +23,8 @@ export default class Routes extends React.Component {
                 <Route path='/noticia' component={Noticia} />
                 <Route path='/jornalnot' component={JornalNot} />
                 <Route path='/noticiajornal/:id' component={EditarNoticia} />
+                <Route path='/escolhertiponot/' component={EscolherTipoNot} />
+                <Route path='/criarnoticia/:idjornal' component={CriarNoticia} />
             </Switch>
         );
     }

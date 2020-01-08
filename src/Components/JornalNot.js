@@ -40,7 +40,6 @@ export default class JornalNot extends React.Component {
     }
 
     tornaManchete = (id) => {
-
         if (this.state.manchete) {
             axios.put('http://noticiarte.ddns.net/api/atualizamanchete/' + id, {
                 manchete: 1
@@ -56,19 +55,19 @@ export default class JornalNot extends React.Component {
         }
     }
 
-   /*  tiraManchete = (id) => {
-        axios.put('http://noticiarte.ddns.net/api/atualizamanchete/' + id, {
-            manchete: 0
-        }).then((res) => {
-            console.log(res);
-            this.setState({
-                manchete: false
-            })
-            window.location.reload();
-        }).catch((err) => {
-            console.log(err);
-        })
-    }  */
+    /*  tiraManchete = (id) => {
+         axios.put('http://noticiarte.ddns.net/api/atualizamanchete/' + id, {
+             manchete: 0
+         }).then((res) => {
+             console.log(res);
+             this.setState({
+                 manchete: false
+             })
+             window.location.reload();
+         }).catch((err) => {
+             console.log(err);
+         })
+     }  */
 
     render() {
         console.log(this.state);
@@ -142,7 +141,7 @@ export default class JornalNot extends React.Component {
                         </Link>
                     </div>
 
-                    {noticias} 
+                    {noticias}
                 </div>
             );
         }

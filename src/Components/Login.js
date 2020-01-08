@@ -81,14 +81,18 @@ export default class Login extends Component {
 
         axios(options).then((response) => {
             console.log(response);
-            if (response.data.code === 501) {
+
+            if (response.data.code == 501) {
                 this.setState({
                     message: response.data.message
-                })
+                });
+
             } else if (response.data.code === 200) {
-                this.setState({
-                    redirect: true
-                })
+                sessionStorage.setItem('id_user', response.data.data.id_user);
+                sessionStorage.setItem('username', response.data.data.username);
+                sessionStorage.setItem('api_token', response.data.data.api_token);
+
+                this.props.isLoggedIn();
             }
         }).catch((erro) => {
             console.log(erro)
@@ -99,20 +103,18 @@ export default class Login extends Component {
 
         if (this.state.message !== null) {
             this.timer = setTimeout(() => {
-                this.setState({ message: null })
+                this.setState({
+                    message: null
+                })
             }, 5000);
-        }
-
-        if (this.state.redirect) {
-            return <Redirect to='/jornais' />;
         }
 
         return (
             <div className="login">
                 <img id="img_login" className="superarte_login" src={this.state.superarte} />
 
-                <div class="inputs">
-                    <div class="labelInput">Username</div>
+                <div className="inputs">
+                    <div className="labelInput">Username</div>
                     <input className="input_text"
                         type="email"
                         placeholder="email"
@@ -121,8 +123,8 @@ export default class Login extends Component {
                     />
                 </div>
 
-                <div class="inputs">
-                    <div class="labelInput">Password</div>
+                <div className="inputs">
+                    <div className="labelInput">Password</div>
                     <input className="input_text"
                         type={this.state.hidden ? "password" : "text"}
                         placeholder="password"
@@ -136,12 +138,12 @@ export default class Login extends Component {
                     </button>
                 </div>
 
+                <p className="p_message">{this.state.message}</p>
+
                 <button className="duvida_btn">
                     <p className="p_login">Esqueci-me da palavra-passe</p>
                     <img src={duvida} />
                 </button>
-
-                <p className="p_message">{this.state.message}</p>
 
                 <button className="btn_normal" onClick={this.login}>
                     Entrar

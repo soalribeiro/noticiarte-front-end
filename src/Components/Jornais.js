@@ -11,7 +11,7 @@ export default class Jornais extends React.Component {
     render() {
         return(
             <div>
-                <p>jornal</p>
+                <h1>jornal</h1>
             </div>
         );
     }
