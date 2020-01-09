@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link, Redirect } from 'react-router-dom'
+import { BrowserRouter, Link, Redirect } from 'react-router-dom';
 import logobranco from './images_app/logo_branco.png';
 import './App.css';
 import Routes from './Route';
