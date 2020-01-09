@@ -36,6 +36,10 @@ export default class Navbar extends Component {
         + palete;
     }
 
+    refreshtohome = (jornal) => {
+        window.location.href='/verjornal/' + jornal;
+    }
+
     render() {
         if (!this.props.nomejornal || !this.props.imagejornal
             || !this.state.palete_cores || !this.state.seccao_id) {
@@ -85,7 +89,7 @@ export default class Navbar extends Component {
                         <Link to={{
                             pathname: '/verjornal/' + this.state.id_jornal,
                             state: { jornal_id: this.state.id_jornal }
-                        }}><h4 style={{ color: this.state.palete_cores.cor3 }} onClick={() => window.location.reload()}>{this.props.nomejornal}</h4> </Link>
+                        }}><h4 style={{ color: this.state.palete_cores.cor3 }} onClick={() => this.refreshtohome(this.state.id_jornal)}>{this.props.nomejornal}</h4> </Link>
                         <nav className="nav_jornal">
                             <ul>
                                 {listItems}

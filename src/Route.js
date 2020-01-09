@@ -7,13 +7,14 @@ import SingleJornal from './Components/SingleJornal';
 import SingleNoticia from './Components/SingleNoticia';
 import SingleNoticiaSeccao from './Components/SingleNoticiaSeccao';
 import Navbar from './Components/CriarNoticias/Navbar';
-
+import CriarJornal from './Components/CriarJornal';
+import PersonalizaJornal from './Components/PersonalizaJornal';
 export default class Routes extends React.Component {
 
     constructor(props) {
         super(props);
     }
-    
+
     render() {
         return (
             <BrowserRouter>
@@ -27,10 +28,12 @@ export default class Routes extends React.Component {
                     <Route path='/jornais'>
                         <Jornais />
                     </Route>
-                        <Route path='/verjornal/:idjornal' component={SingleJornal}></Route>
-                        <Route path='/vernoticias/:id' component={SingleNoticia}></Route>
-                        <Route path='/vernoticiaseccao/:idjornal/:idseccao/:idpalete' component={SingleNoticiaSeccao}></Route>
-
+                    <Route path='/verjornal/:idjornal' component={SingleJornal}></Route>
+                    <Route path='/vernoticias/:id' component={SingleNoticia}></Route>
+                    <Route path='/vernoticiaseccao/:idjornal/:idseccao/:idpalete' component={SingleNoticiaSeccao}></Route>
+                    <Route path='/criarjornais' component={CriarJornal}></Route>
+                    <Route path='/personalizajornal' component={PersonalizaJornal}></Route>
+                    
                 </Switch>
             </BrowserRouter>
         );

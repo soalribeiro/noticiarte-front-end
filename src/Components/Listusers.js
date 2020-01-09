@@ -70,7 +70,7 @@ export default class Listusers extends Component {
 
   apagartexto = () => {
     this.setState({
-      userInput:''
+      userInput: ''
     })
   }
 
@@ -118,7 +118,7 @@ export default class Listusers extends Component {
 
     if (this.state.data === null) {
       return (
-        <div  className="home">
+        <div className="home">
           <h2>A carregar...</h2>
         </div>
       );
@@ -149,8 +149,8 @@ export default class Listusers extends Component {
             onKeyDown={onKeyDown}
             value={userInput}
           />
-           <button className="btn_normal" onClick={this.login}>
-                    Adicionar
+          <button className="btn_normal" onClick={this.login}>
+            Adicionar
                 </button>
           <button className="btn_deletesearch" onClick={this.apagartexto}>
             Apagar

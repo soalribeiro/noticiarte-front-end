@@ -161,7 +161,7 @@ body {
 
 /****JORNAL */
 
-#modal{
+#modal {
   width: 100%;
   height: 100%;
   background-color: #2b2b2b93;
@@ -170,7 +170,7 @@ body {
   left: 0;
 }
 
-.p_modal{
+.p_modal {
   margin: auto;
   text-align: center;
   margin-top: 236px;
@@ -178,9 +178,6 @@ body {
   margin-bottom: 20px;
   color: #0554F2;
 }
-
-
-.feedJornal {}
 
 .card-outros-jornais {
   margin: auto;
@@ -216,6 +213,38 @@ body {
   border: 2px solid #3D9DD9;
   color: #3D9DD9;
   background-color: #ffffff;
+}
+
+/**CRIAR JORNAL*/
+
+.criarjornal {
+  margin-bottom: 80px;
+}
+
+.select_instituicao {
+  width: 400px;
+  height: 30px;
+  font-size: 1rem;
+}
+
+.btn_jornais {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.linkbtn_normal {
+  float: right;
+  text-decoration: none;
+}
+
+.linkbtn_delete {
+  float: left;
+  text-decoration: none;
+  margin-right: 500px;
 }
 
 /**** Especifico jornal */
@@ -427,13 +456,14 @@ h4 {
   line-height: 1.2rem;
 }
 
-.single_noticia{
+.single_noticia {
   margin: auto;
   display: block;
   text-align: center;
   overflow: hidden;
   margin-bottom: 80px;
 }
+
 .noticia_img {
   width: 100%;
   height: 240px;
@@ -443,35 +473,40 @@ h4 {
   margin-right: 25px;
 }
 
-.single_noticia h4{
+.single_noticia h4 {
   float: none;
   margin: 20px;
   padding-top: 10px;
   display: block;
   text-align: center;
 }
-.single_noticia h5{
+
+.single_noticia h5 {
   clear: both;
   color: #4d4d4d;
   font-family: Axiforma-Semi;
   font-size: 1.0rem;
 }
-.single_noticia h6{
+
+.single_noticia h6 {
   clear: both;
   margin: auto;
   margin: 20px 0px;
   color: #0554F2;
   font-size: 0.9rem;
 }
-p{
+
+p {
   font-family: Axiforma-Semi;
   font-size: 1.4rem;
 }
-.single_noticia p{
+
+.single_noticia p {
   margin: 20px;
   justify-content: center;
   text-align: left;
 }
+
 /* media queries */
 
 @media screen and (max-width: 800px) {
@@ -487,7 +522,6 @@ p{
     width: 100%;
     text-align: center;
     margin: 20px 0;
-    
   }
   .nav_jornal {
     float: none;
@@ -512,4 +546,81 @@ p{
     float: none;
     margin-bottom: 50px;
   }
+}
+
+/*******CRIAR JORNAL***/
+
+.inputjornal {
+  border: 2px solid #0554F2;
+  border-radius: 10px;
+  width: 500px;
+  height: 30px;
+  margin: 10px;
+  padding-left: 100px;
+}
+
+.inputjornal2 {
+  border: 2px solid #0554F2;
+  border-radius: 10px;
+  width: 500px;
+  height: 100px;
+  margin: 10px;
+}
+
+#bluediv {
+  background-color: #0554F2;
+  border-radius: 10px;
+  height: 35px;
+  width: 100px;
+  margin: 10px;
+  position: absolute;
+}
+
+#bluediv p {
+  margin-top: 8px;
+  font-size: 15px;
+  color: white;
+}
+
+.palete_personalizada {
+  float: left;
+  overflow: hidden;
+  margin: 40px 6%;
+}
+
+.palete_personalizada div {
+  float: left;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.input_palete{
+  clear: both;
+  display:block;
+  margin: auto;
+}
+
+.colman_personalizada{
+  float: left;
+  overflow: hidden;
+  margin: 40px 20%;
+}
+
+.colman_personalizada img{
+  float: left;
+  border: 1px solid black;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.colman_personalizada input{
+  float: left;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
