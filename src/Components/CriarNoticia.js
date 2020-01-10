@@ -5,6 +5,7 @@ import CorpoNoticia from '../Containers/CorpoNoticia';
 import elimina from '../images_app/elimina.png';
 import superarte from '../images_app/superarte_guias.png';
 import { Redirect } from 'react-router-dom';
+import ListarPublico from './ListarPublico';
 
 export default class CriarNoticia extends React.Component {
     constructor(props) {
@@ -26,7 +27,9 @@ export default class CriarNoticia extends React.Component {
             characters: 0,
             color: '#2B2B2B',
             position: 'inherit',
-            width: '40%'
+            width: '40%',
+            noticiasPublico: null,
+            mostraLista:false
         };
     }
 
@@ -43,7 +46,7 @@ export default class CriarNoticia extends React.Component {
 
         axios.get('http://noticiarte.ddns.net/api/guias')
             .then((res) => {
-                console.log(res.data);
+                //console.log(res.data);
                 this.setState({
                     guias: res.data,
                     mostra: res.data[0].texto_guia
@@ -52,6 +55,7 @@ export default class CriarNoticia extends React.Component {
             .catch((err) => {
                 console.log(err);
             });
+
 
 
         window.addEventListener('scroll', () => {
@@ -121,7 +125,8 @@ export default class CriarNoticia extends React.Component {
             nova.push(valor);
 
             this.setState({
-                palavrasChave: nova
+                palavrasChave: nova,
+                mostraLista:true
             })
 
             document.getElementById('keywords').value = '';
@@ -366,6 +371,10 @@ export default class CriarNoticia extends React.Component {
                             <div id="caixa">
                                 {palavras}
                             </div>
+                            <h4 id="notRel">Notícias relacionadas</h4>
+
+                            {this.state.mostraLista == true ? <ListarPublico palavras={this.state.palavrasChave} /> : console.log('o') }
+                            
                         </div>
 
                         <div id="dir" style={{ position: this.state.position, width: this.state.width }}>

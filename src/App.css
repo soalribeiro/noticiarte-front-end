@@ -762,7 +762,7 @@ button#addPalavraChave {
 }
 
 #balao {
-  background-color: white;
+  background-color: #f9f9f9;
   width: 53%;
   margin-left: 5%;
   overflow: hidden;
@@ -818,19 +818,21 @@ button#addPalavraChave {
   font-family: Axiforma-Medium;
 }
 
-
-/* media queries */
-/* @media screen and (min-width: 1700px) {
-  #criarNot {
-    margin: 150px auto;
-  }
+h4#notRel {
+  margin-top: 80px;
+  margin-bottom: 30px;
 }
 
-@media screen and (min-width: 2060px) {
-  #criarNot {
-    margin: 200px auto;
-  }
-} */
+/* ListarPublico.js */
+.NoticiRelacionada {
+  width: 300px;
+  height: 400px;
+}
+
+.NoticiRelacionada img{
+  width: 300px;
+}
+
 
 @media screen and (max-width: 1285px) {
   h1 {
