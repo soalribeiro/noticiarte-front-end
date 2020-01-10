@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import Notificacao from './Notificacao';
 
 
 export default class Jornais extends React.Component {
@@ -90,6 +90,7 @@ export default class Jornais extends React.Component {
                 <div className="feedJornal">
 
                     <h1>Jornal</h1>
+                    <Notificacao />
 
                     <div>
                         <h2>Os teus jornais</h2>

@@ -24,6 +24,11 @@ export default class SingleNoticia extends Component {
 
     }
 
+    createMarkup = (corponot) => {
+        return { __html: corponot };
+    };
+
+
     render() {
 
         if (!this.state.infonoticia) {
@@ -33,6 +38,9 @@ export default class SingleNoticia extends Component {
             </h2>
             );
         } else {
+
+            let corponot = this.state.infonoticia.corpo_noticia;
+
             return (
                 <div className="single_noticia">
                     <Link className="btn_back"
@@ -49,7 +57,7 @@ export default class SingleNoticia extends Component {
                         backgroundImage: `url(http://noticiarte.ddns.net/uploads/${this.state.infonoticia.imagem})`
                     }}></div>
 
-                    <p>{this.state.infonoticia.corpo_noticia}</p>
+                    <div dangerouslySetInnerHTML={this.createMarkup(corponot)} />
                 </div >
             )
         }

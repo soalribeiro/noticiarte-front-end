@@ -5,8 +5,11 @@ import './App.css';
 import Listausers from './Components/Listusers.js';
 import Login from './Components/Login';
 import Routes from './Route';
+import VideoRecorder from 'react-video-recorder'
+
 
 function App() {
+
   return (
     <div className="background">
 
@@ -16,7 +19,13 @@ function App() {
       </svg>
       <img className="logo_branco" src={logobranco} />
 
-
+      <VideoRecorder
+        isOnInitially={true}
+        showReplayControls={true}
+        countdownTime={3000}
+        timeLimit={30000}
+        //onRecordingComplete={handleRecordingComplete}
+      />
       <Routes />
 
     </div>

@@ -38,6 +38,10 @@ export default class OutrasNot2 extends Component {
     }
 
 
+    createMarkup = (corponot) => {
+        return { __html: corponot };
+    };
+
     render() {
         if (!this.state.palete_cores || !this.state.noticiasjornal) {
             return (
@@ -68,9 +72,7 @@ export default class OutrasNot2 extends Component {
 
                                     <h6 key={'h6' + index}
                                         style={{ color: this.state.palete_cores.cor5 }}>{noticia.titulo_noticia}</h6>
-
-                                    <p key={'p' + index}
-                                        style={{ color: this.state.palete_cores.cor3 }}>{noticia.corpo_noticia}</p>
+                                    <div key={'p' + index}  style={{ color: this.state.palete_cores.cor3 }} dangerouslySetInnerHTML={this.createMarkup(noticia.corpo_noticia)} />
                                 </div>
                             </Link>
                         );
