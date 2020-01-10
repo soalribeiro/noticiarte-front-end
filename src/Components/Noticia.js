@@ -29,7 +29,8 @@ export default class Noticia extends React.Component {
         if (!this.state.jornais) {
             return (
                 <div>
-                    A carregar
+                    <h1>Notícia</h1>
+                    <div id="carrega">A carregar...</div>
                 </div>
             )
         } else {

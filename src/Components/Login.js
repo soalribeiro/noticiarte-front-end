@@ -72,7 +72,7 @@ export default class Login extends Component {
 
         const options = {
             method: 'post',
-            url: 'http://192.168.1.5:3000/api/login',
+            url: 'http://noticiarte.ddns.net/api/login',
             headers: {
                 'Content-Type': 'multipart/form-data'
             },

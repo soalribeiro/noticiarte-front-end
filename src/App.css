@@ -61,6 +61,16 @@ body {
   overflow: hidden;
 }
 
+#carrega {
+  width: 50%;
+  margin: auto;
+  font-size: 2rem;
+  font-family: Axiforma-Medium;
+  color: #2b2b2b;
+  text-align: center;
+  margin-top: 80px;
+}
+
 .logo_branco {
   position: absolute;
   top: 28px;
@@ -552,7 +562,8 @@ h2 {
 /* CriarNoticia.js */
 #criarNot {
   width: 88%;
-  margin: 80px 6%;
+  max-width: 1800px;
+  margin: 8% auto;
   overflow: hidden;
   color: #2B2B2B;
 }
@@ -566,9 +577,12 @@ h2 {
 }
 
 #dir {
-  width: 40%;
-  float: left;
+  /* width: 38%; */
   overflow: hidden;
+  /* position: fixed; */
+  z-index: 9999;
+  top: 50px;
+  right: 80px;
 }
 
 #esq {
@@ -578,7 +592,7 @@ h2 {
   margin-right: 4%;
 }
 
-#criarNot input[name='tituloNot'] {
+#criarNot textarea[name='tituloNot'] {
   width: 100%;
   font-family: Axiforma-Semi;
   font-size: 1.8rem;
@@ -586,7 +600,7 @@ h2 {
   margin-bottom: 30px;
 }
 
-#criarNot input[name='subtituloNot'] {
+#criarNot textarea[name='subtituloNot'] {
   width: 100%;
   font-family: Axiforma-Semi;
   font-size: 1.2rem;
@@ -598,8 +612,8 @@ h2 {
 .cke_editable_inline,
 .cke_contents_ltr,
 .cke_show_borders {
-  width: 94%;
-  padding: 10px 2%;
+  width: 100%;
+  padding: 10px 0;
   font-family: Axiforma-Regular;
   font-size: 0.9rem;
   max-width: 700px;
@@ -737,6 +751,37 @@ button#addPalavraChave {
   display: block;
 }
 
+#guia {
+  overflow: hidden;
+}
+
+#dir img {
+  width: 25%;
+  margin-bottom: 40px;
+  float: left;
+}
+
+#balao {
+  background-color: white;
+  width: 53%;
+  margin-left: 5%;
+  overflow: hidden;
+  float: left;
+  padding: 20px;
+  -webkit-box-shadow: 3px 3px 8px 0px rgb(228, 228, 228);
+  -moz-box-shadow: 3px 3px 8px 0px rgb(228, 228, 228);
+  box-shadow: 3px 3px 8px 0px rgb(228, 228, 228);
+  border-radius: 25px;
+  font-family: Axiforma-Regular;
+  font-size: 0.8rem;
+}
+
+#botoesRevGuarda {
+  margin-top: 40px;
+  overflow: hidden;
+  float: right;
+}
+
 #revisao {
   background-color: #3D9DD9;
   text-transform: uppercase;
@@ -745,7 +790,7 @@ button#addPalavraChave {
   font-family: Axiforma-Medium;
   padding: 10px 15px 8px;
   border-radius: 30px;
-  margin: 40px 20px 0 0;
+  margin-right: 20px;
 }
 
 #guardar {
@@ -756,16 +801,37 @@ button#addPalavraChave {
   font-family: Axiforma-Medium;
   padding: 10px 15px 8px;
   border-radius: 30px;
-  margin-top: 40px;
 }
 
 #imageUploaded {
   width: 100%;
 }
 
+#charCount {
+  font-size: 0.8rem;
+  font-family: Axiforma-Regular;
+  color: #2B2B2B;
+  text-align: right;
+}
+
+#charCount span {
+  font-family: Axiforma-Medium;
+}
 
 
 /* media queries */
+/* @media screen and (min-width: 1700px) {
+  #criarNot {
+    margin: 150px auto;
+  }
+}
+
+@media screen and (min-width: 2060px) {
+  #criarNot {
+    margin: 200px auto;
+  }
+} */
+
 @media screen and (max-width: 1285px) {
   h1 {
     margin: 4% 0 0 5%;

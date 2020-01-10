@@ -118,8 +118,8 @@ export default class Listusers extends Component {
 
     if (this.state.data === null) {
       return (
-        <div>
-          <h2>A carregar...</h2>
+        <div id="carrega">
+          A carregar...
         </div>
       );
     } else {

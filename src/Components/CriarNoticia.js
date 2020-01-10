@@ -3,6 +3,7 @@ import axios from 'axios';
 import add from '../images_app/adicionar.png';
 import CorpoNoticia from '../Containers/CorpoNoticia';
 import elimina from '../images_app/elimina.png';
+import superarte from '../images_app/superarte_guias.png';
 import { Redirect } from 'react-router-dom';
 
 export default class CriarNoticia extends React.Component {
@@ -19,14 +20,19 @@ export default class CriarNoticia extends React.Component {
             id_seccao: null,
             id_tipo: this.props.location.state.id_tipo,
             seccoesJor: null,
-            display: 'inline-block'
+            display: 'inline-block',
+            guias: null,
+            mostra: null,
+            characters: 0,
+            color: '#2B2B2B',
+            position: 'inherit',
+            width: '40%'
         };
     }
 
     componentDidMount() {
         axios.get('http://noticiarte.ddns.net/api/jornaisseccoes/' + this.state.id_jornal)
             .then((res) => {
-                console.log(res.data);
                 this.setState({
                     seccoesJor: res.data
                 })
@@ -34,6 +40,34 @@ export default class CriarNoticia extends React.Component {
             .catch((err) => {
                 console.log(err);
             });
+
+        axios.get('http://noticiarte.ddns.net/api/guias')
+            .then((res) => {
+                console.log(res.data);
+                this.setState({
+                    guias: res.data,
+                    mostra: res.data[0].texto_guia
+                })
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+
+        window.addEventListener('scroll', () => {
+            const isTop = window.scrollY < 400;
+            if (isTop !== true) {
+                this.setState({
+                    position: 'fixed',
+                    width: '35%'
+                })
+            } else {
+                this.setState({
+                    position: 'inherit',
+                    width: '40%'
+                })
+            }
+        })
     }
 
     titulo = (evt) => {
@@ -156,11 +190,120 @@ export default class CriarNoticia extends React.Component {
         }
     }
 
+    guardarNoticia = () => {
+        function makeid() {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for (var i = 0; i < 24; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
+
+        //const url = makeid() + '-' + this.state.palavrasChave[0];
+        const url = makeid();
+
+        const { titulo_noticia, subtitulo_noticia, corpoNot, imagem, id_jornal, id_seccao, id_user, palavrasChave, id_tipo } = this.state;
+
+        if (titulo_noticia !== null || subtitulo_noticia !== null || corpoNot !== null
+            || imagem !== null || id_jornal !== null || id_seccao !== null || id_user !== null
+            || palavrasChave !== null || id_tipo !== null) {
+
+            var noticia = new FormData();
+            noticia.set('url_noticia', url);
+            noticia.set('titulo_noticia', titulo_noticia);
+            noticia.set('subtitulo_noticia', subtitulo_noticia);
+            noticia.set('corpo_noticia', corpoNot);
+            noticia.set('imagem', imagem);
+            noticia.set('palavras_chave', palavrasChave);
+            noticia.set('jornal_id', id_jornal);
+            noticia.set('user_id', id_user);
+            noticia.set('seccao_id', id_seccao);
+            noticia.set('estadonoticia_id', 4);
+            noticia.set('tiponoticias_id', id_tipo);
+            noticia.set('manchete', 0);
+
+            const options = {
+                method: 'post',
+                url: 'http://noticiarte.ddns.net/api/noticias',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: noticia
+            };
+
+            axios(options).then((res) => {
+                console.log(res);
+                return <Redirect to="/jornais" />
+            }).catch((err) => {
+                console.log(err)
+            })
+        } else {
+            console.log('Preenche os campos');
+        }
+    }
+
+    focusTitulo = () => {
+        this.setState({
+            mostra: this.state.guias[1].texto_guia
+        })
+    }
+
+    focusSubtitulo = () => {
+        this.setState({
+            mostra: this.state.guias[2].texto_guia
+        })
+    }
+
+    focusCorpo = () => {
+        this.setState({
+            mostra: this.state.guias[3].texto_guia
+        })
+    }
+
+    onBlur = () => {
+        this.setState({
+            mostra: this.state.guias[0].texto_guia
+        })
+    }
+
+    onKeyPress = (evt) => {
+        if (evt.key == "Backspace" || evt.key == "Delete") {
+            if (this.state.characters > 0) {
+                this.setState({
+                    characters: this.state.characters - 1
+                })
+            }
+
+            if (this.state.characters === 10000) {
+                this.setState({
+                    color: '#2B2B2B'
+                });
+            }
+        } else if (evt.key == "ArrowRight" || evt.key == "ArrowUp"
+            || evt.key == "ArrowDown" || evt.key == "ArrowLeft" || evt.key == "Shift"
+            || evt.key == "Control" || evt.key == "Alt" || evt.key == "CapsLock") {
+            console.log('nada');
+        } else {
+            this.setState({
+                characters: this.state.characters + 1
+            });
+
+            if (this.state.characters === 10000) {
+                this.setState({
+                    color: '#FC4747'
+                });
+            }
+        }
+    }
+
     render() {
-        if (!this.state.seccoesJor) {
+        if (!this.state.seccoesJor || !this.state.guias || !this.state.mostra) {
             return (
                 <div>
-                    A carregar
+                    <h1>Notícia</h1>
+                    <div id="carrega">A carregar...</div>
                 </div>
             );
         } else {
@@ -192,8 +335,8 @@ export default class CriarNoticia extends React.Component {
                     <div id="criarNot">
                         <h4>Criar notícia</h4>
                         <div id="esq">
-                            <input type="text" name="tituloNot" placeholder="Adicionar um título" onChange={this.titulo} />
-                            <input type="text" name="subtituloNot" placeholder="Adicionar um subtítulo" onChange={this.subtitulo} />
+                            <textarea rows="2" name="tituloNot" placeholder="Adicionar um título" onChange={this.titulo} onFocus={this.focusTitulo} onBlur={this.onBlur}></textarea>
+                            <textarea rows="4" name="subtituloNot" placeholder="Adicionar um subtítulo" onChange={this.subtitulo} onFocus={this.focusSubtitulo} onBlur={this.onBlur}></textarea>
 
                             <label htmlFor="imagemNot" style={{ display: this.state.display }}>
                                 <img src={add} />
@@ -202,11 +345,14 @@ export default class CriarNoticia extends React.Component {
                                 onChange={this.imagem} />
                             <img src="" id="imageUploaded" />
 
-                            <CorpoNoticia conteudo={this.recebeConteudo} />
+                            <div onFocus={this.focusCorpo} onBlur={this.onBlur} onKeyDown={this.onKeyPress}>
+                                <CorpoNoticia conteudo={this.recebeConteudo} />
+                            </div>
+                            <div id="charCount"><span style={{ color: this.state.color }}>{this.state.characters}</span> / 10000</div>
 
-                            <label htmlFor="seccaoNot" class="labelNot">Escolhe a secção da notícia</label>
+                            <label htmlFor="seccaoNot" className="labelNot">Escolhe a secção da notícia</label>
                             <select name="seccaoNot" id="seccaoNot" onChange={this.seccao_id}>
-                                <option disabled defaultValue>Seleciona uma secção</option>
+                                <option disabled selected>Seleciona uma secção</option>
                                 {seccoesJor}
                             </select>
 
@@ -222,11 +368,18 @@ export default class CriarNoticia extends React.Component {
                             </div>
                         </div>
 
-                        <div id="dir">
-                            <p>guias</p>
+                        <div id="dir" style={{ position: this.state.position, width: this.state.width }}>
+                            <div id="guia">
+                                <img src={superarte} />
+                                <div id="balao">
+                                    {this.state.mostra}
+                                </div>
+                            </div>
 
-                            <button id="revisao" onClick={this.criaNoticia}>Enviar para revisão</button>
-                            <button id="guardar">Guardar</button>
+                            <div id="botoesRevGuarda">
+                                <button id="revisao" onClick={this.criaNoticia}>Enviar para revisão</button>
+                                <button id="guardar">Guardar</button>
+                            </div>
                         </div>
                     </div>
                 </div>

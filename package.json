@@ -9,6 +9,7 @@
     "axios": "^0.19.0",
     "babel-polyfill": "^6.26.0",
     "ckeditor": "^4.12.1",
+    "ckeditor-wordcount-plugin": "^1.17.2",
     "ckeditor4-react": "^1.0.1",
     "draft-js": "^0.11.4",
     "react": "^16.12.0",

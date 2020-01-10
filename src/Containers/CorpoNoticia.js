@@ -6,7 +6,8 @@ export default class CorpoNoticia extends Component {
         super();
         this.state = {
             placeholder: 'Escreve o corpo de notícia aqui',
-            content: ''
+            content: '',
+            characters: 0
         }
     }
 
@@ -16,9 +17,9 @@ export default class CorpoNoticia extends Component {
         });
     }
 
-    onChange = (evt) => {
+    onChange = (event) => {
         this.setState({
-            content: evt.sender.element.$.innerHTML
+            content: event.sender.element.$.innerHTML
         })
 
         this.props.conteudo(this.state.content);
@@ -30,7 +31,7 @@ export default class CorpoNoticia extends Component {
                 <CKEditor
                     type="inline"
                     config={{
-                        toolbar: [['Bold'], ['Italic'], ['Link'], ['SpecialChar'],],
+                        toolbar: [['Bold'], ['Italic'], ['Link'], ['SpecialChar']],
                         extraPlugins: 'autogrow',
                         uiColor: '#e6e6e6'
                     }}

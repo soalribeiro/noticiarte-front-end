@@ -73,8 +73,9 @@ export default class JornalNot extends React.Component {
         console.log(this.state);
         if (!this.state.editor || !this.state.noticias) {
             return (
-                <div>
-                    A carregar
+                <div id="jornalNot">
+                    <h2>Dîário da Verdade</h2>
+                    <div id="carrega">A carregar...</div>
                 </div>
             )
         } else {
