@@ -9,6 +9,46 @@ body {
   padding: 0;
 }
 
+/* scrollbar */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* geral */
+
+.conteudo {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+#header {
+  overflow: hidden;
+}
+
+#carrega {
+  width: 50%;
+  margin: auto;
+  font-size: 2rem;
+  font-family: Axiforma-Medium;
+  color: #2b2b2b;
+  text-align: center;
+  margin-top: 80px;
+}
+
 .logo_branco {
   position: absolute;
   top: 28px;
@@ -179,18 +219,78 @@ body {
   color: #0554F2;
 }
 
-.card-outros-jornais {
+#card-outros-jornais {
+  width: 100%;
   margin: auto;
-  display: block;
+  overflow: hidden;
+  max-width: 1400px;
 }
 
 .card-jornal {
+  width: 25%;
   float: left;
   background-color: #F2F2F2;
-  border: 2px solid transparent;
-  border-radius: 20px;
-  width: 300px;
-  padding: 10px;
+  border-radius: 30px;
+  margin: 30px 3.8% 30px 4.5%;
+  min-height: 450px;
+  position: relative;
+}
+
+.infosJornal {
+  width: 80%;
+  overflow: hidden;
+  margin: 10%;
+}
+
+.infosJornal h4 {
+  text-align: left;
+  float: none;
+  margin: 0 0 20px 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-family: Axiforma-Semi;
+}
+
+.infosJornal p {
+  text-align: left;
+  font-size: 0.9rem;
+  font-family: Axiforma-Light;
+}
+
+#outrosJornais {
+  width: 100%;
+  height: 220px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 30px 30px 0 0;
+  margin-bottom: 20px;
+}
+
+.botoesJornais {
+  width: 80%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 30px;
+  left: 10%;
+}
+
+.botoesJornais button {
+  padding: 5px 20px;
+  font-family: Axiforma-Semi;
+  margin: auto;
+  font-size: 0.8rem;
+  color: white;
+  border-radius: 25px;
+}
+
+.botoesJornais .ver {
+  background-color: #0554F2;
+  float: left;
+}
+
+.botoesJornais .aderir {
+  background-color: #3D9DD9;
+  float: right;
 }
 
 .btn_back {
@@ -290,13 +390,13 @@ body {
   opacity: 0.7;
 }
 
-h4 {
+/* h4 {
   font-size: 1.2rem;
   float: left;
   text-transform: uppercase;
   margin: 15px 0 15px 60px;
   font-family: Axiforma-Semi;
-}
+} */
 
 .manchete_div {
   clear: both;
@@ -597,26 +697,26 @@ p {
   margin-bottom: 10px;
 }
 
-.input_palete{
+.input_palete {
   clear: both;
-  display:block;
+  display: block;
   margin: auto;
 }
 
-.colman_personalizada{
+.colman_personalizada {
   float: left;
   overflow: hidden;
   margin: 40px 20%;
 }
 
-.colman_personalizada img{
+.colman_personalizada img {
   float: left;
   border: 1px solid black;
   overflow: hidden;
   margin-bottom: 10px;
 }
 
-.colman_personalizada input{
+.colman_personalizada input {
   float: left;
   width: 30px;
   height: 30px;
@@ -625,46 +725,114 @@ p {
   margin-bottom: 10px;
 }
 
-
 /******NOTIFICAÇÃO****/
 
-
-.notificacao{
-  width:60px;
-  height: 60px;
+.notificacao {
+  width: 50px;
+  height: 50px;
   background-color: white;
-  border: 1px solid transparen6;
   border-radius: 50px;
   background-repeat: no-repeat;
   position: absolute;
-  top:5px;
+  top: 5px;
   left: 90%;
 }
 
-.notificacao img{
-  width:20px;
+.notificacao img {
+  width: 15px;
   height: auto;
   background-color: white;
-  border: 1px solid transparen6;
   border-radius: 50px;
   background-repeat: no-repeat;
 }
 
-.notificacao:hover{
+.notificacao:hover {
   opacity: 0.7;
+  cursor: pointer;
 }
 
-.notificacao .notif_red{
+.notificacao .notif_red {
   position: absolute;
   width: 20px;
-  height: 20px;
-  border: 1px solid transparent;
-  border-radius: 50px;
+  border-radius: 50%;
   background-color: #FC4747;
   text-align: center;
-  display:block;
-  color:white;
-  padding: 5px;
+  display: block;
+  color: white;
+  padding: 0 3px;
+  font-size: 0.7rem;
   top: -5px;
   left: 70%;
+  font-family: Axiforma-Medium;
+  line-height: 1.8rem;
+}
+
+.corpoNotif {
+  width: 250px;
+  min-height: 150px;
+  max-height: 300px;
+  position: absolute;
+  top: 65px;
+  right: 40px;
+  overflow: auto;
+  background-color: #F2F2F2;
+  border-radius: 20px;
+  margin: 10px;
+  box-shadow: 3px 3px 8px 0px rgba(93, 93, 93, 0.22);
+  -webkit-box-shadow: 3px 3px 8px 0px rgba(93, 93, 93, 0.22);
+  -moz-box-shadow: 3px 3px 8px 0px rgba(93, 93, 93, 0.22);
+}
+
+.textNotif .divnoti:last-of-type {
+  border-bottom: 0;
+}
+
+.textNotif .divnoti {
+  padding: 10px;
+  border-bottom: 1px solid #d2d2d2;
+  width: 85%;
+  margin: auto;
+  font-family: Axiforma-Light;
+}
+
+.textNotif .divnoti p {
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.textNotif span {
+  text-align: left;
+  border: 1px solid transparent;
+  font-size: 0.7rem;
+}
+
+.btn_group_not span {
+  float: left;
+}
+
+.noti_btn, .noti_btn_cance {
+  text-decoration: underline;
+  font-size: 0.8rem;
+  font-family: Axiforma-Regular;
+}
+
+.noti_btn {
+  margin: 0 10px 0 0;
+  color: #0554F2;
+}
+
+.noti_btn_cance {
+  color: #FC4747;
+}
+
+.noti_btn:hover {
+  background-color: #0554F2;
+  color: white;
+  cursor: pointer;
+}
+
+.noti_btn_cance:hover {
+  background-color: #FC4747;
+  color: white;
+  cursor: pointer;
 }

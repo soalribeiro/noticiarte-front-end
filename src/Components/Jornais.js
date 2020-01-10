@@ -10,7 +10,7 @@ export default class Jornais extends React.Component {
         this.state = {
             jornaishasusers: null,
             display: 'none',
-            user_id:1
+            user_id: 1
         };
     }
 
@@ -22,10 +22,18 @@ export default class Jornais extends React.Component {
                 })
                 console.log(response.data);
             });
+
+        axios.get('http://noticiarte.ddns.net/api/userjornais') //CRIAR JORNAIS DO USER PARA OS MEUS JORNAIS
+            .then((response) => {
+                this.setState({
+                    jornaishasusers: response.data
+                })
+                console.log(response.data);
+            });
     }
 
 
-    enviarPedido = (jornal_id,user_id_jornal) => {
+    enviarPedido = (jornal_id, user_id_jornal) => {
 
         var bodyFormData = new FormData();
         bodyFormData.set('userconvidado_id', this.state.user_id);
@@ -43,10 +51,10 @@ export default class Jornais extends React.Component {
 
         axios(options).then((response) => {
             console.log(response);
-                this.setState({
-                    display: 'block'
-                })
-                document.body.style.overflow = 'hidden';
+            this.setState({
+                display: 'block'
+            })
+            document.body.style.overflow = 'hidden';
         }).catch((erro) => {
             console.log(erro)
         })
@@ -73,15 +81,20 @@ export default class Jornais extends React.Component {
                 if (jornaisHasUsers[index].role_id == 2)
                     return (
                         <div className="card-jornal">
-                            <img key={'img' + index} src={`http://noticiarte.ddns.net/uploads/${jornaisHasUsers[index].jornal.imagem_jornal}`} />
-                            <h4 key={'h4' +index}>{jornaisHasUsers[index].jornal.nome_jornal}</h4>
-                            <p key={'pdescr' +index}>{jornaisHasUsers[index].jornal.descricao}</p>
-                            <p key={'puse' +index}>Editor: {jornaisHasUsers[index].user.username}</p>
-                            <Link key={'link' +index} to={{
-                                pathname: '/verjornal/' + jornaisHasUsers[index].jornal.id,
-                                state: { jornal_id: jornaisHasUsers[index].jornal.id }
-                            }}><button key={'btn' +index} className="btn_normal" onClick={this.login}>Ver</button></Link>
-                            <button key={'aderir' +index} onClick={() => this.enviarPedido(jornaisHasUsers[index].jornal.id,jornaisHasUsers[index].user.id)} className="btn_normal">Aderir</button>
+                            <div id="outrosJornais" style={{ backgroundImage: `url(http://noticiarte.ddns.net/uploads/${jornaisHasUsers[index].jornal.imagem_jornal})` }}></div>
+                            <div className="infosJornal">
+                                <h4 key={'h4' + index}>{jornaisHasUsers[index].jornal.nome_jornal}</h4>
+                                <p key={'pdescr' + index}>{jornaisHasUsers[index].jornal.descricao}</p>
+                                {/* <p key={'puser' + index}>Editor: {jornaisHasUsers[index].user.username}</p> */}
+                            </div>
+                            <div className="botoesJornais">
+                                <Link key={'link' + index} to={{
+                                    pathname: '/verjornal/' + jornaisHasUsers[index].jornal.id,
+                                    state: { jornal_id: jornaisHasUsers[index].jornal.id }
+                                }}><button className="ver" key={'btn' + index} onClick={this.login}>Ver</button></Link>
+                                <button className="aderir" key={'aderir' + index}
+                                    onClick={() => this.enviarPedido(jornaisHasUsers[index].jornal.id, jornaisHasUsers[index].user.id)}>Aderir</button>
+                            </div>
                         </div>
                     );
             });
@@ -93,12 +106,12 @@ export default class Jornais extends React.Component {
                     <Notificacao />
 
                     <div>
-                        <h2>Os teus jornais</h2>
+                        <h4>Os teus jornais</h4>
                         <span></span>
                     </div>
 
                     <div id="card-outros-jornais">
-                        <h2>Outros jornais</h2>
+                        <h4>Outros jornais</h4>
                         {listItems}
                     </div>
 

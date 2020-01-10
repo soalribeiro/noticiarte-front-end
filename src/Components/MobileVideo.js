@@ -1,17 +1,19 @@
+import React, { Component } from 'react'
 import { ReactMediaRecorder } from "react-media-recorder";
- 
-const RecordView = () => (
-  <div>
-    <ReactMediaRecorder
-      video
-      render={({ status, startRecording, stopRecording, mediaBlobUrl }) => (
-        <div>
-          <p>{status}</p>
-          <button onClick={startRecording}>Start Recording</button>
-          <button onClick={stopRecording}>Stop Recording</button>
-          <video src={mediaBlobUrl} controls autoplay loop />
-        </div>
-      )}
-    />
-  </div>
-);
+
+export default class MobileVideo extends Component {
+  render() {
+    return (
+      <div>
+        <VideoRecorder
+          isOnInitially={true}
+          showReplayControls={true}
+          countdownTime={3000}
+          timeLimit={30000}
+        //onRecordingComplete={handleRecordingComplete}
+        />
+      </div>
+    );
+  }
+}
+
