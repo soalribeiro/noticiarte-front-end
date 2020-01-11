@@ -2,15 +2,16 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Notificacao from './Notificacao';
-
-
+import Perfil from '../images_app/perfil.png'
+import Pesquisa from '../images_app/lupa_azul.png'
 export default class Jornais extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             jornaishasusers: null,
             display: 'none',
-            user_id: 1
+            user_id: 1,
+            jornaishasusersAtual:null
         };
     }
 
@@ -23,10 +24,10 @@ export default class Jornais extends React.Component {
                 console.log(response.data);
             });
 
-        axios.get('http://noticiarte.ddns.net/api/userjornais') //CRIAR JORNAIS DO USER PARA OS MEUS JORNAIS
+        axios.get('http://noticiarte.ddns.net/api/userjornais/'+this.state.user_id) //CRIAR JORNAIS DO USER PARA OS MEUS JORNAIS
             .then((response) => {
                 this.setState({
-                    jornaishasusers: response.data
+                    jornaishasusersAtual: response.data
                 })
                 console.log(response.data);
             });
@@ -69,13 +70,33 @@ export default class Jornais extends React.Component {
     }
 
     render() {
-        if (this.state.jornaishasusers == null) {
+        if (this.state.jornaishasusers == null || !this.state.jornaishasusersAtual) {
             return (
                 <div>
                     <p className="p_registate">Carregando...</p>
                 </div>
             );
-        } else if (this.state.jornaishasusers != null) {
+        } else if (this.state.jornaishasusers != null && this.state.jornaishasusersAtual != null) {
+            var jornaisDoUser = this.state.jornaishasusersAtual;
+            let listadosmeusjornais = jornaisDoUser.map((data, index) => {
+                    return (
+                        <div className="card-jornal">
+                            <div id="outrosJornais" style={{ backgroundImage: `url(http://noticiarte.ddns.net/uploads/${jornaisDoUser[index].jornal.imagem_jornal})` }}></div>
+                            <div className="infosJornal">
+                                <h4 key={'h4' + index}>{jornaisDoUser[index].jornal.nome_jornal}</h4>
+                                <p key={'pdescr' + index}>{jornaisDoUser[index].jornal.descricao}</p>
+                            </div>
+                            <div className="botoesJornais">
+                                <Link key={'link' + index} to={{
+                                    pathname: '/verjornal/' + jornaisDoUser[index].jornal.id,
+                                    state: { jornal_id: jornaisDoUser[index].jornal.id }
+                                }}><button className="ver" key={'btn' + index} onClick={this.login}>Ver</button></Link>
+                            </div>
+                        </div>
+                    );
+            });
+
+
             var jornaisHasUsers = this.state.jornaishasusers;
             let listItems = jornaisHasUsers.map((data, index) => {
                 if (jornaisHasUsers[index].role_id == 2)
@@ -103,11 +124,22 @@ export default class Jornais extends React.Component {
                 <div className="feedJornal">
 
                     <h1>Jornal</h1>
+                    <Link to="/pesquisa">
+                        <button onClick={this.notificacaobtn} className="pesquisa">
+                            <img src={Pesquisa} />
+                        </button>
+                    </Link>
                     <Notificacao />
+                    <Link to="/perfil">
+                        <button onClick={this.notificacaobtn} className="perfil">
+                            <img src={Perfil} />
+                        </button>
+                    </Link>
+                    
 
                     <div>
                         <h4>Os teus jornais</h4>
-                        <span></span>
+                        {listadosmeusjornais}
                     </div>
 
                     <div id="card-outros-jornais">

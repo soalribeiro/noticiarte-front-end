@@ -836,3 +836,145 @@ p {
   color: white;
   cursor: pointer;
 }
+
+
+.perfil {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 5px;
+  left: 85%;
+  cursor: pointer;
+}
+
+.perfil img {
+  width: 15px;
+  height: auto;
+  background-color: white;
+  border-radius: 50px;
+  background-repeat: no-repeat;
+}
+
+.perfil:hover {
+  opacity: .7;
+}
+
+.pesquisa {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 5px;
+  left: 80%;
+  cursor: pointer;
+}
+
+.pesquisa img {
+  width: 15px;
+  height: auto;
+  background-color: white;
+  border-radius: 50px;
+  background-repeat: no-repeat;
+}
+
+.pesquisa:hover {
+  opacity: .7;
+}
+
+.inputs {
+  width: 99%;
+  display: block;
+  margin: auto;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.inputs:first-of-type .input_text {
+  margin-top: 40px;
+}
+
+.labelInput {
+  width: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0554F2;
+  border-radius: 30px;
+  padding: 12px 0;
+  color: white;
+  font-family: Axiforma-Medium;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+
+.input_text_perfil{
+  width: 50%;
+  display: block;
+  margin: auto 15px;
+  padding: 8px 0;
+  background-color: white;
+  border-radius: 30px;
+  border: 2px solid #0554F2;
+  font-family: Axiforma-Light;
+  font-size: 1rem;
+  color: #2b2b2b;
+  text-align: center;
+}
+
+
+.fotografia{
+  width: 40%;
+  padding: 8px 40px;
+  margin: auto 60px;
+}
+
+.bio{
+  padding-top: 37px;
+}
+
+.data{
+  padding-top: 27px;
+}
+
+.select{
+  width: 40%;
+  margin: auto 140px;
+  height: 46px;
+}
+.WroCl{
+  width: 30%!important;
+  height: 100px;
+  margin-bottom: 100px;
+}
+
+.dNKPms{
+  background-color: white !important;
+  border: 20 !important;
+  border-radius: 20px !important;
+  border: 2px solid #0554F2 !important;
+  width: 143px !important;
+  padding: 10px !important;
+  margin: 10px 10px 10px 10px !important;
+  color: #0554F2!important;;
+  font-size: 15px!important;;
+  transition: 0.3s ease-in!important;;
+  margin: auto!important;;
+  display: block!important;;
+}
+
+.dNKPms:hover{
+  color: white!important;;
+  background-color: #0554F2!important;;
+
+}
+
+.texto_animado_video{
+  background-color: #F2F2F2;
+}

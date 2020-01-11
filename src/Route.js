@@ -9,6 +9,11 @@ import SingleNoticiaSeccao from './Components/SingleNoticiaSeccao';
 import Navbar from './Components/CriarNoticias/Navbar';
 import CriarJornal from './Components/CriarJornal';
 import PersonalizaJornal from './Components/PersonalizaJornal';
+import Perfil from './Components/Perfil';
+import verPerfil from './Components/verPerfil';
+import CriaConteudo from './Components/CriaConteudo';
+
+
 export default class Routes extends React.Component {
 
     constructor(props) {
@@ -33,7 +38,9 @@ export default class Routes extends React.Component {
                     <Route path='/vernoticiaseccao/:idjornal/:idseccao/:idpalete' component={SingleNoticiaSeccao}></Route>
                     <Route path='/criarjornais' component={CriarJornal}></Route>
                     <Route path='/personalizajornal' component={PersonalizaJornal}></Route>
-                    
+                    <Route path='/perfil' component={Perfil}></Route>
+                    <Route path='/perfil/:id' component={verPerfil}></Route>
+                    <Route path='/criarconteudo' component={CriaConteudo}></Route>
                 </Switch>
             </BrowserRouter>
         );
