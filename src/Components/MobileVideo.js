@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { ReactMediaRecorder } from "react-media-recorder";
 import VideoRecorder from 'react-video-recorder';
-import blobToDataURL from 'blob-util';
-
+import axios from 'axios';
+import { Link, Redirect } from 'react-router-dom';
+import RecebeVideo from './RecebeVideo';
 export default class MobileVideo extends Component {
 
   constructor(props) {
@@ -13,42 +14,82 @@ export default class MobileVideo extends Component {
     };
   }
   handleRecordingComplete = () => {
-    console.log(document.getElementsByClassName('dwGgdi')[0].src)
-    let blobfile = document.getElementsByClassName('dwGgdi')[0].src;
-    var file = new File([Blob], blobfile, { type: "video/mp4" })
+    //console.log(document.getElementsByClassName('dwGgdi')[0])
+    //console.log(document.getElementsByClassName('dwGgdi')[0].src)
+    let linkblob = document.getElementsByClassName('dwGgdi')[0].src;
 
-    console.log(file)
-       // this.setState({
-    //   ficheiro: file
-    // })
+    // var result = '';
+    // var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    // var charactersLength = characters.length;
+    // for (var i = 0; i < charactersLength; i++) {
+    //   result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    // }
 
-   
+    //var teste = blobToFile(document.getElementsByClassName('dwGgdi')[0].src);
+    // var file = new File([linkblob], result+".mp4", { type: 'video/mp4' });
+    // console.log(file)
+    // console.log(file.name)
+    this.setState({
+      ficheiro: document.getElementsByClassName('dwGgdi')[0].src
+    })
   }
+
 
   muda = (evt) => {
     console.log(evt.target.files[0])
+  }
+
+  enviavideo = () => {
+    alert('hey')
+    var bodyFormData = new FormData();
+    bodyFormData.set('url_conteudo', this.state.ficheiro);
+    bodyFormData.set('tiposconteudo_id', 2);
+    bodyFormData.set('noticia_id', 1);
+    const options2 = {
+      method: 'post',
+      url: 'http://noticiarte.ddns.net/api/conteudonoticia',
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      data: bodyFormData
+    };
+    axios(options2).then((response) => {
+      console.log(response)
+    }).catch((erro) => {
+      console.log(erro)
+    })
 
   }
 
   render() {
-    return (
-      <div>
-        <VideoRecorder
-          isOnInitially={true}
-          showReplayControls={true}
-          countdownTime={3000}
-          timeLimit={30000}
-          onRecordingComplete={this.handleRecordingComplete}
-        />
+    if(!this.state.ficheiro){
+      return (
+        <div>
+          <VideoRecorder
+            mimeType={'video/webm'}
+            isOnInitially={true}
+            showReplayControls={true}
+            countdownTime={3000}
+            timeLimit={30000}
+            onRecordingComplete={this.handleRecordingComplete}
+          />
+  
+            <input type="file" onChange={this.muda} />
+  
+  
+            
+        </div>
+          );
+    }else{
+      return(
+        <div>
+                   <RecebeVideo ficheiroVideo={this.state.ficheiro}/>
 
-        {/* <button onClick={() => this.handleRecordingComplete()}>
-          gregegsdfgd
-        </button> */}
-        <input type="file" onChange={this.muda} />
-
-        {this.state.ficheiro == null ? console.log('nada') : <video loop autoplay controls scr={this.state.ficheiro.name}></video>}
-      </div>
-    );
-  }
-}
-
+            <button class="btn_normal" onClick={this.enviavideo}>Submeter</button>
+        </div>
+      );
+    }
+    
+      }
+    }
+    
