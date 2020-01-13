@@ -618,15 +618,18 @@ p {
     float: none;
     margin-bottom: 50px;
   }
+
   h4 {
     width: 100%;
     text-align: center;
     margin: 20px 0;
   }
+
   .nav_jornal {
     float: none;
     margin: 0 auto 20px;
   }
+
   .nav_jornal {
     float: none;
     margin: 0 auto 20px;
@@ -810,7 +813,8 @@ p {
   float: left;
 }
 
-.noti_btn, .noti_btn_cance {
+.noti_btn,
+.noti_btn_cance {
   text-decoration: underline;
   font-size: 0.8rem;
   font-family: Axiforma-Regular;
@@ -914,7 +918,7 @@ p {
 }
 
 
-.input_text_perfil{
+.input_text_perfil {
   width: 50%;
   display: block;
   margin: auto 15px;
@@ -929,52 +933,71 @@ p {
 }
 
 
-.fotografia{
+.fotografia {
   width: 40%;
   padding: 8px 40px;
   margin: auto 60px;
 }
 
-.bio{
+.bio {
   padding-top: 37px;
 }
 
-.data{
+.data {
   padding-top: 27px;
 }
 
-.select{
+.select {
   width: 40%;
   margin: auto 140px;
   height: 46px;
 }
-.WroCl{
-  width: 30%!important;
-  height: 100px;
-  margin-bottom: 100px;
+
+.WroCl {
+  width: 100% !important;
+  height: 200px;
+  margin-bottom: 30px;
 }
 
-.dNKPms{
+.dNKPms {
   background-color: white !important;
-  border: 20 !important;
   border-radius: 20px !important;
   border: 2px solid #0554F2 !important;
-  width: 143px !important;
-  padding: 10px !important;
-  margin: 10px 10px 10px 10px !important;
-  color: #0554F2!important;;
-  font-size: 15px!important;;
-  transition: 0.3s ease-in!important;;
-  margin: auto!important;;
-  display: block!important;;
+  padding: 8px 15px !important;
+  margin: 10px !important;
+  color: #0554F2 !important;
+  font-size: 1rem !important;
+  font-family: Axiforma-Medium;
+  transition: all 0.3s ease-in !important;
+  margin: auto !important;
+  display: block !important;
 }
 
-.dNKPms:hover{
-  color: white!important;;
-  background-color: #0554F2!important;;
-
+.dNKPms:hover {
+  color: white !important;
+  background-color: #0554F2 !important;
 }
 
-.texto_animado_video{
+.texto_animado_video {
   background-color: #F2F2F2;
+}
+
+
+/* MobileVideo.js */
+#addConteudo {
+  background-color: #0554F2;
+  color: white;
+  font-size: 1rem;
+  font-family: Axiforma-Medium;
+  padding: 8px 15px;
+  border-radius: 30px;
+  margin: 0 auto 80px;
+  display: block;
+}
+
+
+/* RecebeVideo.js */
+.videos {
+  height: 200px;
+  margin: 20px;
 }
