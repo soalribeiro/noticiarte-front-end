@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 import MobileVideo from './MobileVideo';
 import MobileVideo2 from './MobileVideo2';
+import RecebeVideo from './RecebeVideo';
 export default class CriaConteudo extends Component {
     constructor(props) {
         super(props);
@@ -27,6 +28,7 @@ render() {
                 <p>{this.state.textonoticia}</p>
             </div>
             <MobileVideo  />
+            <RecebeVideo />
         </div>
     )
 }

@@ -62,7 +62,7 @@ export default class MobileVideo extends Component {
   }
 
   render() {
-    if(!this.state.ficheiro){
+   
       return (
         <div>
           <VideoRecorder
@@ -71,24 +71,22 @@ export default class MobileVideo extends Component {
             showReplayControls={true}
             countdownTime={3000}
             timeLimit={30000}
-            onRecordingComplete={this.handleRecordingComplete}
+            onRecordingComplete={(videoBlob) => {
+              console.log(videoBlob);
+              this.setState({
+                ficheiro:videoBlob
+              })
+            }}
           />
   
             <input type="file" onChange={this.muda} />
-  
+            
+            <button onClick={this.enviavideo}> SUBMETER O VIDEO</button>
   
             
         </div>
           );
-    }else{
-      return(
-        <div>
-                   <RecebeVideo ficheiroVideo={this.state.ficheiro}/>
-
-            <button class="btn_normal" onClick={this.enviavideo}>Submeter</button>
-        </div>
-      );
-    }
+    
     
       }
     }
