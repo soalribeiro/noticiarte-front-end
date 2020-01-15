@@ -106,7 +106,7 @@ export default class Jornais extends React.Component {
                             <div className="infosJornal">
                                 <h4 key={'h4' + index}>{jornaisHasUsers[index].jornal.nome_jornal}</h4>
                                 <p key={'pdescr' + index}>{jornaisHasUsers[index].jornal.descricao}</p>
-                                {/* <p key={'puser' + index}>Editor: {jornaisHasUsers[index].user.username}</p> */}
+                                <p key={'puser' + index}>Editor: {jornaisHasUsers[index].user.username}</p>
                             </div>
                             <div className="botoesJornais">
                                 <Link key={'link' + index} to={{

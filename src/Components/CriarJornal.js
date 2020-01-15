@@ -7,6 +7,10 @@ import manchete1 from '../images_app/manchete01.png';
 import manchete2 from '../images_app/manchete2.png';
 import coluna1 from '../images_app/coluna01.png';
 import coluna2 from '../images_app/coluna2.png';
+import Manchete from './CriarNoticias/Manchete';
+import Manchete2 from './CriarNoticias/Manchete2';
+
+let mancha;
 export default class CriarJornal extends Component {
 
 
@@ -29,7 +33,8 @@ export default class CriarJornal extends Component {
             html: null,
             manchete_name: null,
             colunas_name: null,
-            jornaildousers: null
+            jornaildousers: null,
+            redirect: false
         };
     }
 
@@ -54,14 +59,11 @@ export default class CriarJornal extends Component {
                     cores: response.data
                 })
             });
-
     }
 
     change = () => {
         document.getElementById('inputjornal').style.border = "4px solid #0554F2";
     }
-
-
 
     inserirseccao = () => {
         this.setState({
@@ -166,6 +168,29 @@ export default class CriarJornal extends Component {
             manchete_name: evt.target.value
         });
 
+        if (evt.target.value == "Manchete") {
+            mancha = <div className="manchete_div">
+                <div className="manchete_img" style={{
+                    backgroundImage: `url(../images_app/manchete01.png)`
+                }}></div>
+                <div className="manchete_titulo">
+                    <h5 style={{ textAlign: 'left', color: this.state.id_cor.cor4 }}>Lorem ipsum</h5>
+                    <p style={{ textAlign: 'left' }}>Lorem ipsum</p>
+                </div>
+            </div>
+        } else if (evt.target.value == "Manchete2") {
+            mancha = <div className="manchete2_div">
+                <div className="manchete_img2" style={{
+                    backgroundImage: `url(../imagens_app/manchete01.png)`
+                }}></div>
+                <div className="manchete_titulo2">
+                    <h5 style={{ textAlign: 'left', color: this.state.id_cor.cor4 }}>Lorem ipsum</h5>
+                </div>
+                <div className="manchete_subtitulo2">
+                    <h6 style={{ textAlign: 'left' }}>Lorem Ipsum</h6>
+                </div>
+            </div>
+        }
         if (this.state.colunas_name != null) {
             this.fazhtml();
         }
@@ -205,8 +230,8 @@ export default class CriarJornal extends Component {
             this.state.html == null ||
             this.state.id_instituicao == null ||
             this.state.id_cor == null) {
-            return alert('Preencha os campos')
-        } else if(this.state.html !== null){
+            console.log('preencha os campos')
+        } else if (this.state.html !== null && this.state.manchete_name != null && this.state.colunas_name != null) {
             var bodyFormData = new FormData();
             bodyFormData.set('nome_jornal', this.state.nome_jornal);
             bodyFormData.set('imagem_jornal', this.state.imagem);
@@ -223,10 +248,9 @@ export default class CriarJornal extends Component {
                 },
                 data: bodyFormData
             };
-            
+
             axios(options).then((response) => {
                 this.userhasjornal();
-
             }).catch((erro) => {
                 console.log(erro)
             })
@@ -249,7 +273,7 @@ export default class CriarJornal extends Component {
                 bodyFormData.set('role_id', 2);
                 bodyFormData.set('user_id', this.state.user_id);
                 bodyFormData.set('jornal_id', response.data[response.data.length - 1].id);
-                let jornalID=response.data[response.data.length - 1].id;
+                let jornalID = response.data[response.data.length - 1].id;
                 const options2 = {
                     method: 'post',
                     url: 'http://noticiarte.ddns.net/api/userjornais',
@@ -265,14 +289,13 @@ export default class CriarJornal extends Component {
                     console.log(erro)
                 })
 
-               
+
             });
     }
 
     seccaoJornal = (jornalID) => {
-        alert('hey')
         let i;
-        for(i=0;i<this.state.seccaos_ar.length;i++){
+        for (i = 0; i < this.state.seccaos_ar.length; i++) {
             var bodyFormData = new FormData();
             bodyFormData.set('seccao_id', this.state.seccaos_ar[i]);
             bodyFormData.set('jornal_id', jornalID);
@@ -285,15 +308,20 @@ export default class CriarJornal extends Component {
                 data: bodyFormData
             };
             axios(options2).then((response) => {
-                return <Redirect to={'/jornais'} />
+                this.setState({ redirect: true });
             }).catch((erro) => {
                 console.log(erro)
             })
         }
-       
+
     }
 
     render() {
+        const { redirect } = this.state;
+
+        if (redirect) {
+            return <Redirect to={'/jornais'} />;
+        }
         if (!this.state.seccoes || !this.state.instituicao) {
             return (
                 <h2>Prepara a tua mente criativa</h2>
@@ -337,7 +365,7 @@ export default class CriarJornal extends Component {
                             <div id="bluediv">
                                 <p>Contacto</p>
                             </div>
-                            <input onChange={this.input3} onClick={this.change} id="inputjornal" className="inputjornal" type="email" label="hi" />
+                            <input onChange={this.input3} onClick={this.change} id="inputjornalcontacto" className="inputjornal" type="email" />
                         </div>
                         <div>
                             {listItems}
@@ -346,7 +374,7 @@ export default class CriarJornal extends Component {
                         </div>
 
                         <div>
-                            <input id="inputjornal" onChange={this.image} className="inputjornal" type="file" label="hi" />
+                            <input id="inputjornalfile" onChange={this.image} className="inputjornal" type="file" label="hi" />
                         </div>
 
                         <div>
@@ -375,6 +403,8 @@ export default class CriarJornal extends Component {
                 console.log(this.state.id_instituicao)
                 console.log(this.state.imagem)
                 console.log(this.state.seccaos_ar)
+
+
                 if (!this.state.cores) {
 
                     return (
@@ -409,7 +439,7 @@ export default class CriarJornal extends Component {
                                 <input className="input_palete" type="radio" name="input_manchete" onChange={this.inputmanchete} value={'Manchete'} />
                                 <img src={manchete2} />
                                 <input className="input_palete" type="radio" name="input_manchete" onChange={this.inputmanchete} value={'Manchete2'} />
-
+                                {mancha != null ? mancha : console.log('i')}
                             </div>
                             <div className="colman_personalizada">
                                 <img src={coluna1} />

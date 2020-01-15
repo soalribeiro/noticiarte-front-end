@@ -74,7 +74,7 @@ export default class OutrasNot extends Component {
                                     <h6 key={'h6' + index}
                                         style={{ color: this.state.palete_cores.cor5 }}>{noticia.titulo_noticia}</h6>
 
-<div key={'p' + index}  style={{ color: this.state.palete_cores.cor3 }} dangerouslySetInnerHTML={this.createMarkup(noticia.corpo_noticia)} />
+<div key={'p' + index}  style={{ color: this.state.palete_cores.cor3 }} dangerouslySetInnerHTML={this.createMarkup(noticia.subtitulo_noticia)} />
 
                                 </div>
                             </Link>

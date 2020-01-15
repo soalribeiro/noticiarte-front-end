@@ -688,7 +688,7 @@ p {
 .palete_personalizada {
   float: left;
   overflow: hidden;
-  margin: 40px 6%;
+  margin: 40px 4%;
 }
 
 .palete_personalizada div {
@@ -707,20 +707,17 @@ p {
 }
 
 .colman_personalizada {
-  float: left;
   overflow: hidden;
-  margin: 40px 20%;
+  margin: 40px 41%;
 }
 
 .colman_personalizada img {
-  float: left;
   border: 1px solid black;
   overflow: hidden;
   margin-bottom: 10px;
 }
 
 .colman_personalizada input {
-  float: left;
   width: 30px;
   height: 30px;
   border: 1px solid black;
@@ -1000,4 +997,48 @@ p {
 .videos {
   height: 200px;
   margin: 20px;
+}
+
+
+#class_animada {
+  position: relative;
+}
+
+#class_animada p {
+  width: 100%;
+  position: absolute;
+  top:0px;
+  z-index:99;
+  background-color:#d2d2d2;
+}
+
+.eTRucs{
+  background: #FC4747 !important;
+}
+
+.dBzviu{
+  background: #FC4747 !important;
+}
+
+@keyframes movingTopToBottom {
+  0% {
+    top: -15px;
+  }
+  95% {
+    top: 150px;
+  }
+  100% {
+    top: 165px;
+  }
+}
+.containerzito {
+  height: 150px;
+  overflow: hidden;
+  background: #F2F2F2;
+}
+#divTAReviews {
+  animation: movingTopToBottom 20s linear infinite;
+  position: relative;
+  display: inline-block;
+  padding: 10px;
 }

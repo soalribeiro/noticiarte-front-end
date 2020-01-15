@@ -64,7 +64,7 @@ export default class Manchete extends Component {
                         }}></div>
                             <div className="manchete_titulo">
                                 <h5 style={{ textAlign: 'left', color: this.state.palete_cores.cor4 }}>{this.state.noticiasjornalmanchete[0].titulo_noticia}</h5>
-                                <p style={{ textAlign: 'left' }}>{this.state.noticiasjornalmanchete[0].corpo_noticia}</p>
+                                <p style={{ textAlign: 'left' }}>{this.state.noticiasjornalmanchete[0].subtitulo_noticia}</p>
                             </div>
                         </Link>
                     </div>

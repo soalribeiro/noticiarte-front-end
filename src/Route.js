@@ -10,10 +10,9 @@ import Navbar from './Components/CriarNoticias/Navbar';
 import CriarJornal from './Components/CriarJornal';
 import PersonalizaJornal from './Components/PersonalizaJornal';
 import Perfil from './Components/Perfil';
-import verPerfil from './Components/verPerfil';
 import CriaConteudo from './Components/CriaConteudo';
-
-
+import TextVideo from './Components/TextVideo';
+import Pesquisa from './Components/Pesquisa';
 export default class Routes extends React.Component {
 
     constructor(props) {
@@ -39,8 +38,9 @@ export default class Routes extends React.Component {
                     <Route path='/criarjornais' component={CriarJornal}></Route>
                     <Route path='/personalizajornal' component={PersonalizaJornal}></Route>
                     <Route path='/perfil' component={Perfil}></Route>
-                    <Route path='/perfil/:id' component={verPerfil}></Route>
                     <Route path='/criarconteudo' component={CriaConteudo}></Route>
+                    <Route path='/textovideo' component={TextVideo}></Route>
+                    <Route path='/pesquisa' component={Pesquisa}></Route>
                 </Switch>
             </BrowserRouter>
         );
