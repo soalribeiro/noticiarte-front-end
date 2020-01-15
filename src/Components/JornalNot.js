@@ -9,7 +9,7 @@ export default class JornalNot extends React.Component {
         this.state = {
             noticias: null,
             editor: null,
-            idjornal: 1, //MUDAR
+            idjornal: this.props.match.params.idjornal,
             manchete: null
         };
     }
@@ -40,7 +40,7 @@ export default class JornalNot extends React.Component {
     }
 
     tornaManchete = (id) => {
-        if (this.state.manchete) {
+        if (!this.state.manchete) {
             axios.put('http://noticiarte.ddns.net/api/atualizamanchete/' + id, {
                 manchete: 1
             }).then((res) => {
@@ -55,33 +55,22 @@ export default class JornalNot extends React.Component {
         }
     }
 
-    /*  tiraManchete = (id) => {
-         axios.put('http://noticiarte.ddns.net/api/atualizamanchete/' + id, {
-             manchete: 0
-         }).then((res) => {
-             console.log(res);
-             this.setState({
-                 manchete: false
-             })
-             window.location.reload();
-         }).catch((err) => {
-             console.log(err);
-         })
-     }  */
-
     render() {
         console.log(this.state);
         if (!this.state.editor || !this.state.noticias) {
             return (
                 <div id="jornalNot">
-                    <h2>Dîário da Verdade</h2>
+                    <h2>Diário da Verdade</h2>
+                    
+                    <BotoesJornal jornal={this.state.idjornal}/>
+                    
                     <div id="carrega">A carregar...</div>
                 </div>
             )
         } else {
             const noticias = this.state.noticias.map((noticia, i) => {
                 return (
-                    <div key={i} class="noticias">
+                    <div key={i} className="noticias">
                         <div className="cols col1">
                             <h3 key={'titulo' + i}>Título</h3>
                             <p key={'p' + i}>{noticia.titulo_noticia}</p>
@@ -105,12 +94,12 @@ export default class JornalNot extends React.Component {
 
                         <div className="cols col4">
                             <h3 key={'estado' + i}>Estado</h3>
-                            <p key={'nomest' + i} class="pEstado">{noticia.estadonoticia.nome_estado}</p>
+                            <p key={'nomest' + i} className="pEstado">{noticia.estadonoticia.nome_estado}</p>
                         </div>
 
                         <div id="botoesNot">
                             <Link key={'link' + i} to={{
-                                pathname: '/noticiajornal/' + noticia.id, state: {
+                                pathname: '/vernoticias/' + noticia.id, state: {
                                     noticia_id: noticia.id
                                 }
                             }}>Editar</Link>
@@ -121,7 +110,7 @@ export default class JornalNot extends React.Component {
                             }
 
                             <Link key={'linkfix' + i} className="botaoDif" to={{
-                                pathname: '/noticiajornal/' + noticia.id, state: {
+                                pathname: '/vernoticias/' + noticia.id, state: {
                                     noticia_id: noticia.id
                                 }
                             }}>Fixar</Link>
@@ -134,7 +123,7 @@ export default class JornalNot extends React.Component {
                 <div id="jornalNot">
                     <h2>Diário da Verdade</h2>
 
-                    <BotoesJornal />
+                    <BotoesJornal jornal={this.state.idjornal}/>
 
                     <div id="criarNotDiv">
                         <Link to="/noticia" id="criarNotLink">

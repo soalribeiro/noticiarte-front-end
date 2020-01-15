@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
 import logobranco from './images_app/logo_branco.png';
 import './App.css';
 import Routes from './Route';
 import Menu from './Components/Menu';
 import Login from './Components/Login';
+import Jornais from './Components/Jornais';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -56,7 +57,14 @@ export default class App extends React.Component {
               </Link>
             </div>
 
-            <Login isLoggedIn={this.callbackLogin} />
+            {/* <Login isLoggedIn={this.callbackLogin} /> */}
+            <Switch>
+              <Route exact path='/'>
+                <Login isLoggedIn={this.callbackLogin} />
+              </Route>
+              <Route exact path='/jornais' component={Jornais} />
+            </Switch>
+
           </div>
         </BrowserRouter>
       );

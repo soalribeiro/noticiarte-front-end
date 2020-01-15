@@ -31,7 +31,7 @@ export default class CorpoNoticia extends Component {
                 <CKEditor
                     type="inline"
                     config={{
-                        toolbar: [['Bold'], ['Italic'], ['Link'], ['SpecialChar']],
+                        toolbar: [['Bold'], ['Italic'], ['Link'], ['SpecialChar'], ['Image']],
                         extraPlugins: 'autogrow',
                         uiColor: '#e6e6e6'
                     }}

@@ -29,7 +29,8 @@ export default class CriarNoticia extends React.Component {
             position: 'inherit',
             width: '40%',
             noticiasPublico: null,
-            mostraLista:false
+            mostraLista: false,
+            tituloGuia: 'Geral'
         };
     }
 
@@ -126,7 +127,7 @@ export default class CriarNoticia extends React.Component {
 
             this.setState({
                 palavrasChave: nova,
-                mostraLista:true
+                mostraLista: true
             })
 
             document.getElementById('keywords').value = '';
@@ -251,25 +252,29 @@ export default class CriarNoticia extends React.Component {
 
     focusTitulo = () => {
         this.setState({
-            mostra: this.state.guias[1].texto_guia
+            mostra: this.state.guias[1].texto_guia,
+            tituloGuia: 'Como definir o título?'
         })
     }
 
     focusSubtitulo = () => {
         this.setState({
-            mostra: this.state.guias[2].texto_guia
+            mostra: this.state.guias[2].texto_guia,
+            tituloGuia: 'O que contém o subtítulo?'
         })
     }
 
     focusCorpo = () => {
         this.setState({
-            mostra: this.state.guias[3].texto_guia
+            mostra: this.state.guias[3].texto_guia,
+            tituloGuia: 'O que escrever no corpo da notícia?'
         })
     }
 
     onBlur = () => {
         this.setState({
-            mostra: this.state.guias[0].texto_guia
+            mostra: this.state.guias[0].texto_guia,
+            tituloGuia: 'Geral'
         })
     }
 
@@ -339,6 +344,8 @@ export default class CriarNoticia extends React.Component {
 
                     <div id="criarNot">
                         <h4>Criar notícia</h4>
+                        <p id="notP">Começa a criar a tua notícia e fica atento às ajudas do SuperArte!</p>
+
                         <div id="esq">
                             <textarea rows="2" name="tituloNot" placeholder="Adicionar um título" onChange={this.titulo} onFocus={this.focusTitulo} onBlur={this.onBlur}></textarea>
                             <textarea rows="4" name="subtituloNot" placeholder="Adicionar um subtítulo" onChange={this.subtitulo} onFocus={this.focusSubtitulo} onBlur={this.onBlur}></textarea>
@@ -373,14 +380,15 @@ export default class CriarNoticia extends React.Component {
                             </div>
                             <h4 id="notRel">Notícias relacionadas</h4>
 
-                            {this.state.mostraLista == true ? <ListarPublico palavras={this.state.palavrasChave} /> : console.log('o') }
-                            
+                            {this.state.mostraLista == true ? <ListarPublico palavras={this.state.palavrasChave} /> : console.log('o')}
+
                         </div>
 
                         <div id="dir" style={{ position: this.state.position, width: this.state.width }}>
                             <div id="guia">
                                 <img src={superarte} />
                                 <div id="balao">
+                                    <h6>{this.state.tituloGuia}</h6>
                                     {this.state.mostra}
                                 </div>
                             </div>

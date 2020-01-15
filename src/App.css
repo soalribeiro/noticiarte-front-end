@@ -479,7 +479,7 @@ h2 {
 /* Noticia.js */
 #todosJornais {
   width: 90%;
-  margin: 80px auto;
+  margin: 0 auto 80px;
   overflow: hidden;
 }
 
@@ -520,6 +520,25 @@ h2 {
   width: 80%;
   margin: 0 auto 25px;
   color: #2B2B2B;
+}
+
+#notDiv {
+  width: 88%;
+  max-width: 1800px;
+  margin: 8% auto 30px;
+}
+
+#notDiv h4 {
+  font-family: Axiforma-Semi;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+#notDiv p {
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
 }
 
 
@@ -572,8 +591,14 @@ h2 {
   font-family: Axiforma-Semi;
   font-size: 1.2rem;
   text-transform: uppercase;
-  margin-bottom: 80px;
+  margin-bottom: 15px;
   overflow: hidden;
+}
+
+#notP {
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  margin-bottom: 60px;
 }
 
 #dir {
@@ -776,6 +801,12 @@ button#addPalavraChave {
   font-size: 0.8rem;
 }
 
+#balao h6 {
+  font-size: 1rem;
+  font-family: Axiforma-Medium;
+  margin-bottom: 2px;
+}
+
 #botoesRevGuarda {
   margin-top: 40px;
   overflow: hidden;
@@ -829,8 +860,151 @@ h4#notRel {
   height: 400px;
 }
 
-.NoticiRelacionada img{
+.NoticiRelacionada img {
   width: 300px;
+}
+
+
+/* Redacao.js */
+#redacao h4 {
+  font-family: Axiforma-Semi;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  width: 88%;
+  max-width: 1800px;
+  margin: 8% auto 30px;
+  overflow: hidden;
+}
+
+#redacao img {
+  width: 345px;
+  margin: auto;
+  display: block;
+  margin-bottom: 60px;
+}
+
+button#btnCriaJornal {
+  background-color: #0554F2;
+  padding: 10px 15px;
+  color: white;
+  font-size: 0.9rem;
+  font-family: Axiforma-Medium;
+  text-transform: uppercase;
+  margin: 0 auto 80px;
+  border-radius: 30px;
+  display: block;
+}
+
+.meusJornais {
+  width: 25%;
+  float: left;
+  background-color: #F2F2F2;
+  border-radius: 30px;
+  margin: 0 3.8% 80px 4.5%;
+  min-height: 450px;
+  position: relative;
+}
+
+.infosJornal {
+  width: 80%;
+  overflow: hidden;
+  margin: 10%;
+}
+
+.infosJornal h4 {
+  text-align: left;
+  float: none;
+  margin: 0 0 20px 0 !important;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-family: Axiforma-Semi;
+}
+
+.infosJornal p {
+  text-align: left;
+  font-size: 0.9rem;
+  font-family: Axiforma-Light;
+}
+
+#outrosJornais {
+  width: 100%;
+  height: 220px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 30px 30px 0 0;
+  margin-bottom: 20px;
+}
+
+.botoesJornais {
+  width: 80%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 30px;
+  left: 10%;
+}
+
+.botoesJornais button {
+  padding: 5px 20px;
+  font-family: Axiforma-Semi;
+  margin: auto;
+  font-size: 0.8rem;
+  color: white;
+  border-radius: 25px;
+}
+
+.botoesJornais a {
+  text-decoration: none;
+}
+
+.botoesJornais .entrar {
+  background-color: #0554F2;
+  margin: auto;
+  display: block;
+}
+
+
+/* AtividadeRecente.js */
+#ativs {
+  width: 90%;
+  max-width: 1300px;
+  overflow: hidden;
+  margin: 0 auto 40px;
+}
+
+.atividade {
+  width: 26%;
+  float: left;
+  margin-right: 3.333333%;
+  background-color: #F2F2F2;
+  border-radius: 20px;
+  padding: 15px 2%;
+  margin-bottom: 40px;
+  font-size: 0.9rem;
+  font-family: Axiforma-Regular;
+  color: #2B2B2B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.atividade a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fotoUser {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  float: left;
+  margin: 6% 20px 6% 0;
+}
+
+.blocoEsq {
+  width: 75%;
 }
 
 

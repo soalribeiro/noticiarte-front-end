@@ -53,6 +53,10 @@ export default class Noticia extends React.Component {
                 return (
                     <div>
                         <h1>Notícia</h1>
+                        <div id="notDiv">
+                            <h4>Criar notícia</h4>
+                            <p>Seleciona o jornal para o qual pretendes escrever uma notícia.</p>
+                        </div>
                         <div id="todosJornais">
                             {jornal}
                         </div>

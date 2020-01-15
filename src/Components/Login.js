@@ -116,8 +116,8 @@ export default class Login extends Component {
                 <div className="inputs">
                     <div className="labelInput">Username</div>
                     <input className="input_text"
-                        type="email"
-                        placeholder="email"
+                        type="text"
+                        placeholder="username"
                         onChange={this.onChange}
                         value={this.state.userInput}
                     />

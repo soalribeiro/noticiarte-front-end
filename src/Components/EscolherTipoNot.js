@@ -54,6 +54,10 @@ export default class EscolherTipoNot extends React.Component {
             return (
                 <div>
                     <h1>Notícia</h1>
+                    <div id="notDiv">
+                        <h4>Criar notícia</h4>
+                        <p>Seleciona o tipo de conteúdo que queres escrever.</p>
+                    </div>
                     <div id="todosJornais">
                         {tipos}
                     </div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Login from './Components/Login';
+import { Route, Switch } from 'react-router-dom';
 import Listusers from './Components/Listusers';
 import Jornais from './Components/Jornais';
 import InserirJornal from './Components/InserirJornal';
@@ -10,6 +9,7 @@ import JornalNot from './Components/JornalNot';
 import EditarNoticia from './Components/EditarNoticia';
 import CriarNoticia from './Components/CriarNoticia';
 import EscolherTipoNot from './Components/EscolherTipoNot';
+import AtividadeRecente from './Components/AtividadeRecente';
 
 export default class Routes extends React.Component {
     render() {
@@ -21,10 +21,11 @@ export default class Routes extends React.Component {
                 <Route path='/inserirjornal' component={InserirJornal} />
                 <Route path='/redacao' component={Redacao} />
                 <Route path='/noticia' component={Noticia} />
-                <Route path='/jornalnot' component={JornalNot} />
+                <Route path='/jornalnot/:idjornal' component={JornalNot} />
                 <Route path='/noticiajornal/:id' component={EditarNoticia} />
                 <Route path='/escolhertiponot/' component={EscolherTipoNot} />
                 <Route path='/criarnoticia/:idjornal' component={CriarNoticia} />
+                <Route path='/ativrecente/:idjornal' component={AtividadeRecente} />
             </Switch>
         );
     }
