@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import VideoRecorder from 'react-video-recorder';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 var id;
 export default class CriaConteudo extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export default class CriaConteudo extends Component {
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     console.log(this.props.location.state.texto_video)
   }
 
@@ -42,27 +43,36 @@ export default class CriaConteudo extends Component {
 
     return (
       <div>
-        <h1>Notícia</h1>
-
-        {/* <div id="class_animada" className="texto_animado_video">
+        <div className="pc">
+          <h2>Só funciona na versão mobile</h2>
+        </div>
+        <div className="mobile">
+          <h1>Notícia</h1>
+          <Link to={'/textovideo'}>
+            <button className="btn_back" >
+              Voltar
+           </button>
+          </Link>
+          {/* <div id="class_animada" className="texto_animado_video">
           <p>{this.state.textonoticia}</p>
         </div> */}
-        <div class="containerzito">
-          <div > <p id="divTAReviews">{this.state.textonoticia}</p></div>
+          <div class="containerzito">
+            <div > <p id="divTAReviews">{this.state.textonoticia}</p></div>
+          </div>
+          <VideoRecorder
+            mimeType={'video/webm'}
+            isOnInitially={true}
+            showReplayControls={true}
+            countdownTime={3000}
+            timeLimit={30000}
+            onRecordingComplete={(videoBlob) => {
+              this.setState({
+                ficheiro: videoBlob
+              })
+            }}
+          />
+          <button onClick={this.enviavideo} id="addConteudo">Adicionar conteúdo</button>
         </div>
-        <VideoRecorder
-          mimeType={'video/webm'}
-          isOnInitially={true}
-          showReplayControls={true}
-          countdownTime={3000}
-          timeLimit={30000}
-          onRecordingComplete={(videoBlob) => {
-            this.setState({
-              ficheiro: videoBlob
-            })
-          }}
-        />
-        <button onClick={this.enviavideo} id="addConteudo">Adicionar conteúdo</button>
       </div>
     )
   }

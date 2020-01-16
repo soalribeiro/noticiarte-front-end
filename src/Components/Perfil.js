@@ -6,7 +6,7 @@ export default class Perfil extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user_id: 1,
+            user_id: 3,
             userdata: 'null',
             profissao: null,
             instituicao: null,
@@ -100,6 +100,7 @@ export default class Perfil extends Component {
     }
 
     onChangeprofissao = (e) => {
+        alert(e.target.value)
         this.setState({
             profuser: e.target.value
         });
@@ -120,32 +121,36 @@ export default class Perfil extends Component {
 
 
     formperfil = () => {
-        console.log(parseInt(this.state.profuser))
         if (this.state.imagem == "/images/user/superarte.png") {
             axios.put('http://noticiarte.ddns.net/api/user/' + this.state.user_id, {
                 nome: this.state.nomeInput,
                 username: this.state.userInput,
                 biografia: this.state.biografia,
                 data_nascimento: this.state.datanasci,
-                profissao: parseInt(this.state.profuser),
-                instituicao: parseInt(this.state.id_instituicao),
+                profissao: this.state.profuser,
+                instituicao: this.state.id_instituicao,
             }).then((res) => {
                 console.log(res);
                 //window.location.reload();
             }).catch((err) => {
                 console.log(err);
             })
-        } else {
+        } else if(this.state.imagem != null){
+            alert('oi')
+            console.log(this.state.imagem)
             axios.put('http://noticiarte.ddns.net/api/user/' + this.state.user_id, {
                 nome: this.state.nomeInput,
                 username: this.state.userInput,
                 biografia: this.state.biografia,
                 data_nascimento: this.state.datanasci,
-                profissao: parseInt(this.state.profuser),
-                instituicao: parseInt(this.state.id_instituicao),
+                profissao: this.state.profuser,
+                instituicao: this.state.id_instituicao,
                 image: this.state.imagem
+                
             }).then((res) => {
                 console.log(res);
+                alert('oi')
+                console.log(this.state.imagem)
                 //window.location.reload();
             }).catch((err) => {
                 console.log(err);
@@ -155,6 +160,9 @@ export default class Perfil extends Component {
     }
 
     render() {
+
+        console.log(this.state.imagem)
+
         if (!this.state.profissao || !this.state.instituicao) {
             return (
                 <div>
@@ -210,7 +218,6 @@ export default class Perfil extends Component {
                         <input className="input_text_perfil fotografia"
                             type="file"
                             onChange={this.onChangeImage}
-                            value={this.state.mudarImage}
                         />
                     </div>
                     <div className="inputs">
@@ -229,6 +236,7 @@ export default class Perfil extends Component {
                             placeholder="username"
                             onChange={this.onChangeusername}
                             value={this.state.userInput}
+                            disabled
                         />
                     </div>
 
@@ -264,9 +272,7 @@ export default class Perfil extends Component {
                     <div className="inputs">
 
                         <div className="labelInput">Profissão</div>
-                        <select className="input_text_perfil select"
-                            onChange={this.onChangeprofissao}
-                        >
+                        <select className="input_text_perfil select" onChange={this.onChangeprofissao}>
                             {profissoes}
                         </select>
                     </div>

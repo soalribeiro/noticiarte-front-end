@@ -20,13 +20,19 @@ export default class TextVideo extends Component {
   render() {
     return (
       <div>
-        <h2>Escreve o teu texto para a notícia</h2>
+        <div className="pc">
+          <p>Só funciona na versão mobile</p>
+        </div>
+        <div className="mobile">
+          <p>Escreve o teu texto para a notícia</p>
 
-        <textarea className="input_text_perfil" onChange={this.MudarText}></textarea>
-        <Link to={{
-          pathname: '/criarconteudo',
-          state: { texto_video: this.state.texto }
-        }}><button className="btn_normal">Seguinte</button></Link>
+          <textarea className="input_text_perfil textarea_blue" onChange={this.MudarText}></textarea>
+          <Link to={{
+            pathname: '/criarconteudo',
+            state: { texto_video: this.state.texto }
+          }}><button className="btn_normal textvid">Seguinte</button></Link>
+        </div>
+
       </div>
     );
   }

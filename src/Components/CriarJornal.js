@@ -168,29 +168,6 @@ export default class CriarJornal extends Component {
             manchete_name: evt.target.value
         });
 
-        if (evt.target.value == "Manchete") {
-            mancha = <div className="manchete_div">
-                <div className="manchete_img" style={{
-                    backgroundImage: `url(../images_app/manchete01.png)`
-                }}></div>
-                <div className="manchete_titulo">
-                    <h5 style={{ textAlign: 'left', color: this.state.id_cor.cor4 }}>Lorem ipsum</h5>
-                    <p style={{ textAlign: 'left' }}>Lorem ipsum</p>
-                </div>
-            </div>
-        } else if (evt.target.value == "Manchete2") {
-            mancha = <div className="manchete2_div">
-                <div className="manchete_img2" style={{
-                    backgroundImage: `url(../imagens_app/manchete01.png)`
-                }}></div>
-                <div className="manchete_titulo2">
-                    <h5 style={{ textAlign: 'left', color: this.state.id_cor.cor4 }}>Lorem ipsum</h5>
-                </div>
-                <div className="manchete_subtitulo2">
-                    <h6 style={{ textAlign: 'left' }}>Lorem Ipsum</h6>
-                </div>
-            </div>
-        }
         if (this.state.colunas_name != null) {
             this.fazhtml();
         }
@@ -308,6 +285,7 @@ export default class CriarJornal extends Component {
                 data: bodyFormData
             };
             axios(options2).then((response) => {
+                console.log(response);
                 this.setState({ redirect: true });
             }).catch((erro) => {
                 console.log(erro)
@@ -370,7 +348,7 @@ export default class CriarJornal extends Component {
                         <div>
                             {listItems}
                             <button className="btn_normal" onClick={this.inserirseccao}>Inserir outra secção</button>
-                            {this.state.listasec ? <ListaSeccoes arrayseccoes={this.state.seccoes} novaseccao={this.novasec} /> : console.log('nada')}
+                            {this.state.listasec ? <ListaSeccoes arrayseccoes={this.state.seccoes} novaseccao={this.novasec} /> : console.log('')}
                         </div>
 
                         <div>
@@ -379,6 +357,7 @@ export default class CriarJornal extends Component {
 
                         <div>
                             <select onChange={this.verificaOption} className="select_instituicao">
+                            <option disabled selected>Seleciona uma instituição</option>
                                 {listItems2}
                             </select>
                         </div>
@@ -429,7 +408,7 @@ export default class CriarJornal extends Component {
 
                     return (
                         <div>
-                            <h2>Personlizar o Jornal</h2>
+                            <h2>Personalizar o Jornal</h2>
                             <button className="btn_back" onClick={this.paginafake}>
                                 Voltar
                             </button>
@@ -439,7 +418,7 @@ export default class CriarJornal extends Component {
                                 <input className="input_palete" type="radio" name="input_manchete" onChange={this.inputmanchete} value={'Manchete'} />
                                 <img src={manchete2} />
                                 <input className="input_palete" type="radio" name="input_manchete" onChange={this.inputmanchete} value={'Manchete2'} />
-                                {mancha != null ? mancha : console.log('i')}
+                                
                             </div>
                             <div className="colman_personalizada">
                                 <img src={coluna1} />

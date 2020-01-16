@@ -13,6 +13,9 @@ import Perfil from './Components/Perfil';
 import CriaConteudo from './Components/CriaConteudo';
 import TextVideo from './Components/TextVideo';
 import Pesquisa from './Components/Pesquisa';
+import Validarnoticia from './Components/Validarnoticia';
+import VerPerfil from './Components/VerPerfil';
+import Feedback from './Components/Feedback';
 export default class Routes extends React.Component {
 
     constructor(props) {
@@ -41,6 +44,9 @@ export default class Routes extends React.Component {
                     <Route path='/criarconteudo' component={CriaConteudo}></Route>
                     <Route path='/textovideo' component={TextVideo}></Route>
                     <Route path='/pesquisa' component={Pesquisa}></Route>
+                    <Route path='/verperfil/:id' component={VerPerfil}></Route>
+                    <Route path='/validarnoticia/:idnoticia' component={Validarnoticia}></Route>
+                    <Route path='/feedback/:idnoticia' component={Feedback}></Route>
                 </Switch>
             </BrowserRouter>
         );

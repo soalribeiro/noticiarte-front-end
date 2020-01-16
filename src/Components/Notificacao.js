@@ -85,9 +85,14 @@ export default class Notificacao extends Component {
                 if (notiNotic.estadonoticia_id == 3) {
                     return (
                         <div className="divnoti">
-                            <p key={'option' + i} value={notiNotic.id}>A notícia <b>{notiNotic.titulo_noticia}</b> foi editada. Pretende publicar?</p>
-                            <a className="noti_btn" onClick={() => this.publicarNoticia('sim', notiNotic.id)}>Sim</a>
-                            <a className="noti_btn_cance" onClick={() => this.publicarNoticia('nao', notiNotic.id)}>Não</a>
+                            <Link to={{
+                                pathname: '/validarnoticia/' + notiNotic.id
+                            }}>
+                                <p key={'option' + i} value={notiNotic.id}>A notícia <b>{notiNotic.titulo_noticia}</b> foi editada. Pretende publicar?</p>
+                                {/* <a className="noti_btn" onClick={() => this.publicarNoticia('sim', notiNotic.id)}>Sim</a>
+                                <a className="noti_btn_cance" onClick={() => this.publicarNoticia('nao', notiNotic.id)}>Não</a> */}
+
+                            </Link>
                         </div>
                     )
                 } else if (notiNotic.estadonoticia_id == 1) {

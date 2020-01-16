@@ -61,7 +61,7 @@ export default class SingleNoticiaSeccao extends Component {
             !this.state.seccoes || !this.state.palete_cor) {
             return (
                 <div>
-                    <h2>Nada</h2>
+                    <h2>A carregar</h2>
                 </div>
             );
         } else {

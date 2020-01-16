@@ -11,7 +11,6 @@ export default class Jornais extends React.Component {
             jornaishasusers: null,
             display: 'none',
             user_id: 1,
-            jornaishasusersAtual:null
         };
     }
 
@@ -24,13 +23,7 @@ export default class Jornais extends React.Component {
                 console.log(response.data);
             });
 
-        axios.get('http://noticiarte.ddns.net/api/userjornais/'+this.state.user_id) //CRIAR JORNAIS DO USER PARA OS MEUS JORNAIS
-            .then((response) => {
-                this.setState({
-                    jornaishasusersAtual: response.data
-                })
-                console.log(response.data);
-            });
+
     }
 
 
@@ -70,31 +63,14 @@ export default class Jornais extends React.Component {
     }
 
     render() {
-        if (this.state.jornaishasusers == null || !this.state.jornaishasusersAtual) {
+        if (this.state.jornaishasusers == null) {
             return (
                 <div>
                     <p className="p_registate">Carregando...</p>
                 </div>
             );
-        } else if (this.state.jornaishasusers != null && this.state.jornaishasusersAtual != null) {
-            var jornaisDoUser = this.state.jornaishasusersAtual;
-            let listadosmeusjornais = jornaisDoUser.map((data, index) => {
-                    return (
-                        <div className="card-jornal">
-                            <div id="outrosJornais" style={{ backgroundImage: `url(http://noticiarte.ddns.net/uploads/${jornaisDoUser[index].jornal.imagem_jornal})` }}></div>
-                            <div className="infosJornal">
-                                <h4 key={'h4' + index}>{jornaisDoUser[index].jornal.nome_jornal}</h4>
-                                <p key={'pdescr' + index}>{jornaisDoUser[index].jornal.descricao}</p>
-                            </div>
-                            <div className="botoesJornais">
-                                <Link key={'link' + index} to={{
-                                    pathname: '/verjornal/' + jornaisDoUser[index].jornal.id,
-                                    state: { jornal_id: jornaisDoUser[index].jornal.id }
-                                }}><button className="ver" key={'btn' + index} onClick={this.login}>Ver</button></Link>
-                            </div>
-                        </div>
-                    );
-            });
+        } else if (this.state.jornaishasusers != null) {
+
 
 
             var jornaisHasUsers = this.state.jornaishasusers;
@@ -106,7 +82,9 @@ export default class Jornais extends React.Component {
                             <div className="infosJornal">
                                 <h4 key={'h4' + index}>{jornaisHasUsers[index].jornal.nome_jornal}</h4>
                                 <p key={'pdescr' + index}>{jornaisHasUsers[index].jornal.descricao}</p>
-                                <p key={'puser' + index}>Editor: {jornaisHasUsers[index].user.username}</p>
+                                <Link to={'/verperfil/'+jornaisHasUsers[index].user.id}>
+                                    <p key={'puser' + index}>Editor: {jornaisHasUsers[index].user.username}</p>
+                                </Link>
                             </div>
                             <div className="botoesJornais">
                                 <Link key={'link' + index} to={{
@@ -135,17 +113,17 @@ export default class Jornais extends React.Component {
                             <img src={Perfil} />
                         </button>
                     </Link>
-                    
 
-                    <div>
-                        <h4>Os teus jornais</h4>
-                        {listadosmeusjornais}
-                    </div>
+
 
                     <div id="card-outros-jornais">
                         <h4>Outros jornais</h4>
+                        <Link to={'/criarjornais'}>
+                            <button className="btn_normal"> Criar jornal</button>
+                        </Link>
                         {listItems}
                     </div>
+
 
                     <div id="modal" style={{ display: this.state.display }}>
                         <p className="p_modal">Enviaste pedido fica atento às notificações!</p>

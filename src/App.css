@@ -618,18 +618,15 @@ p {
     float: none;
     margin-bottom: 50px;
   }
-
   h4 {
     width: 100%;
     text-align: center;
     margin: 20px 0;
   }
-
   .nav_jornal {
     float: none;
     margin: 0 auto 20px;
   }
-
   .nav_jornal {
     float: none;
     margin: 0 auto 20px;
@@ -810,8 +807,7 @@ p {
   float: left;
 }
 
-.noti_btn,
-.noti_btn_cance {
+.noti_btn, .noti_btn_cance {
   text-decoration: underline;
   font-size: 0.8rem;
   font-family: Axiforma-Regular;
@@ -837,7 +833,6 @@ p {
   color: white;
   cursor: pointer;
 }
-
 
 .perfil {
   width: 50px;
@@ -914,7 +909,6 @@ p {
   text-align: center;
 }
 
-
 .input_text_perfil {
   width: 50%;
   display: block;
@@ -928,7 +922,6 @@ p {
   color: #2b2b2b;
   text-align: center;
 }
-
 
 .fotografia {
   width: 40%;
@@ -979,8 +972,8 @@ p {
   background-color: #F2F2F2;
 }
 
-
 /* MobileVideo.js */
+
 #addConteudo {
   background-color: #0554F2;
   color: white;
@@ -992,13 +985,12 @@ p {
   display: block;
 }
 
-
 /* RecebeVideo.js */
+
 .videos {
   height: 200px;
   margin: 20px;
 }
-
 
 #class_animada {
   position: relative;
@@ -1007,16 +999,16 @@ p {
 #class_animada p {
   width: 100%;
   position: absolute;
-  top:0px;
-  z-index:99;
-  background-color:#d2d2d2;
+  top: 0px;
+  z-index: 99;
+  background-color: #d2d2d2;
 }
 
-.eTRucs{
+.eTRucs {
   background: #FC4747 !important;
 }
 
-.dBzviu{
+.dBzviu {
   background: #FC4747 !important;
 }
 
@@ -1031,14 +1023,51 @@ p {
     top: 165px;
   }
 }
+
 .containerzito {
   height: 150px;
   overflow: hidden;
   background: #F2F2F2;
 }
+
 #divTAReviews {
   animation: movingTopToBottom 20s linear infinite;
   position: relative;
   display: inline-block;
   padding: 10px;
+}
+
+.mobile {
+  display: none;
+}
+
+.pc {
+  display: block;
+}
+
+/***MOBILE***/
+
+@media screen and (max-width: 800px) {
+  .mobile {
+    display: block;
+  }
+  .pc {
+    display: none
+  }
+
+  .mobile  p{
+    text-align:center;
+  }
+
+  .input_text_perfil, .textarea_blue {
+    margin: auto;
+    display: block;
+    height: 200px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .btn_normal ,.textvid {
+      text-decoration: none;
+  }
 }
