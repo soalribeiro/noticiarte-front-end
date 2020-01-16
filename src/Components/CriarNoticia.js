@@ -30,7 +30,8 @@ export default class CriarNoticia extends React.Component {
             width: '40%',
             noticiasPublico: null,
             mostraLista: false,
-            tituloGuia: 'Geral'
+            tituloGuia: 'Geral',
+            redirect: false
         };
     }
 
@@ -186,8 +187,9 @@ export default class CriarNoticia extends React.Component {
             };
 
             axios(options).then((res) => {
-                console.log(res);
-                return <Redirect to="/jornais" />
+                this.setState({
+                    redirect: true
+                })
             }).catch((err) => {
                 console.log(err)
             })
@@ -240,8 +242,9 @@ export default class CriarNoticia extends React.Component {
             };
 
             axios(options).then((res) => {
-                console.log(res);
-                return <Redirect to="/jornais" />
+                this.setState({
+                    redirect: true
+                })
             }).catch((err) => {
                 console.log(err)
             })
@@ -309,6 +312,12 @@ export default class CriarNoticia extends React.Component {
     }
 
     render() {
+        const { redirect } = this.state;
+
+        if (redirect) {
+            return <Redirect to="/jornais" />;
+        }
+
         if (!this.state.seccoesJor || !this.state.guias || !this.state.mostra) {
             return (
                 <div>

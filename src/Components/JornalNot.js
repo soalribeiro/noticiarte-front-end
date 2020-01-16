@@ -2,10 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import BotoesJornal from '../Containers/BotoesJornal';
+import semNoticia from '../images_app/semNoticias.png';
 
 export default class JornalNot extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             noticias: null,
             editor: null,
@@ -30,9 +31,15 @@ export default class JornalNot extends React.Component {
         axios.get('http://noticiarte.ddns.net/api/notjoredi/' + this.state.idjornal)
             .then((res) => {
                 console.log(res.data);
-                this.setState({
-                    editor: res.data[0].nome
-                })
+                if (res.data.length > 0) {
+                    this.setState({
+                        editor: res.data[0].nome
+                    })
+                } else {
+                    this.setState({
+                        editor: 'nada'
+                    })
+                }
             })
             .catch((err) => {
                 console.log(err);
@@ -56,84 +63,97 @@ export default class JornalNot extends React.Component {
     }
 
     render() {
-        console.log(this.state);
+        /* console.log(this.state); */
         if (!this.state.editor || !this.state.noticias) {
             return (
                 <div id="jornalNot">
                     <h2>Diário da Verdade</h2>
-                    
-                    <BotoesJornal jornal={this.state.idjornal}/>
-                    
+
+                    <BotoesJornal jornal={this.state.idjornal} />
+
                     <div id="carrega">A carregar...</div>
                 </div>
             )
         } else {
-            const noticias = this.state.noticias.map((noticia, i) => {
+            if (this.state.noticias.length > 0 || this.state.editor > 0) {
+                const noticias = this.state.noticias.map((noticia, i) => {
+                    return (
+                        <div key={i} className="noticias">
+                            <div className="cols col1">
+                                <h3 key={'titulo' + i}>Título</h3>
+                                <p key={'p' + i}>{noticia.titulo_noticia}</p>
+                            </div>
+
+                            <div className="cols col2">
+                                <h3 key={'criacao' + i}>Criada em</h3>
+                                <p key={'data' + 1}>{noticia.created_at}</p>
+
+                                <h3 key={'pub' + 1}>Publicada em</h3>
+                                <p key={'datap' + 1}>{noticia.estadonoticia_id === 1 ? noticia.updated_at : '----'}</p>
+                            </div>
+
+                            <div className="cols col3">
+                                <h3 key={'repoter' + i}>Repórter</h3>
+                                <p key={'nomerp' + i}>{noticia.user.nome}</p>
+
+                                <h3 key={'editor' + i}>Editor</h3>
+                                <p key={'nomeed' + i}>{this.state.editor}</p>
+                            </div>
+
+                            <div className="cols col4">
+                                <h3 key={'estado' + i}>Estado</h3>
+                                <p key={'nomest' + i} className="pEstado">{noticia.estadonoticia.nome_estado}</p>
+                            </div>
+
+                            <div id="botoesNot">
+                                <Link key={'link' + i} to={{
+                                    pathname: '/vernoticias/' + noticia.id, state: {
+                                        noticia_id: noticia.id
+                                    }
+                                }}>Editar</Link>
+
+                                {noticia.manchete === 1 ?
+                                    <button key={'mancheteBtn' + i} className="botaoDif comManchete" id={"btn" + i} onClick={() => this.tornaManchete(noticia.id)}>Manchete</button> :
+                                    <button key={'mancheteBtn' + i} className="botaoDif semManchete" id={"btn" + i} onClick={() => this.tornaManchete(noticia.id)}>Manchete</button>
+                                }
+                            </div>
+                        </div>
+                    );
+                });
+
                 return (
-                    <div key={i} className="noticias">
-                        <div className="cols col1">
-                            <h3 key={'titulo' + i}>Título</h3>
-                            <p key={'p' + i}>{noticia.titulo_noticia}</p>
+                    <div id="jornalNot">
+                        <h2>Diário da Verdade</h2>
+
+                        <BotoesJornal jornal={this.state.idjornal} />
+
+                        <div id="criarNotDiv">
+                            <Link to="/noticia" id="criarNotLink">
+                                <button id="criarNoticia">Criar notícia</button>
+                            </Link>
                         </div>
 
-                        <div className="cols col2">
-                            <h3 key={'criacao' + i}>Criada em</h3>
-                            <p key={'data' + 1}>{noticia.created_at}</p>
+                        {noticias}
+                    </div>
+                );
+            } else {
+                return (
+                    <div id="jornalNot">
+                        <h2>Diário da Verdade</h2>
 
-                            <h3 key={'pub' + 1}>Publicada em</h3>
-                            <p key={'datap' + 1}>{noticia.estadonoticia_id === 1 ? noticia.updated_at : '----'}</p>
-                        </div>
+                        <BotoesJornal jornal={this.state.idjornal} />
 
-                        <div className="cols col3">
-                            <h3 key={'repoter' + i}>Repórter</h3>
-                            <p key={'nomerp' + i}>{noticia.user.nome}</p>
+                        <img src={semNoticia} class="semNadaImage" />
+                        <p className="semNada">Ainda não tens notícias...</p>
 
-                            <h3 key={'editor' + i}>Editor</h3>
-                            <p key={'nomeed' + i}>{this.state.editor}</p>
-                        </div>
-
-                        <div className="cols col4">
-                            <h3 key={'estado' + i}>Estado</h3>
-                            <p key={'nomest' + i} className="pEstado">{noticia.estadonoticia.nome_estado}</p>
-                        </div>
-
-                        <div id="botoesNot">
-                            <Link key={'link' + i} to={{
-                                pathname: '/vernoticias/' + noticia.id, state: {
-                                    noticia_id: noticia.id
-                                }
-                            }}>Editar</Link>
-
-                            {noticia.manchete === 1 ?
-                                <button key={'mancheteBtn' + i} className="botaoDif comManchete" id={"btn" + i} onClick={() => this.tornaManchete(noticia.id)}>Manchete</button> :
-                                <button key={'mancheteBtn' + i} className="botaoDif semManchete" id={"btn" + i} onClick={() => this.tornaManchete(noticia.id)}>Manchete</button>
-                            }
-
-                            <Link key={'linkfix' + i} className="botaoDif" to={{
-                                pathname: '/vernoticias/' + noticia.id, state: {
-                                    noticia_id: noticia.id
-                                }
-                            }}>Fixar</Link>
+                        <div id="criarNotDiv">
+                            <Link to="/noticia" id="criarNotLink">
+                                <button id="criarNoticia">Criar notícia</button>
+                            </Link>
                         </div>
                     </div>
                 );
-            });
-
-            return (
-                <div id="jornalNot">
-                    <h2>Diário da Verdade</h2>
-
-                    <BotoesJornal jornal={this.state.idjornal}/>
-
-                    <div id="criarNotDiv">
-                        <Link to="/noticia" id="criarNotLink">
-                            <button id="criarNoticia">Criar notícia</button>
-                        </Link>
-                    </div>
-
-                    {noticias}
-                </div>
-            );
+            }
         }
     }
 }

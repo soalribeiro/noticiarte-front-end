@@ -17,6 +17,11 @@ body {
 }
 
 @font-face {
+  font-family: Axiforma-Light-Italic;
+  src: url('./fonts/AxiformaLightItalic.otf');
+}
+
+@font-face {
   font-family: Axiforma-Regular;
   src: url('./fonts/AxiformaRegular.otf');
 }
@@ -328,6 +333,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 5%;
 }
 
 #botoesJornal a {
@@ -356,6 +362,7 @@ h2 {
 
 /* JornalNot.js */
 #jornalNot {
+  overflow: hidden;
   margin-bottom: 80px;
 }
 
@@ -484,6 +491,7 @@ h2 {
 }
 
 .escolheJornal {
+  width: 30.5%;
   -ms-flex: 0 0 30.5%;
   flex: 0 0 30.5%;
   float: left;
@@ -548,7 +556,7 @@ h2 {
   flex: 0 0 30.5%;
   float: left;
   max-width: 30.5%;
-  margin-right: 7%;
+  margin-right: 6.5%;
   border: 3px solid #0554F2;
   border-radius: 25px;
   min-height: 220px;
@@ -856,24 +864,46 @@ h4#notRel {
 
 /* ListarPublico.js */
 .NoticiRelacionada {
-  width: 300px;
-  height: 400px;
+  width: 30%;
+  margin-right: 2%;
+  overflow: hidden;
 }
 
 .NoticiRelacionada img {
-  width: 300px;
+  width: 100%;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+.NoticiRelacionada h5 {
+  font-size: 0.9rem;
+  font-family: Axiforma-Medium;
+}
+
+.NoticiRelacionada span {
+  font-size: 0.8rem;
+  font-family: Axiforma-Light-Italic;
 }
 
 
 /* Redacao.js */
+#redacao a {
+  text-decoration: none;
+}
+
 #redacao h4 {
   font-family: Axiforma-Semi;
   font-size: 1.2rem;
   text-transform: uppercase;
   width: 88%;
   max-width: 1800px;
-  margin: 8% auto 30px;
+  margin: 8% auto 10px;
   overflow: hidden;
+}
+
+#redacao #notP {
+  width: 88%;
+  margin: 0 auto 30px;
 }
 
 #redacao img {
@@ -926,6 +956,14 @@ button#btnCriaJornal {
   font-family: Axiforma-Light;
 }
 
+p.nomeRoleJornal {
+  color: #0554F2;
+  text-align: right;
+  margin-top: 10px;
+  font-family: Axiforma-Light-Italic;
+  margin-right: 10px;
+}
+
 #outrosJornais {
   width: 100%;
   height: 220px;
@@ -938,9 +976,7 @@ button#btnCriaJornal {
 .botoesJornais {
   width: 80%;
   overflow: hidden;
-  position: absolute;
-  bottom: 30px;
-  left: 10%;
+  margin: 0 auto 20px;
 }
 
 .botoesJornais button {
@@ -1007,6 +1043,159 @@ button#btnCriaJornal {
   width: 75%;
 }
 
+.semNada {
+  font-size: 0.9rem;
+  font-family: Axiforma-Regular;
+  text-align: center;
+}
+
+.semNadaImage {
+  margin: auto;
+  display: block;
+  height: 220px;
+  margin-bottom: 30px;
+}
+
+#jornalNot .semNada {
+  margin-bottom: 30px;
+}
+
+
+/* Editoria.js */
+#editoria {
+  width: 90%;
+  margin: auto;
+  padding-bottom: 40px;
+  overflow: hidden;
+  max-width: 1300px;
+}
+
+#editoria h4 {
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-family: Axiforma-Medium;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#todasSeccoes {
+  width: 60%;
+  float: left;
+  padding: 2%;
+  border-right: 1px solid rgb(116, 116, 116);
+  padding-bottom: 40px;
+}
+
+#todaEquipa {
+  width: 25%;
+  float: left;
+  overflow: hidden;
+  padding: 2%;
+}
+
+.seccoes {
+  width: 38%;
+  float: left;
+  background-color: #F6F6F6;
+  border-radius: 20px;
+  margin: 2%;
+  padding: 20px 4%;
+}
+
+.seccoes h5 {
+  text-transform: uppercase;
+  font-family: Axiforma-Medium;
+  font-size: 0.9rem;
+}
+
+.seccoes button {
+  background-color: #3D9DD9;
+  color: white;
+  font-size: 0.9rem;
+  font-family: Axiforma-Semi;
+  padding: 8px 20px;
+  margin: 20px auto 0;
+  display: block;
+  border-radius: 30px;
+}
+
+#todaEquipa button {
+  background-color: #0554F2;
+  color: white;
+  padding: 8px 25px;
+  font-size: 0.9rem;
+  font-family: Axiforma-Semi;
+  border-radius: 30px;
+  margin: 0 auto 40px;
+  display: block;
+}
+
+.equipa {
+  background-color: #F2F2F2;
+  padding: 30px 4%;
+  width: 34%;
+  float: left;
+  margin: 4%;
+  border-radius: 30px;
+}
+
+.equipa .divImage {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+}
+
+.equipa p {
+  font-size: 0.8rem;
+  font-family: Axiforma-Light;
+  text-align: center;
+}
+
+#listaUsers {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+#editoriaUsers {
+  background-color: rgb(230, 230, 230);
+  width: 50%;
+  overflow: hidden;
+  padding: 40px;
+  margin-left: 25%;
+  margin-top: 50px;
+  border-radius: 40px;
+}
+
+#listaUsers .divImage {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  padding: 0;
+  float: left;
+  margin-right: 20px;
+}
+
+.individual {
+  overflow: hidden;
+  clear: both;
+  margin-bottom: 40px;
+}
+
+#listaUsers p {
+  line-height: 3rem;
+}
+
+
+
 
 @media screen and (max-width: 1285px) {
   h1 {
@@ -1056,13 +1245,18 @@ button#btnCriaJornal {
   }
 
   .escolheJornal {
-    flex: 0 0 100%;
-    max-width: 100%;
+    width: 70%;
+    flex: 0 0 70%;
+    max-width: 70%;
     float: none;
     margin-right: 0;
     min-height: auto;
     display: block;
-    margin-bottom: 40px;
+    margin: 0 auto 40px;
+  }
+
+  .escolheJornal:last-of-type {
+    margin-right: auto;
   }
 
   .escolheTipo {
@@ -1082,5 +1276,13 @@ button#btnCriaJornal {
 
   .content {
     display: block;
+  }
+}
+
+@media screen and (max-width: 865px) {
+  .escolheJornal {
+    width: 90%;
+    flex: 0 0 90%;
+    max-width: 90%;
   }
 }

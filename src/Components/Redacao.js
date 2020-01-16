@@ -39,6 +39,7 @@ export default class Redacao extends React.Component {
                             <div className="infosJornal">
                                 <h4 key={'h4' + index}>{jornal.jornal.nome_jornal}</h4>
                                 <p key={'pdescr' + index}>{jornal.jornal.descricao}</p>
+                                <p key={'role' + index} class="nomeRoleJornal">{jornal.role.name}</p>
                             </div>
                             <div className="botoesJornais">
                                 <Link key={'link' + index} to={'/ativrecente/' + jornal.jornal.id}>
@@ -53,6 +54,7 @@ export default class Redacao extends React.Component {
                     <div id="redacao">
                         <h1>Redação</h1>
                         <h4>Os meus jornais</h4>
+                        <p id="notP">Aqui, na redação, podes ver os teus jornais ou jornais dos quais fazes parte.</p>
                         {jornais}
                     </div>
                 );

@@ -24,7 +24,7 @@ export default class ListarPublico extends Component {
     };
 
     componentDidMount() {
-        alert(this.state.palavras)
+        /* alert(this.state.palavras) */
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const url = "https://www.publico.pt/api/list/ultimas";
         fetch(proxyurl + url)
@@ -47,7 +47,7 @@ export default class ListarPublico extends Component {
                                 <div className="NoticiRelacionada">
                                     <img src={jornaisPublico[i].multimediaPrincipal} />
                                     <h5>{jornaisPublico[i].titulo}</h5>
-                                    <span>Fonte Jornal Público</span>
+                                    <span>Fonte: Jornal Público</span>
                                 </div>;
                             return teste;
                         }

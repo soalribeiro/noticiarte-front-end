@@ -6,6 +6,7 @@ import Routes from './Route';
 import Menu from './Components/Menu';
 import Login from './Components/Login';
 import Jornais from './Components/Jornais';
+import MenuSemLogin from './Components/MenuSemLogin';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -55,6 +56,8 @@ export default class App extends React.Component {
               <Link to="/">
                 <img className="logo_branco" src={logobranco} />
               </Link>
+
+              <MenuSemLogin />
             </div>
 
             {/* <Login isLoggedIn={this.callbackLogin} /> */}

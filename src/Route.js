@@ -10,6 +10,7 @@ import EditarNoticia from './Components/EditarNoticia';
 import CriarNoticia from './Components/CriarNoticia';
 import EscolherTipoNot from './Components/EscolherTipoNot';
 import AtividadeRecente from './Components/AtividadeRecente';
+import Editoria from './Components/Editoria';
 
 export default class Routes extends React.Component {
     render() {
@@ -26,6 +27,7 @@ export default class Routes extends React.Component {
                 <Route path='/escolhertiponot/' component={EscolherTipoNot} />
                 <Route path='/criarnoticia/:idjornal' component={CriarNoticia} />
                 <Route path='/ativrecente/:idjornal' component={AtividadeRecente} />
+                <Route path='/editoria/:idjornal' component={Editoria} />
             </Switch>
         );
     }

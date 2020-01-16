@@ -14,8 +14,8 @@ export default class BotoesJornal extends React.Component {
             <div id="botoesJornal">
                 <NavLink to={"/ativrecente/" + this.state.idjornal} activeClassName="activeBotaoJornal" onlyActiveOnIndex>Atividade Recente</NavLink>
                 <NavLink to={"/jornalnot/" + this.state.idjornal} activeClassName="activeBotaoJornal" onlyActiveOnIndex>Notícias</NavLink>
-                <NavLink to="/editoria" activeClassName="activeBotaoJornal" onlyActiveOnIndex>Editoria</NavLink>
-                <NavLink to="/convites" activeClassName="activeBotaoJornal" onlyActiveOnIndex>Convites</NavLink>
+                <NavLink to={"/editoria/" + this.state.idjornal} activeClassName="activeBotaoJornal" onlyActiveOnIndex>Editoria</NavLink>
+                <NavLink to={"/convites/" + this.state.idjornal} activeClassName="activeBotaoJornal" onlyActiveOnIndex>Convites</NavLink>
             </div>
         );
     }
