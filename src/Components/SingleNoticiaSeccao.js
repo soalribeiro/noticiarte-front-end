@@ -15,7 +15,7 @@ export default class SingleNoticiaSeccao extends Component {
             jornaldapagina: null,
             seccoes: null,
             teste: null,
-            palete_cor:null,
+            palete_cor: null,
             noticias: null
         };
     }
@@ -47,22 +47,22 @@ export default class SingleNoticiaSeccao extends Component {
                     palete_cor: JSON.parse(res.data.rgb_cor)
                 })
             })
-            
+
             .catch((err) => {
                 console.log(err);
             });
-
     }
 
+    createMarkup = (corponot) => {
+        return { __html: corponot };
+    };
 
 
     render() {
-        if (!this.state.noticias || !this.state.jornaldapagina || 
+        if (!this.state.noticias || !this.state.jornaldapagina ||
             !this.state.seccoes || !this.state.palete_cor) {
             return (
-                <div>
-                    <h2>A carregar</h2>
-                </div>
+                <div id="carrega">A carregar...</div>
             );
         } else {
             let listItems = this.state.noticias.map((data, index) => {
@@ -79,23 +79,28 @@ export default class SingleNoticiaSeccao extends Component {
                             <h6 key={'h6' + index}
                                 style={{ color: this.state.palete_cor.cor5 }}>{data.titulo_noticia}</h6>
 
-                            <p key={'p' + index}
-                                style={{ color: this.state.palete_cor.cor3 }}>{data.corpo_noticia}</p>
+
+                            <div key={'p' + index} style={{ color: this.state.palete_cores.cor3 }} dangerouslySetInnerHTML={this.createMarkup(data.corpo_noticia)} ></div>
                         </div>
                     </Link>
                 );
             });
             return (
                 <div>
+                    <h1>Jornal</h1>
 
-                    <Navbar id_jornal={this.state.id_jornal}
-                        nomejornal={this.state.jornaldapagina.nome_jornal}
-                        imagejornal={this.state.jornaldapagina.imagem_jornal}
-                        palete={this.state.jornaldapagina.cor_id}
-                        seccoes={this.state.seccoes}
-                        id_sec={this.props.match.params.idseccao}
-                    />
-                    {listItems}
+                    <div id="singleJor">
+                        <Link className="btn_back" to={'/jornais'}>Voltar</Link>
+
+                        <Navbar id_jornal={this.state.id_jornal}
+                            nomejornal={this.state.jornaldapagina.nome_jornal}
+                            imagejornal={this.state.jornaldapagina.imagem_jornal}
+                            palete={this.state.jornaldapagina.cor_id}
+                            seccoes={this.state.seccoes}
+                            id_sec={this.props.match.params.idseccao}
+                        />
+                        {listItems}
+                    </div>
                 </div>
             );
         }

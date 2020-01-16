@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 export default class VerPerfil extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -11,7 +10,6 @@ export default class VerPerfil extends Component {
             redirect: false
         };
     }
-
     componentDidMount() {
         axios.get('http://noticiarte.ddns.net/api/user/' + this.state.user_id)
             .then((response) => {
@@ -41,63 +39,29 @@ export default class VerPerfil extends Component {
                         </p>
                     )
                 }
-
             });
-
             return (
-                <div>
-                    <h4>Perfil</h4>
-                    <img src={'http://noticiarte.ddns.net/' + this.state.data.user[0].image} />
+                <div id="vePerf">
+                    <h1>Perfil </h1>
+                    <Link to={'/jornais'}>
+                        <button className="btn_back" onClick={this.changePage}>Voltar</button>
+                    </Link>
 
+                    <img id="fotoPerfil" src={'http://noticiarte.ddns.net/uploads/' + this.state.data.user[0].image} />
 
-                    <div className="inputs">
-                        <div className="labelInput">Nome</div>
-                        <input className="input_text_perfil"
-                            type="text"
-                            disabled
-                            value={this.state.data.user[0].nome}
-                        />
+                    <div className="div_perfil">
+                        <p id="nomePerfil">{this.state.data.user[0].nome}</p>
+                        <h5>Username</h5>
+                        <p>{this.state.data.user[0].username}</p>
+                        <h5>Email</h5>
+                        <p>{this.state.data.user[0].email}</p>
+                        <h5>Biografia</h5>
+                        {this.state.data.user[0].biografia == null ? '' : <p>{this.state.data.user[0].biografia}</p>}
+                        <h5>Data de nascimento</h5>
+                        {this.state.data.user[0].data_nascimento == null ? '' : <p>{this.state.data.user[0].data_nascimento}</p>}
                     </div>
-                    <div className="inputs">
-                        <div className="labelInput">Username</div>
-                        <input className="input_text_perfil"
-                            type="text"
-                            placeholder="username"
-                            value={this.state.data.user[0].username}
-                            disabled
-                        />
-                    </div>
-
-                    <div className="inputs">
-                        <div className="labelInput">Email</div>
-                        <input className="input_text_perfil"
-                            type="email"
-                            placeholder="email"
-                            value={this.state.data.user[0].email}
-                            disabled
-                        />
-                    </div>
-
-                    <div className="inputs">
-                        <div className="labelInput bio">Biografia</div>
-                        <textarea className="input_text_perfil"
-                            disabled
-                            value={this.state.data.user[0].biografia}
-                        />
-                    </div>
-                    <div className="inputs">
-
-                        <div className="labelInput">Data de nascimento</div>
-                        <input className="input_text_perfil data"
-                            type="date"
-                            value={this.state.data.user[0].data_nascimento}
-                            disabled
-                        />
-                    </div>
-                   
-                </div >
+                </div>
             )
         }
-
     }
 }

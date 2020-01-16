@@ -25,8 +25,10 @@ export default class ListaSeccoes extends Component {
                 this.setState({
                     data: response.data
                 })
+
                 var seccoes = response.data;
                 var i;
+
                 for (i = 0; i < seccoes.length; i++) {
                     suggestions.push(seccoes[i].nome_seccao);
                 }
@@ -87,7 +89,6 @@ export default class ListaSeccoes extends Component {
         } = this;
 
 
-
         let suggestionsListComponent;
         if (showSuggestions && userInput) {
             if (filteredSuggestions.length) {
@@ -105,8 +106,8 @@ export default class ListaSeccoes extends Component {
             } else {
                 suggestionsListComponent = (
                     <div class="no-suggestions text_p_pequeno">
-                        <button className="btn_normal" onClick={() => this.adicionarseccao(userInput)}>
-                            Adicionar Secção
+                        <button id="inserirSec" onClick={() => this.adicionarseccao(userInput)}>
+                            Inserir secção
                         </button>
                     </div>
                 );

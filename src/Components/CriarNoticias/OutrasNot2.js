@@ -53,7 +53,7 @@ export default class OutrasNot2 extends Component {
             if (this.state.noticiasjornal.length == 0) {
                 return (
                     <div>
-                        <h3 style={{ textAlign: 'center' }}>Ainda não tem notícias</h3>
+                        <h3 id="noManchete">Ainda não tem notícias.</h3>
                     </div>
                 );
             } else {

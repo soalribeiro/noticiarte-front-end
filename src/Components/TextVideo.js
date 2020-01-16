@@ -7,6 +7,7 @@ export default class TextVideo extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id_not: this.props.match.params.id_not,
       texto: ''
     };
   }
@@ -20,8 +21,9 @@ export default class TextVideo extends Component {
   render() {
     return (
       <div>
+        <h1>vídeo</h1>
         <div className="pc">
-          <p>Só funciona na versão mobile</p>
+          <p>Abre este website no teu telemóvel.</p>
         </div>
         <div className="mobile">
           <p>Escreve o teu texto para a notícia</p>
@@ -29,7 +31,7 @@ export default class TextVideo extends Component {
           <textarea className="input_text_perfil textarea_blue" onChange={this.MudarText}></textarea>
           <Link to={{
             pathname: '/criarconteudo',
-            state: { texto_video: this.state.texto }
+            state: { texto_video: this.state.texto, id_not: this.state.id_not }
           }}><button className="btn_normal textvid">Seguinte</button></Link>
         </div>
 

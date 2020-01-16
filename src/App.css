@@ -9,8 +9,35 @@ body {
   padding: 0;
 }
 
-/* scrollbar */
 
+/* fontes */
+@font-face {
+  font-family: Axiforma-Light;
+  src: url('./fonts/AxiformaLight.otf');
+}
+
+@font-face {
+  font-family: Axiforma-Light-Italic;
+  src: url('./fonts/AxiformaLightItalic.otf');
+}
+
+@font-face {
+  font-family: Axiforma-Regular;
+  src: url('./fonts/AxiformaRegular.otf');
+}
+
+@font-face {
+  font-family: Axiforma-Medium;
+  src: url('./fonts/AxiformaMedium.otf');
+}
+
+@font-face {
+  font-family: Axiforma-Semi;
+  src: url('./fonts/AxiformaSemiBold.otf');
+}
+
+
+/* scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -27,8 +54,8 @@ body {
   background: #555;
 }
 
-/* geral */
 
+/* geral */
 .conteudo {
   width: 100%;
   margin: auto;
@@ -53,10 +80,14 @@ body {
   position: absolute;
   top: 28px;
   left: 50px;
-  width: 182px;
+  width: 150px;
 }
 
-.Caminho_156 {
+#onda {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
   filter: drop-shadow(8px 3px 20px rgba(43, 43, 43, 0.349));
   overflow: visible;
   width: 100%;
@@ -64,120 +95,220 @@ body {
   transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
-.home {
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  list-style-type: none;
-  margin-top: 150px;
-}
-
-.suggestions {
-  padding: 0;
-}
-
-.listas {
-  font-size: 15px;
-  text-align: center;
-  text-decoration: none;
-  list-style-type: none;
-  background-color: rgb(231, 231, 231);
-  width: 20%;
-  color: rgb(155, 155, 155);
-  margin: auto;
-  margin-top: 15px;
-  padding: 10px;
-  cursor: pointer;
-}
-
 .btn_normal {
-  background-color: white;
-  border: 20;
-  border-radius: 20px;
-  border: 2px solid #0554F2;
-  width: 143px;
-  padding: 10px;
-  margin: 10px 10px 10px 10px;
-  color: #0554F2;
-  font-size: 15px;
-  transition: 0.3s ease-in;
-  margin: auto;
+  clear: both;
+  padding: 8px 20px;
+  margin: 10px auto 10px auto;
   display: block;
+  color: white;
+  background-color: #0554F2;
+  transition: 0.3s ease-in;
+  border: 2px solid #0554F2;
+  border-radius: 30px;
+  font-family: Axiforma-Semi;
+  font-size: 0.9rem;
 }
 
 .btn_normal:hover {
   cursor: pointer;
-  border: none;
-  color: white;
-  background-color: #0554F2;
+  color: #0554F2;
+  background-color: white;
   border: 2px solid #0554F2;
 }
 
-.btn_deletesearch {
-  background-color: white;
-  border: 20;
-  border-radius: 20px;
-  border: 2px solid #FC4747;
-  width: 100px;
-  padding: 10px;
-  margin: auto;
-  display: block;
-  color: #FC4747;
-  font-size: 15px;
-  cursor: pointer;
+a {
+  text-decoration: none;
 }
 
-.btn_deletesearch:hover {
-  background-color: #FC4747;
-  border: 2px solid #FC4747;
-  ;
+h1 {
+  font-family: Axiforma-Medium;
   color: white;
-  cursor: pointer;
+  opacity: 0.8;
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  margin: 5% 0 0 6%;
 }
 
+h2 {
+  font-family: Axiforma-Regular;
+  color: white;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 54px 0 0 90px;
+  width: 300px;
+  line-height: 3rem;
+}
+
+h4 {
+  text-align: left;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-family: Axiforma-Semi;
+  color: #2B2B2B;
+  margin: 8% auto 10px;
+}
+
+p {
+  font-family: Axiforma-Light;
+  font-size: 0.9rem;
+}
+
+
+/* listusers */
+.home {
+  clear: both;
+  text-align: center;
+  text-decoration: none;
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+.home .inputjornal {
+  padding: 10px 55px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.home .btn_deletesearch {
+  margin-bottom: 20px;
+}
+
+.suggestions {
+  width: 85%;
+  margin: auto;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.listas {
+  font-size: 0.9rem;
+  font-family: Axiforma-Regular;
+  text-align: center;
+  text-decoration: none;
+  list-style-type: none;
+  background-color: rgb(231, 231, 231);
+  color: #2B2B2B;
+  float: left;
+  margin: 0 15px 15px 0;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+#inserirSec {
+  background-color: #3D9DD9;
+  color: white;
+  font-size: 0.9rem;
+  font-family: Axiforma-Medium;
+  margin-bottom: 40px;
+  padding: 10px 30px;
+  border-radius: 30px;
+}
+
+
+/* login */
 .text_p_pequeno {
   font-size: 15px;
 }
 
-.input_text {
-  display: block;
-  background-color: white;
-  border: 20;
-  border-radius: 20px;
-  border-color: #0554F2;
-  font-size: 18px;
-  width: 450px;
-  padding: 10px;
-  color: rgb(93, 144, 248);
-  text-align: center;
-  margin: auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
+.login {
+  width: 460px;
+  margin: 200px auto 0 auto;
 }
 
-.duvida_btn {
-  background-image: url('./images_app/duvida.png');
+#img_login {
+  width: 50%;
+  margin: auto;
+  display: block;
+}
+
+.inputs {
+  width: 99%;
+  display: block;
+  margin: auto;
+  position: relative;
+}
+
+.inputs:first-of-type .input_text {
+  margin-top: 40px;
+}
+
+.labelInput {
+  width: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0554F2;
+  border-radius: 30px;
+  padding: 12px 0;
+  color: white;
+  font-family: Axiforma-Medium;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.input_text {
+  width: 99%;
+  display: block;
+  margin: 15px auto 15px;
+  padding: 8px 0;
+  background-color: white;
+  border-radius: 30px;
+  border: 2px solid #0554F2;
+  font-family: Axiforma-Light;
+  font-size: 1rem;
+  color: #2b2b2b;
+  text-align: center;
+}
+
+#olho {
+  position: absolute;
+  top: 10px;
+  right: 20px;
   background-color: transparent;
-  border: none;
-  width: 35px;
-  padding: 25px;
-  margin: 0 0 15px 15px;
-  background-repeat: no-repeat;
   cursor: pointer;
 }
 
+.duvida_btn {
+  width: 58%;
+  background-color: transparent;
+  cursor: pointer;
+  float: right;
+}
+
+.duvida_btn img {
+  width: 30px;
+}
+
 .p_login {
+  float: left;
+  margin: 5px 0 40px 0;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+}
+
+.p_message {
+  clear: both;
   text-align: center;
-  margin-left: 200px;
+  color: #FC4747;
+  font-size: 0.9rem;
+  font-family: Axiforma-Semi;
+  margin-bottom: 20px;
 }
 
 .p_login_membro {
+  margin-top: 30px;
   text-align: center;
+  font-family: Axiforma-Regular;
+  font-size: 0.8rem;
 }
 
 .p_registate {
   text-align: center;
   color: #0554F2;
+  font-family: Axiforma-Semi;
+  font-size: 0.8rem;
+  padding-bottom: 80px;
 }
 
 .p_registate a {
@@ -185,53 +316,663 @@ body {
   text-decoration: none;
 }
 
-.login {}
 
-.p_message {
-  text-align: center;
-  color: #FC4747;
+/* menu */
+#menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.superarte_login {
-  width: 300px;
-  height: auto;
+#menu ul {
+  display: inline-block;
+  list-style-type: none;
   margin: auto;
-  display: block;
+  padding: 20px 0;
 }
 
-/****JORNAL */
-
-#modal {
-  width: 100%;
-  height: 100%;
-  background-color: #2b2b2b93;
-  position: fixed;
-  top: 0;
-  left: 0;
+#menu li {
+  float: left;
+  padding: 0 20px;
+  font-family: Axiforma-Medium;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: white;
 }
 
-.p_modal {
+#menu a {
+  color: white;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.notactive {
+  border-bottom: 2px solid transparent;
+}
+
+.active {
+  border-bottom: 2px solid white;
+}
+
+#pesquisaJor input {
+  width: 80%;
   margin: auto;
-  text-align: center;
-  margin-top: 236px;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-top: 8%;
+}
+
+
+/* BotoesJornal.js */
+#botoesJornal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+#botoesJornal a {
+  float: left;
+  background-color: #3D9DD9;
+  color: white;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 10px 20px 7px;
+  border-radius: 30px;
+  margin: 12px 12px 60px;
+}
+
+#botoesJornal a {
+  text-decoration: none;
+}
+
+#botoesJornal a.activeBotaoJornal {
+  background-color: white;
+  color: #3D9DD9;
+  border: 2px solid #3D9DD9;
+  padding: 9px 20px 6px;
+}
+
+
+/* JornalNot.js */
+#jornalNot {
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+#criarNoticia {
+  background-color: #3D9DD9;
+  color: white;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 10px 40px 7px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#criarNotLink {
+  text-decoration: none;
+}
+
+#criarNotDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noticias {
+  width: 75%;
+  margin: 40px auto 10px;
+  background-color: #F2F2F2;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #2b2b2b;
+}
+
+.cols {
+  width: 20%;
+  float: left;
+}
+
+.cols h3 {
+  font-size: 1rem;
+  font-family: Axiforma-Medium;
+  text-transform: uppercase;
+}
+
+.cols p {
+  font-size: 0.9rem;
+  font-family: Axiforma-Light;
+}
+
+.cols h3:nth-of-type(2) {
+  margin-top: 20px;
+}
+
+.col1,
+.col2,
+.col3,
+.col4 {
+  margin: 20px 2% 0 3%;
+}
+
+.pEstado {
   color: #0554F2;
 }
 
-#card-outros-jornais {
-  width: 100%;
-  margin: auto;
-  overflow: hidden;
-  max-width: 1400px;
+#botoesNot {
+  clear: both;
+  float: right;
+  margin: 10px 40px 20px 0;
 }
 
-.card-jornal {
+#botoesNot a {
+  background-color: #0554F2;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px 8px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-family: Axiforma-Semi;
+  margin-right: 10px;
+}
+
+#botoesNot button.botaoDif {
+  background-color: #0554F2;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px 8px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-family: Axiforma-Semi;
+  margin-right: 10px;
+  line-height: 1;
+}
+
+.botaoDif {
+  cursor: pointer;
+}
+
+#botoesNot a.botaoDif {
+  background-color: #3D9DD9;
+}
+
+#botoesNot a.botaoDif:last-of-type {
+  margin-right: 0;
+}
+
+.comManchete {
+  background-color: transparent !important;
+  border: 2px solid #3D9DD9 !important;
+  color: #3D9DD9 !important;
+  padding: 9px 20px 7px !important;
+}
+
+.semManchete {
+  background-color: #0554F2 !important;
+  color: white !important;
+  border: 0 !important;
+  padding: 10px 20px 8px !important;
+}
+
+
+/* Noticia.js */
+#todosJornais {
+  width: 90%;
+  margin: 0 auto 80px;
+  overflow: hidden;
+}
+
+.escolheJornal {
+  width: 29%;
+  -ms-flex: 0 0 29%;
+  flex: 0 0 29%;
+  float: left;
+  max-width: 29%;
+  margin-bottom: 20px;
+  margin-right: 3%;
+  border: 3px solid #0554F2;
+  border-radius: 25px;
+  min-height: 220px;
+  display: table;
+  text-decoration: none;
+}
+
+.content {
+  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.escolheJornal:last-of-type {
+  margin-right: 0;
+}
+
+.escolheJornal h3 {
+  width: 90%;
+  margin: 20px auto 10px;
+  color: #2B2B2B;
+  font-family: Axiforma-Medium;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.escolheJornal p {
+  width: 80%;
+  margin: 0 auto 25px;
+  color: #2B2B2B;
+  font-family: Axiforma-Light;
+  font-size: 0.9rem;
+}
+
+#notDiv {
+  width: 88%;
+  max-width: 1800px;
+  margin: 8% auto 30px;
+}
+
+#notDiv h4 {
+  font-family: Axiforma-Semi;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+#notDiv p {
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+}
+
+
+/* EscolherTipoNot.js */
+.escolheTipo {
+  width: 28%;
+  flex: 0 0 30.5%;
+  float: left;
+  max-width: 30.5%;
+  margin-right: 6.5%;
+  border: 3px solid #0554F2;
+  border-radius: 25px;
+  min-height: 220px;
+  display: table;
+  text-decoration: none;
+}
+
+.escolheTipo:last-of-type {
+  margin-right: 0;
+}
+
+.escolheTipo h3 {
+  width: 90%;
+  margin: 20px auto 10px;
+  color: #2B2B2B;
+  font-family: Axiforma-Medium;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.escolheTipo p {
+  width: 80%;
+  margin: 0 auto 25px;
+  color: #2B2B2B;
+  text-align: center;
+}
+
+
+/* CriarNoticia.js */
+#criarNot {
+  width: 88%;
+  max-width: 1800px;
+  margin: 8% auto;
+  overflow: hidden;
+  color: #2B2B2B;
+}
+
+#criarNot h4 {
+  font-family: Axiforma-Semi;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+#notP {
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  margin-bottom: 60px;
+}
+
+#dir {
+  overflow: hidden;
+  z-index: 9999;
+  top: 50px;
+  right: 80px;
+}
+
+#esq {
+  width: 56%;
+  float: left;
+  overflow: hidden;
+  margin-right: 4%;
+}
+
+#criarNot textarea[name='tituloNot'] {
+  width: 100%;
+  font-family: Axiforma-Semi;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+#criarNot textarea[name='subtituloNot'] {
+  width: 100%;
+  font-family: Axiforma-Semi;
+  font-size: 1.2rem;
+  color: #585858;
+  margin-bottom: 40px;
+}
+
+.cke_editable,
+.cke_editable_inline,
+.cke_contents_ltr,
+.cke_show_borders {
+  width: 100%;
+  padding: 10px 0;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  max-width: 700px;
+  min-height: 200px;
+  border-radius: 20px;
+}
+
+#imagemNot {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+#criarNot label[for="imagemNot"] {
+  width: 80%;
+  display: inline-block;
+  margin: 0 auto 40px;
+  padding: 40px 9%;
+  font-size: 0.9rem;
+  font-family: Axiforma-Light;
+  color: #5D5D5D;
+  border: 2px dashed #B9B9B9;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#imagemNot img,
+#criarNot label img {
+  width: 50px;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.labelNot {
+  width: 100%;
+  display: block;
+  font-size: 0.9rem;
+  font-family: Axiforma-Medium;
+  margin: 40px 0 10px;
+}
+
+select#seccaoNot {
+  width: 490px;
+  display: block;
+  font-size: 0.9rem;
+  font-family: Axiforma-Regular;
+  padding: 8px 8px 14px;
+  background-color: white;
+  border: 2px solid #2B2B2B;
+  border-radius: 30px;
+  margin-bottom: 40px;
+}
+
+select#seccaoNot option {
+  background-color: rgb(238, 238, 238);
+  padding: 10px 10px 14px;
+  border-radius: 30px;
+}
+
+#palavrasChave {
+  width: 100%;
+  display: block;
+  margin: auto;
+  position: relative;
+  margin-top: 70px;
+}
+
+#labelPalavrasChave {
+  width: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0554F2;
+  border-radius: 30px;
+  padding: 12px 8px 10px;
+  color: white;
+  font-family: Axiforma-Medium;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+#keywords {
+  width: 320px;
+  display: block;
+  margin: 0;
+  padding: 8px 20px 8px 150px;
+  background-color: white;
+  border-radius: 30px;
+  border: 2px solid #0554F2;
+  font-family: Axiforma-Light;
+  font-size: 1rem;
+  color: #2b2b2b;
+  text-align: left;
+}
+
+button#addPalavraChave {
+  background-color: #3D9DD9;
+  color: white;
+  padding: 10px 20px 8px;
+  border-radius: 30px;
+  font-family: Axiforma-Semi;
+  font-size: 0.9rem;
+  float: right;
+  margin: 10px 175px 0 0;
+}
+
+#naoVe {
+  display: none;
+}
+
+.palavraSel {
+  background-color: #F2F2F2;
+  float: left;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-family: Axiforma-Light;
+  font-size: 0.9rem;
+  margin: 10px 20px 0 0;
+}
+
+.palavraSel img {
+  padding: 1px 2px 1px 8px;
+  float: right;
+}
+
+#caixa {
+  overflow: hidden;
+  width: 75%;
+  margin-top: 20px;
+  clear: both;
+  display: block;
+}
+
+#guia {
+  overflow: hidden;
+}
+
+#dir img {
+  width: 25%;
+  margin-bottom: 40px;
+  float: left;
+}
+
+#balao {
+  background-color: #f9f9f9;
+  width: 53%;
+  margin-left: 5%;
+  overflow: hidden;
+  float: left;
+  padding: 20px;
+  -webkit-box-shadow: 3px 3px 8px 0px rgb(228, 228, 228);
+  -moz-box-shadow: 3px 3px 8px 0px rgb(228, 228, 228);
+  box-shadow: 3px 3px 8px 0px rgb(228, 228, 228);
+  border-radius: 25px;
+  font-family: Axiforma-Regular;
+  font-size: 0.8rem;
+}
+
+#balao h6 {
+  font-size: 1rem;
+  font-family: Axiforma-Medium;
+  margin-bottom: 2px;
+}
+
+#botoesRevGuarda {
+  margin-top: 40px;
+  overflow: hidden;
+  float: right;
+}
+
+#revisao {
+  background-color: #3D9DD9;
+  text-transform: uppercase;
+  color: white;
+  font-size: 0.9rem;
+  font-family: Axiforma-Medium;
+  padding: 10px 15px 8px;
+  border-radius: 30px;
+  margin-right: 20px;
+}
+
+#guardar {
+  background-color: #0554F2;
+  text-transform: uppercase;
+  color: white;
+  font-size: 0.9rem;
+  font-family: Axiforma-Medium;
+  padding: 10px 15px 8px;
+  border-radius: 30px;
+}
+
+#imageUploaded {
+  width: 100%;
+}
+
+#imageUploaded2 {
+  width: 100%;
+}
+
+#charCount {
+  font-size: 0.8rem;
+  font-family: Axiforma-Regular;
+  color: #2B2B2B;
+  text-align: right;
+}
+
+#charCount span {
+  font-family: Axiforma-Medium;
+}
+
+h4#notRel {
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+
+/* ListarPublico.js */
+.NoticiRelacionada {
+  width: 30%;
+  margin-right: 2%;
+  overflow: hidden;
+}
+
+.NoticiRelacionada img {
+  width: 100%;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+.NoticiRelacionada h5 {
+  font-size: 0.9rem;
+  font-family: Axiforma-Medium;
+}
+
+.NoticiRelacionada span {
+  font-size: 0.8rem;
+  font-family: Axiforma-Light-Italic;
+}
+
+
+/* Redacao.js */
+#redacao {
+  overflow: hidden;
+}
+
+#redacao a {
+  text-decoration: none;
+}
+
+#redacao h4 {
+  font-family: Axiforma-Semi;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  width: 88%;
+  max-width: 1800px;
+  margin: 8% auto 10px;
+  overflow: hidden;
+}
+
+#redacao #notP {
+  width: 88%;
+  margin: 0 auto 30px;
+}
+
+#redacao img {
+  width: 345px;
+  margin: auto;
+  display: block;
+  margin-bottom: 60px;
+}
+
+button#btnCriaJornal {
+  background-color: #0554F2;
+  padding: 10px 15px;
+  color: white;
+  font-size: 0.9rem;
+  font-family: Axiforma-Medium;
+  text-transform: uppercase;
+  margin: 0 auto 80px;
+  border-radius: 30px;
+  display: block;
+}
+
+.meusJornais {
   width: 25%;
   float: left;
   background-color: #F2F2F2;
   border-radius: 30px;
-  margin: 30px 3.8% 30px 4.5%;
+  margin: 0 3.8% 80px 4.5%;
   min-height: 450px;
   position: relative;
 }
@@ -245,7 +986,7 @@ body {
 .infosJornal h4 {
   text-align: left;
   float: none;
-  margin: 0 0 20px 0;
+  margin: 0 0 20px 0 !important;
   font-size: 1.2rem;
   text-transform: uppercase;
   font-family: Axiforma-Semi;
@@ -255,6 +996,18 @@ body {
   text-align: left;
   font-size: 0.9rem;
   font-family: Axiforma-Light;
+}
+
+.infosJornal p.nomeRoleJornal {
+  color: #0554F2;
+  text-align: right;
+  margin-top: 10px;
+  font-family: Axiforma-Light-Italic;
+  margin-right: 10px;
+}
+
+.infosJornal a {
+  text-decoration: none;
 }
 
 #outrosJornais {
@@ -269,9 +1022,7 @@ body {
 .botoesJornais {
   width: 80%;
   overflow: hidden;
-  position: absolute;
-  bottom: 30px;
-  left: 10%;
+  margin: 0 auto 20px;
 }
 
 .botoesJornais button {
@@ -281,6 +1032,319 @@ body {
   font-size: 0.8rem;
   color: white;
   border-radius: 25px;
+}
+
+.botoesJornais a {
+  text-decoration: none;
+}
+
+.botoesJornais .entrar {
+  background-color: #0554F2;
+  margin: auto;
+  display: block;
+}
+
+.botoesJornais #editJornal {
+  background-color: #3D9DD9;
+  margin: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+.descJornal {
+  width: 178px !important;
+  padding: 22px 10px !important;
+}
+
+
+/* AtividadeRecente.js */
+#ativs {
+  width: 90%;
+  max-width: 1300px;
+  overflow: hidden;
+  margin: 0 auto 40px;
+}
+
+.atividade {
+  width: 26%;
+  float: left;
+  margin-right: 3.333333%;
+  background-color: #F2F2F2;
+  border-radius: 20px;
+  padding: 15px 2%;
+  margin-bottom: 40px;
+  font-size: 0.9rem;
+  font-family: Axiforma-Regular;
+  color: #2B2B2B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.atividade a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fotoUser {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  float: left;
+  margin: 6% 20px 6% 0;
+}
+
+.blocoEsq {
+  width: 75%;
+}
+
+.semNada {
+  font-size: 0.9rem;
+  font-family: Axiforma-Regular;
+  text-align: center;
+}
+
+.semNadaImage {
+  margin: auto;
+  display: block;
+  height: 220px;
+  margin-bottom: 30px;
+}
+
+#jornalNot .semNada {
+  margin-bottom: 30px;
+}
+
+
+/* Editoria.js */
+#editoria {
+  width: 90%;
+  margin: auto;
+  padding-bottom: 40px;
+  overflow: hidden;
+  max-width: 1300px;
+}
+
+#editoria h4 {
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-family: Axiforma-Medium;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#todasSeccoes {
+  width: 60%;
+  float: left;
+  padding: 2%;
+  border-right: 1px solid rgb(116, 116, 116);
+  padding-bottom: 40px;
+}
+
+#todaEquipa {
+  width: 25%;
+  float: left;
+  overflow: hidden;
+  padding: 2%;
+}
+
+.seccoes {
+  width: 38%;
+  float: left;
+  background-color: #F6F6F6;
+  border-radius: 20px;
+  margin: 2%;
+  padding: 20px 4%;
+}
+
+.seccoes h5 {
+  text-transform: uppercase;
+  font-family: Axiforma-Medium;
+  font-size: 0.9rem;
+}
+
+.seccoes button {
+  background-color: #3D9DD9;
+  color: white;
+  font-size: 0.9rem;
+  font-family: Axiforma-Semi;
+  padding: 8px 20px;
+  margin: 20px auto 0;
+  display: block;
+  border-radius: 30px;
+}
+
+#todaEquipa button {
+  background-color: #0554F2;
+  color: white;
+  padding: 8px 25px;
+  font-size: 0.9rem;
+  font-family: Axiforma-Semi;
+  border-radius: 30px;
+  margin: 0 auto 40px;
+  display: block;
+}
+
+.equipa {
+  background-color: #F2F2F2;
+  padding: 30px 4%;
+  width: 34%;
+  float: left;
+  margin: 4%;
+  border-radius: 30px;
+}
+
+.equipa .divImage {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+}
+
+.equipa p {
+  font-size: 0.8rem;
+  font-family: Axiforma-Light;
+  text-align: center;
+}
+
+#listaUsers {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+#editoriaUsers {
+  background-color: rgb(230, 230, 230);
+  width: 50%;
+  overflow: hidden;
+  padding: 40px;
+  margin-left: 25%;
+  margin-top: 50px;
+  border-radius: 40px;
+}
+
+#listaUsers .divImage {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  padding: 0;
+  float: left;
+  margin-right: 20px;
+}
+
+.individual {
+  overflow: hidden;
+  clear: both;
+  margin-bottom: 40px;
+}
+
+#listaUsers p {
+  line-height: 3rem;
+}
+
+.seccoes .divImage {
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  border-radius: 50%;
+  margin: 10px 20px 20px 0;
+}
+
+
+/****JORNAL */
+#modal {
+  width: 100%;
+  height: 100%;
+  background-color: #2b2b2b93;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#modalInside {
+  background-color: #F2F2F2;
+  padding: 20px 30px;
+  width: 40%;
+  height: 100px;
+  margin-top: 15%;
+  border-radius: 30px;
+}
+
+.p_modal {
+  margin: 0 auto 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: #2B2B2B;
+}
+
+.btn_deletesearch {
+  background-color: #FC4747;
+  border: 1px solid #FC4747;
+  border-radius: 20px;
+  padding: 8px 25px 6px;
+  margin: auto;
+  display: block;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: Axiforma-Medium;
+  text-transform: uppercase;
+}
+
+.btn_deletesearch:hover {
+  background-color: white;
+  color: #FC4747;
+  cursor: pointer;
+}
+
+#criarJornal {
+  background-color: #3D9DD9;
+  color: white;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 10px 40px 7px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: auto;
+  display: block;
+}
+
+#card-outros-jornais {
+  width: 100%;
+  margin: auto;
+  padding-bottom: 40px;
+  overflow: hidden;
+  max-width: 1300px;
+}
+
+#card-outros-jornais h4 {
+  margin-left: 5%;
+}
+
+.card-jornal {
+  width: 25%;
+  float: left;
+  background-color: #F2F2F2;
+  border-radius: 30px;
+  margin: 30px 3.8% 30px 4.5%;
+  min-height: 450px;
+  position: relative;
 }
 
 .botoesJornais .ver {
@@ -296,16 +1360,16 @@ body {
 .btn_back {
   display: inline-block;
   background-color: #3D9DD9;
-  border-radius: 20px;
+  border-radius: 30px;
   border: 2px solid #3D9DD9;
-  padding: 10px 30px;
-  margin: 10px 10px 50px 70px;
+  padding: 10px 30px 8px;
+  margin: 10px 10px 30px 0;
   color: #ffffff;
   font-size: 0.9rem;
   transition: 0.3s ease-in;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: Axiforma-Medium;
+  font-family: Axiforma-Medium;
 }
 
 .btn_back:hover {
@@ -315,25 +1379,49 @@ body {
   background-color: #ffffff;
 }
 
-/**CRIAR JORNAL*/
+
+/* CriarJornal.js */
+.seguinte {
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  font-family: Axiforma-Semi;
+  background-color: #0554F2;
+  color: white;
+  float: left;
+  border-radius: 30px;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in-out;
+  border: 1px solid #0554F2;
+  cursor: pointer;
+}
+
+.seguinte:hover {
+  background-color: white;
+  color: #0554F2;
+}
 
 .criarjornal {
-  margin-bottom: 80px;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 80px;
+  max-width: 1300px;
 }
 
 .select_instituicao {
-  width: 400px;
-  height: 30px;
+  width: 56.5%;
+  padding: 10px 0 12px 15%;
   font-size: 1rem;
+  border: 2px solid blue;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  color: #2B2B2B;
+  font-family: Axiforma-Regular;
 }
 
 .btn_jornais {
-  width: 100%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-top: 50px;
+  float: right;
+  padding-bottom: 80px;
 }
 
 .linkbtn_normal {
@@ -344,13 +1432,32 @@ body {
 .linkbtn_delete {
   float: left;
   text-decoration: none;
-  margin-right: 500px;
+  font-size: 0.9rem;
+  margin-right: 30px;
 }
 
-/**** Especifico jornal */
+#todasCores {
+  clear: both;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
 
+
+/**** Especifico jornal */
 #singleJor {
-  margin-bottom: 80px;
+  padding-top: 8%;
+  padding-bottom: 80px;
+}
+
+#singleJor h4 {
+  float: left;
+  margin: 20px 70px;
+}
+
+#singleJor .btn_back {
+  margin-left: 60px;
 }
 
 .image_jornal {
@@ -367,7 +1474,7 @@ body {
 .nav_jornal {
   float: right;
   margin-right: 40px;
-  margin: 16px 60px 0 0;
+  margin: 25px 60px 20px 0;
 }
 
 .nav_jornal ul {
@@ -379,6 +1486,7 @@ body {
   float: left;
   margin: 0 15px;
   font-size: 1rem;
+  font-family: Axiforma-Regular;
 }
 
 .nav_jornal li a {
@@ -390,14 +1498,6 @@ body {
   opacity: 0.7;
 }
 
-/* h4 {
-  font-size: 1.2rem;
-  float: left;
-  text-transform: uppercase;
-  margin: 15px 0 15px 60px;
-  font-family: Axiforma-Semi;
-} */
-
 .manchete_div {
   clear: both;
   width: 90%;
@@ -408,7 +1508,7 @@ body {
 #noManchete {
   font-family: Axiforma-Medium;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .manchete_img {
@@ -596,105 +1696,156 @@ body {
   font-size: 0.9rem;
 }
 
-p {
-  font-family: Axiforma-Semi;
-  font-size: 1.4rem;
-}
-
 .single_noticia p {
   margin: 20px;
   justify-content: center;
   text-align: left;
 }
 
-/* media queries */
 
-@media screen and (max-width: 800px) {
-  .NotIndividual {
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-    padding-right: 0;
-    float: none;
-    margin-bottom: 50px;
-  }
-  h4 {
-    width: 100%;
-    text-align: center;
-    margin: 20px 0;
-  }
-  .nav_jornal {
-    float: none;
-    margin: 0 auto 20px;
-  }
-  .nav_jornal {
-    float: none;
-    margin: 0 auto 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    clear: both;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .NotIndividual2 {
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-    padding-right: 0;
-    float: none;
-    margin-bottom: 50px;
-  }
-}
-
-/*******CRIAR JORNAL***/
-
+/* CriarJornal */
 .inputjornal {
   border: 2px solid #0554F2;
-  border-radius: 10px;
-  width: 500px;
-  height: 30px;
-  margin: 10px;
-  padding-left: 100px;
+  border-radius: 30px;
+  width: 40%;
+  padding: 10px 0 6px 16%;
+  margin-bottom: 40px;
+  font-size: 0.9rem;
+  color: #2B2B2B;
+  font-family: Axiforma-Regular;
 }
 
 .inputjornal2 {
   border: 2px solid #0554F2;
-  border-radius: 10px;
-  width: 500px;
-  height: 100px;
-  margin: 10px;
+  border-radius: 30px;
+  width: 60%;
+  min-height: 150px;
+  padding: 10px 20px 6px 16%;
+  margin-bottom: 40px;
+  font-size: 0.9rem;
+  color: #2B2B2B;
+  font-family: Axiforma-Regular;
 }
 
-#bluediv {
+#inputjornalfile {
+  clear: both;
+}
+
+#todasSec {
+  overflow: hidden;
+}
+
+.bluediv {
   background-color: #0554F2;
-  border-radius: 10px;
-  height: 35px;
-  width: 100px;
-  margin: 10px;
+  border-radius: 30px;
+  width: 150px;
+  padding: 10px 0 10px 20px;
   position: absolute;
 }
 
-#bluediv p {
-  margin-top: 8px;
-  font-size: 15px;
+.bluediv p {
+  font-size: 0.9rem;
   color: white;
+  font-family: Axiforma-Regular;
+}
+
+#bluedivSec {
+  background-color: #0554F2;
+  border-radius: 30px;
+  width: 150px;
+  padding: 10px 0 10px 20px;
+  margin-bottom: 20px;
+}
+
+#bluedivSec p {
+  font-size: 0.9rem;
+  color: white;
+  font-family: Axiforma-Regular;
+}
+
+#bluedivDesc {
+  background-color: #0554F2;
+  border-radius: 30px;
+  width: 150px;
+  padding: 10px 0 10px 20px;
+  position: absolute;
+  min-height: 150px;
+}
+
+#bluedivDesc p {
+  font-size: 0.9rem;
+  color: white;
+  font-family: Axiforma-Regular;
+}
+
+.seccoesJornalEscolha {
+  float: left;
+}
+
+.criarjornal label {
+  width: auto;
+  margin: 0 20px 40px 0;
+  display: inline-block;
+  background-color: white;
+  padding: 8px 20px;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid #0554F2;
+  color: #0554F2;
+}
+
+.criarjornal input[type="checkbox"] {
+  display: none;
+}
+
+.criarjornal input[type="checkbox"]:checked+label {
+  background-color: #3D9DD9;
+  font-family: Axiforma-Medium;
+  color: white;
+  border-radius: 20px;
+  border: 1px solid #3D9DD9;
+}
+
+#naoEncontra {
+  clear: both;
+  text-align: right;
+}
+
+#addSec {
+  float: right;
+  padding: 8px 20px;
+  margin: 10px auto 40px auto;
+  display: block;
+  color: white;
+  background-color: #3D9DD9;
+  transition: 0.3s ease-in;
+  border-radius: 30px;
+  font-family: Axiforma-Semi;
+  font-size: 0.9rem;
 }
 
 .palete_personalizada {
   float: left;
   overflow: hidden;
-  margin: 40px 4%;
+  margin: 20px auto;
 }
 
 .palete_personalizada div {
   float: left;
   width: 30px;
   height: 30px;
-  border: 1px solid black;
+  border: 1px solid #2B2B2B;
   overflow: hidden;
   margin-bottom: 10px;
+}
+
+.identifica {
+  margin-top: 40px;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  color: #2B2B2B;
 }
 
 .input_palete {
@@ -705,24 +1856,50 @@ p {
 
 .colman_personalizada {
   overflow: hidden;
-  margin: 40px 41%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.colman_personalizada div {
+  float: left;
+  margin: 0 20px;
 }
 
 .colman_personalizada img {
-  border: 1px solid black;
+  border: 1px solid #2B2B2B;
   overflow: hidden;
   margin-bottom: 10px;
 }
 
+..palete_personalizada input,
 .colman_personalizada input {
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
+  border: 1px solid #2B2B2B;
   overflow: hidden;
   margin-bottom: 10px;
 }
 
-/******NOTIFICAÇÃO****/
+
+/* BotoesLateral.js */
+#botoesLateral {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  padding: 20px;
+}
+
+#botoesLateral a {
+  float: left;
+}
+
+#botoesLateral button {
+  margin: 0 5px;
+}
+
+#allNotif {
+  float: left;
+  position: relative;
+}
 
 .notificacao {
   width: 50px;
@@ -730,9 +1907,6 @@ p {
   background-color: white;
   border-radius: 50px;
   background-repeat: no-repeat;
-  position: absolute;
-  top: 5px;
-  left: 90%;
 }
 
 .notificacao img {
@@ -769,8 +1943,8 @@ p {
   min-height: 150px;
   max-height: 300px;
   position: absolute;
-  top: 65px;
-  right: 40px;
+  top: 50px;
+  right: -40px;
   overflow: auto;
   background-color: #F2F2F2;
   border-radius: 20px;
@@ -790,6 +1964,11 @@ p {
   width: 85%;
   margin: auto;
   font-family: Axiforma-Light;
+  overflow: hidden;
+}
+
+.textNotif .divnoti a {
+  color: inherit;
 }
 
 .textNotif .divnoti p {
@@ -807,7 +1986,8 @@ p {
   float: left;
 }
 
-.noti_btn, .noti_btn_cance {
+.noti_btn,
+.noti_btn_cance {
   text-decoration: underline;
   font-size: 0.8rem;
   font-family: Axiforma-Regular;
@@ -840,9 +2020,6 @@ p {
   background-color: white;
   border-radius: 50px;
   background-repeat: no-repeat;
-  position: absolute;
-  top: 5px;
-  left: 85%;
   cursor: pointer;
 }
 
@@ -864,9 +2041,6 @@ p {
   background-color: white;
   border-radius: 50px;
   background-repeat: no-repeat;
-  position: absolute;
-  top: 5px;
-  left: 80%;
   cursor: pointer;
 }
 
@@ -912,15 +2086,14 @@ p {
 .input_text_perfil {
   width: 50%;
   display: block;
-  margin: auto 15px;
-  padding: 8px 0;
+  padding: 9px 20px 9px 22%;
   background-color: white;
   border-radius: 30px;
   border: 2px solid #0554F2;
-  font-family: Axiforma-Light;
-  font-size: 1rem;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
   color: #2b2b2b;
-  text-align: center;
+  text-align: left;
 }
 
 .fotografia {
@@ -930,17 +2103,21 @@ p {
 }
 
 .bio {
-  padding-top: 37px;
+  padding: 22px 0;
 }
 
 .data {
-  padding-top: 27px;
+  padding-left: 22%;
 }
 
 .select {
-  width: 40%;
-  margin: auto 140px;
+  width: 75%;
   height: 46px;
+}
+
+#inputsPerfil {
+  width: 70%;
+  margin: auto;
 }
 
 .WroCl {
@@ -972,8 +2149,8 @@ p {
   background-color: #F2F2F2;
 }
 
-/* MobileVideo.js */
 
+/* MobileVideo.js */
 #addConteudo {
   background-color: #0554F2;
   color: white;
@@ -985,8 +2162,8 @@ p {
   display: block;
 }
 
-/* RecebeVideo.js */
 
+/* RecebeVideo.js */
 .videos {
   height: 200px;
   margin: 20px;
@@ -1012,13 +2189,193 @@ p {
   background: #FC4747 !important;
 }
 
+
+/* VerPerfil.js */
+#vePerf .btn_back {
+  margin: 7.5% 0 0 5%;
+}
+
+.div_perfil {
+  margin: auto;
+  width: 40%;
+  text-align: left;
+  display: block;
+  background-color: #F2F2F2;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  margin: 40px auto 80px;
+  font-size: 0.9rem;
+  font-family: Axiforma-Regular;
+}
+
+#fotoPerfil {
+  height: 250px;
+  margin: auto;
+  display: block;
+}
+
+#nomePerfil {
+  margin: auto;
+  text-align: center;
+  float: none;
+  padding: 20px 0;
+  font-size: 1.2rem;
+  font-family: Axiforma-Medium;
+}
+
+.div_perfil h5 {
+  float: left;
+  font-size: 1.1rem;
+  padding-left: 40px;
+  clear: both;
+  color: #0554F2;
+  margin-bottom: 30px;
+  font-family: Axiforma-Medium;
+}
+
+.div_perfil p {
+  float: left;
+  margin-left: 20px;
+}
+
+
+/* ConviteJornal.js */
+.div_user {
+  width: 30%;
+  overflow: hidden;
+  margin: auto;
+  display: flex;
+  background-color: #F2F2F2;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  min-width: 300px;
+  justify-content: center;
+}
+
+.image_jornal_convite {
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  display: block;
+  background-size: cover;
+  border-radius: 80px;
+  background-repeat: no-repeat;
+  float: left;
+  margin: 12px 20px 12px 0;
+}
+
+.div_user p {
+  float: left;
+  margin: 28px 0;
+}
+
+.div_user a {
+  color: inherit;
+}
+
+.divs_btn {
+  clear: both;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.btn_aceitar {
+  color: white;
+  font-family: Axiforma-Semi;
+  background-color: #0554F2;
+  width: 40px;
+  height: 30px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.btn_rejeitar {
+  color: white;
+  font-family: Axiforma-Semi;
+  background-color: #FC4747;
+  width: 40px;
+  height: 30px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+#pedidosRecebidos h4 {
+  text-align: center;
+  margin: 10px auto 30px;
+}
+
+
+/* Editar perfil */
+#perfil {
+  width: 90%;
+  margin: auto;
+  max-width: 1300px;
+}
+
+#perfil .btn_back {
+  display: block;
+  margin: 8% 0 0 5%;
+}
+
+#perfil .labelInput {
+  width: 170px;
+}
+
+#editJornalFoto {
+  height: 300px;
+  border-radius: 30px;
+  margin: auto;
+  display: block;
+}
+
+
+/* rev */
+#revText {
+  width: 50%;
+  display: block;
+  padding: 20px;
+  background-color: white;
+  border-radius: 30px;
+  border: 2px solid #0554F2;
+  font-family: Axiforma-Regular;
+  font-size: 0.9rem;
+  color: #2b2b2b;
+  text-align: left;
+  margin: 7% auto 20px;
+}
+
+#feedback .btn_normal {
+  margin-bottom: 40px;
+}
+
+#feedback .single_noticia h4,
+#feedback .single_noticia h5,
+#feedback .single_noticia p {
+  width: 80%;
+  margin: auto;
+}
+
+#feedback .single_noticia p {
+  margin-top: 20px;
+}
+
+
 @keyframes movingTopToBottom {
   0% {
     top: -15px;
   }
+
   95% {
     top: 150px;
   }
+
   100% {
     top: 165px;
   }
@@ -1045,21 +2402,101 @@ p {
   display: block;
 }
 
-/***MOBILE***/
+#gravarVideo {
+  display: none;
+}
 
+
+/* media queries */
+@media screen and (max-width: 900px) {
+  .card-jornal {
+    width: 70%;
+    float: none;
+    margin: 40px auto;
+  }
+
+  .meusJornais {
+    width: 70%;
+    float: none;
+    margin: 20px auto;
+  }
+
+  .infosJornal {
+    width: 90%;
+    margin: 5%;
+    margin-bottom: 20px;
+  }
+
+  .botoesJornais {
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .NotIndividual {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 0;
+    float: none;
+    margin-bottom: 50px;
+  }
+
+  h4 {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .nav_jornal {
+    float: none;
+    margin: 0 auto 20px;
+  }
+
+  .nav_jornal {
+    float: none;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clear: both;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .NotIndividual2 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 0;
+    float: none;
+    margin-bottom: 50px;
+  }
+
+  .card-jornal,
+  .meusJornais {
+    width: 91%;
+  }
+}
+
+
+/* mobile */
 @media screen and (max-width: 800px) {
   .mobile {
     display: block;
   }
+
   .pc {
     display: none
   }
 
-  .mobile  p{
-    text-align:center;
+  .mobile p {
+    text-align: center;
   }
 
-  .input_text_perfil, .textarea_blue {
+  .input_text_perfil,
+  .textarea_blue {
     margin: auto;
     display: block;
     height: 200px;
@@ -1067,7 +2504,80 @@ p {
     margin-bottom: 30px;
   }
 
-  .btn_normal ,.textvid {
-      text-decoration: none;
+  .btn_normal,
+  .textvid {
+    text-decoration: none;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  #menu {
+    display: none;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin: 20ox 0 0 6%;
+  }
+
+  .logo_branco {
+    width: 120px;
+    display: block;
+    margin: 10px auto 0;
+    position: unset;
+  }
+
+  #botoesLateral {
+    display: none;
+  }
+
+  .cols {
+    float: none;
+    width: 100%;
+  }
+
+  #botoesNot {
+    display: none;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: auto;
+    color: #2B2B2B;
+    margin-top: 8%;
+  }
+
+  #botoesJornal {
+    display: none;
+  }
+
+  #criarNoticia {
+    display: none;
+  }
+
+  #gravarVideo {
+    width: 120px;
+    display: block;
+    background-color: #0554F2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-align: center;
+    margin: 20px auto;
+    font-size: 0.9rem;
+    font-family: Axiforma-Medium;
+  }
+
+  #videos {
+    width: 80%;
+    margin: 40px auto;
+    display: block;
+    border-radius: 30px;
+  }
+
+  #videos:first-of-type {
+    margin-top: 140px;
   }
 }

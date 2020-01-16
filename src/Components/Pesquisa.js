@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+
 let suggestions = [];
 let htlm;
+
 export default class Pesquisa extends Component {
-
-
     constructor(props) {
         super(props);
         this.state = {
@@ -14,7 +14,7 @@ export default class Pesquisa extends Component {
             filteredSuggestions: [],
             showSuggestions: false,
             userInput: '',
-            showJornal:false
+            showJornal: false
         };
     }
 
@@ -42,7 +42,6 @@ export default class Pesquisa extends Component {
     }
 
     onChange = (e) => {
-
         console.log(suggestions);
         const userInput = e.currentTarget.value;
         const filteredSuggestions = suggestions.filter(
@@ -69,7 +68,7 @@ export default class Pesquisa extends Component {
         for (let i = 0; i < this.state.data.length; i++) {
             if (this.state.data[i].nome_jornal === e.currentTarget.innerText) {
                 console.log('find' + this.state.data[i].nome_jornal);
-                
+
                 htlm = <div className="card-jornal">
                     <div id="outrosJornais" style={{ backgroundImage: `url(http://noticiarte.ddns.net/uploads/${this.state.data[i].imagem_jornal})` }}></div>
                     <div className="infosJornal">
@@ -77,14 +76,14 @@ export default class Pesquisa extends Component {
                         <p >{this.state.data[i].descricao}</p>
                     </div>
                     <div className="botoesJornais">
-                        <Link  to={{
+                        <Link to={{
                             pathname: '/verjornal/' + this.state.data[i].id,
                             state: { jornal_id: this.state.data[i].id }
                         }}><button className="ver"  >Ver</button></Link>
                     </div>
                 </div>;
                 this.setState({
-                    showJornal:true
+                    showJornal: true
                 })
                 break;
             }
@@ -143,7 +142,7 @@ export default class Pesquisa extends Component {
             );
         } else {
             return (
-                <div >
+                <div id="pesquisaJor">
                     <h2>Jornais Pesquisados</h2>
 
                     <input className="input_text"
@@ -161,7 +160,7 @@ export default class Pesquisa extends Component {
           </button>
                     {suggestionsListComponent}
 
-                    {this.state.showJornal == true ? htlm : console.log('oi') }
+                    {this.state.showJornal == true ? htlm : console.log('oi')}
                 </div>
             )
         }

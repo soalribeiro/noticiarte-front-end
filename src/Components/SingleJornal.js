@@ -8,7 +8,6 @@ import OutrasNot from './CriarNoticias/OutrasNot';
 import OutrasNot2 from './CriarNoticias/OutrasNot2';
 
 export default class SingleJornal extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -20,9 +19,6 @@ export default class SingleJornal extends Component {
     }
 
     componentDidMount() {
-
-
-
         axios.get('http://noticiarte.ddns.net/api/jornais/' + this.state.id_jornal)
             .then((response) => {
                 this.setState({
@@ -36,10 +32,8 @@ export default class SingleJornal extends Component {
                     seccoes: response.data
                 })
             });
-
-
-
     }
+
 
     renderSwitch(param) {
         switch (param.Manchete && param.colunas) {
@@ -80,34 +74,36 @@ export default class SingleJornal extends Component {
         }
     }
 
-    render() {
 
+    render() {
         if (!this.state.jornaldapagina || !this.state.seccoes) {
             return (
                 <div>
-                    <h1>Carregando</h1>
+                    <h1>Jornal</h1>
+                    <div id="carrega">A carregar...</div>
                 </div>
             );
         } else {
             let conso = JSON.parse(this.state.jornaldapagina.html_json);
 
-
             return (
-                <div id="singleJor">
-                    <Link className="btn_back" to={'/jornais'}>Voltar</Link>
+                <div>
+                    <h1>Jornal</h1>
 
-                    <Navbar id_jornal={this.state.id_jornal}
-                        nomejornal={this.state.jornaldapagina.nome_jornal}
-                        imagejornal={this.state.jornaldapagina.imagem_jornal}
-                        palete={this.state.jornaldapagina.cor_id}
-                        seccoes={this.state.seccoes}
-                        id_sec={'non'}
-                    />
+                    <div id="singleJor">
+                        <Link className="btn_back" to={'/jornais'}>Voltar</Link>
 
-                    {this.renderSwitch(conso)}
+                        <Navbar id_jornal={this.state.id_jornal}
+                            nomejornal={this.state.jornaldapagina.nome_jornal}
+                            imagejornal={this.state.jornaldapagina.imagem_jornal}
+                            palete={this.state.jornaldapagina.cor_id}
+                            seccoes={this.state.seccoes}
+                            id_sec={'non'}
+                        />
 
+                        {this.renderSwitch(conso)}
+                    </div>
                 </div>
-
             );
 
         }

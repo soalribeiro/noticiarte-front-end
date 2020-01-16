@@ -33,9 +33,7 @@ export default class SingleNoticia extends Component {
 
         if (!this.state.infonoticia) {
             return (
-                <h2>
-                    Carregando ou não tem notícias :(
-            </h2>
+                <div id="carrega">A carregar...</div>
             );
         } else {
 
@@ -58,7 +56,7 @@ export default class SingleNoticia extends Component {
                     }}></div>
 
                     <div dangerouslySetInnerHTML={this.createMarkup(corponot)} />
-                </div >
+                </div>
             )
         }
 

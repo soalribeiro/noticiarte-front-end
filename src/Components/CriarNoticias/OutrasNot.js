@@ -44,15 +44,13 @@ export default class OutrasNot extends Component {
     render() {
         if (!this.state.palete_cores || !this.state.noticiasjornal) {
             return (
-                <div>
-                    <h2>Carregando</h2>
-                </div>
+                <div id="carrega">A carregar...</div>
             )
         } else {
             if (this.state.noticiasjornal.length == 0) {
                 return (
                     <div>
-                        <h3 style={{ textAlign: 'center' }}>Ainda não tem notícias</h3>
+                        <h3 id="noManchete">Ainda não tem notícias.</h3>
                     </div>
                 );
             } else {
@@ -60,12 +58,14 @@ export default class OutrasNot extends Component {
                     console.log('manchete' + noticia.manchete)
                     if (noticia.manchete === 0) {
                         return (
-                            <Link className="NotIndividual" 
-                            to={{
-                                pathname: '/vernoticias/' + noticia.id,
-                                state: { noticia_id: noticia.id,
-                                    jornal_id:this.props.id_jornal }
-                            }}>
+                            <Link className="NotIndividual"
+                                to={{
+                                    pathname: '/vernoticias/' + noticia.id,
+                                    state: {
+                                        noticia_id: noticia.id,
+                                        jornal_id: this.props.id_jornal
+                                    }
+                                }}>
                                 <div key={'divTotal' + index} >
 
                                     <div key={'imagem' + index} className="imgNot"
@@ -74,7 +74,7 @@ export default class OutrasNot extends Component {
                                     <h6 key={'h6' + index}
                                         style={{ color: this.state.palete_cores.cor5 }}>{noticia.titulo_noticia}</h6>
 
-<div key={'p' + index}  style={{ color: this.state.palete_cores.cor3 }} dangerouslySetInnerHTML={this.createMarkup(noticia.subtitulo_noticia)} />
+                                    <div key={'p' + index} style={{ color: this.state.palete_cores.cor3 }} dangerouslySetInnerHTML={this.createMarkup(noticia.subtitulo_noticia)} />
 
                                 </div>
                             </Link>

@@ -40,15 +40,13 @@ export default class Manchete extends Component {
         if (!this.state.palete_cores || !this.state.noticiasjornalmanchete) {
             
             return (
-                <div>
-                    <h2>Carregando</h2>
-                </div>
+                <div id="carrega">A carregar...</div>
             )
         } else {
             if(this.state.noticiasjornalmanchete.length==0){
                 return (
                     <div>
-                        <h3 style={{textAlign:'center'}}>Ainda não tem manchete</h3>
+                        <h3 id="noManchete">Ainda não tem manchete</h3>
                     </div>
                 );
             }else{

@@ -1,9 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Notificacao from './Notificacao';
-import Perfil from '../images_app/perfil.png'
-import Pesquisa from '../images_app/lupa_azul.png'
+
 export default class Jornais extends React.Component {
     constructor(props) {
         super(props);
@@ -22,13 +20,9 @@ export default class Jornais extends React.Component {
                 })
                 console.log(response.data);
             });
-
-
     }
 
-
     enviarPedido = (jornal_id, user_id_jornal) => {
-
         var bodyFormData = new FormData();
         bodyFormData.set('userconvidado_id', this.state.user_id);
         bodyFormData.set('jornal_id', jornal_id);
@@ -46,7 +40,7 @@ export default class Jornais extends React.Component {
         axios(options).then((response) => {
             console.log(response);
             this.setState({
-                display: 'block'
+                display: 'flex'
             })
             document.body.style.overflow = 'hidden';
         }).catch((erro) => {
@@ -54,25 +48,24 @@ export default class Jornais extends React.Component {
         })
     }
 
-
     fechar = () => {
         this.setState({
             display: 'none'
         })
+
         document.body.style.overflow = 'auto';
     }
 
+
     render() {
-        if (this.state.jornaishasusers == null) {
+        if (!this.state.jornaishasusers) {
             return (
                 <div>
-                    <p className="p_registate">Carregando...</p>
+                    <h1>Jornal</h1>
+                    <div id="carrega">A carregar...</div>
                 </div>
             );
-        } else if (this.state.jornaishasusers != null) {
-
-
-
+        } else {
             var jornaisHasUsers = this.state.jornaishasusers;
             let listItems = jornaisHasUsers.map((data, index) => {
                 if (jornaisHasUsers[index].role_id == 2)
@@ -82,8 +75,8 @@ export default class Jornais extends React.Component {
                             <div className="infosJornal">
                                 <h4 key={'h4' + index}>{jornaisHasUsers[index].jornal.nome_jornal}</h4>
                                 <p key={'pdescr' + index}>{jornaisHasUsers[index].jornal.descricao}</p>
-                                <Link to={'/verperfil/'+jornaisHasUsers[index].user.id}>
-                                    <p key={'puser' + index}>Editor: {jornaisHasUsers[index].user.username}</p>
+                                <Link to={'/verperfil/' + jornaisHasUsers[index].user.id}>
+                                    <p key={'puser' + index} class="nomeRoleJornal">Editor: {jornaisHasUsers[index].user.username}</p>
                                 </Link>
                             </div>
                             <div className="botoesJornais">
@@ -99,38 +92,26 @@ export default class Jornais extends React.Component {
             });
 
             return (
-                <div className="feedJornal">
-
+                <div>
                     <h1>Jornal</h1>
-                    <Link to="/pesquisa">
-                        <button onClick={this.notificacaobtn} className="pesquisa">
-                            <img src={Pesquisa} />
-                        </button>
-                    </Link>
-                    <Notificacao />
-                    <Link to="/perfil">
-                        <button onClick={this.notificacaobtn} className="perfil">
-                            <img src={Perfil} />
-                        </button>
-                    </Link>
-
-
 
                     <div id="card-outros-jornais">
                         <h4>Outros jornais</h4>
                         <Link to={'/criarjornais'}>
-                            <button className="btn_normal"> Criar jornal</button>
+                            <button id="criarJornal"> Criar jornal</button>
                         </Link>
                         {listItems}
                     </div>
 
-
                     <div id="modal" style={{ display: this.state.display }}>
-                        <p className="p_modal">Enviaste pedido fica atento às notificações!</p>
-                        <button className="btn_deletesearch" onClick={this.fechar}>
-                            Fechar
+                        <div id="modalInside">
+                            <p className="p_modal">Enviaste pedido fica atento às notificações!</p>
+                            <button className="btn_deletesearch" onClick={this.fechar}>
+                                Fechar
                         </button>
+                        </div>
                     </div>
+
                 </div>
             );
         }

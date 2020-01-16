@@ -6,7 +6,7 @@ export default class Perfil extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user_id: 3,
+            user_id: sessionStorage.getItem('id_user'),
             userdata: 'null',
             profissao: null,
             instituicao: null,
@@ -18,11 +18,11 @@ export default class Perfil extends Component {
             profuser: '',
             id_instituicao: '',
             imagem: '',
-            mudarImage: ''
+            mudarImage: '',
+            varimage: false,
+            varprof:false
         };
     }
-
-
     componentDidMount() {
         axios.get('http://noticiarte.ddns.net/api/user/' + this.state.user_id)
             .then((response) => {
@@ -39,37 +39,33 @@ export default class Perfil extends Component {
                     instituicao: response.data.instituicao
                 })
                 console.log(response.data);
+             
             });
     }
-
     onChangeusername = (e) => {
         const userInput = e.currentTarget.value;
         this.setState({
             userInput: e.currentTarget.value
         });
     };
-
     onChangenome = (e) => {
         const userInput = e.currentTarget.value;
         this.setState({
             nomeInput: e.currentTarget.value
         });
     };
-
     onChangeemail = (e) => {
         const userInput = e.currentTarget.value;
         this.setState({
             emailInput: e.currentTarget.value
         });
     };
-
     onChangebiografia = (e) => {
         const userInput = e.currentTarget.value;
         this.setState({
             biografia: e.currentTarget.value
         });
     }
-
     onChangedata = (e) => {
         let newDate = new Date();
         let date = newDate.getDate();
@@ -96,88 +92,68 @@ export default class Perfil extends Component {
             teste = <div><p></p></div>;
             return teste;
         }
-
     }
-
     onChangeprofissao = (e) => {
-        alert(e.target.value)
         this.setState({
-            profuser: e.target.value
+            profuser:  e.target.value,
+            varprof:true
         });
     }
-
     verificaOption = (evt) => {
         this.setState({
             id_instituicao: evt.target.value
         })
     }
-
     onChangeImage = (e) => {
-        console.log(e.target.files[0])
         this.setState({
-            imagem: e.target.files[0]
+            imagem: e.target.files[0],
+            varimage: true
         })
     }
-
-
     formperfil = () => {
-        if (this.state.imagem == "/images/user/superarte.png") {
-            axios.put('http://noticiarte.ddns.net/api/user/' + this.state.user_id, {
-                nome: this.state.nomeInput,
-                username: this.state.userInput,
-                biografia: this.state.biografia,
-                data_nascimento: this.state.datanasci,
-                profissao: this.state.profuser,
-                instituicao: this.state.id_instituicao,
-            }).then((res) => {
-                console.log(res);
-                //window.location.reload();
-            }).catch((err) => {
-                console.log(err);
+       console.log(this.state.id_instituicao)
+       console.log(this.state.profuser)
+            const formData = new FormData()
+            formData.append('nome', this.state.nomeInput)
+            formData.append('username', this.state.userInput)
+            formData.append('biografia', this.state.biografia)
+            formData.append('data_nascimento', this.state.datanasci)
+            formData.append('profissao_id', this.state.profuser)
+            formData.append('instituicao_id', this.state.id_instituicao)
+            formData.append('image', this.state.imagem)
+            formData.append('_method', "put");
+            const options2 = {
+                url: 'http://noticiarte.ddns.net/api/user/' + this.state.user_id,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+                method: 'post',
+                data: formData
+            };
+            axios(options2).then((response) => {
+                window.location.reload();
+            }).catch((erro) => {
+                console.log(erro)
             })
-        } else if(this.state.imagem != null){
-            alert('oi')
-            console.log(this.state.imagem)
-            axios.put('http://noticiarte.ddns.net/api/user/' + this.state.user_id, {
-                nome: this.state.nomeInput,
-                username: this.state.userInput,
-                biografia: this.state.biografia,
-                data_nascimento: this.state.datanasci,
-                profissao: this.state.profuser,
-                instituicao: this.state.id_instituicao,
-                image: this.state.imagem
-                
-            }).then((res) => {
-                console.log(res);
-                alert('oi')
-                console.log(this.state.imagem)
-                //window.location.reload();
-            }).catch((err) => {
-                console.log(err);
-            })
-        }
-
+        
     }
-
     render() {
-
-        console.log(this.state.imagem)
-
+        
         if (!this.state.profissao || !this.state.instituicao) {
             return (
                 <div>
-                    <h4>Estamos a colocar o teu perfil mais bonito</h4>
+                    <h1>Perfil</h1>
+                    <div id="carrega">A carregar...</div>
                 </div>
             )
         } else {
             const profissoes = this.state.profissao.map((profisaMap, i) => {
-                if (this.state.profuser==null) {
+                if (this.state.profuser == null) {
                     return (
                         <option key={'profi' + i} value={profisaMap.id} >{profisaMap.nome_profissao}</option>
                     )
                 } else {
                     if (this.state.profuser.id == profisaMap.id) {
-
                         return (
                             <option key={'profi' + i} value={profisaMap.id} selected>{profisaMap.nome_profissao}</option>
                         )
@@ -187,12 +163,9 @@ export default class Perfil extends Component {
                         )
                     }
                 }
-
-
             });
-
             let instituicoes = this.state.instituicao.map((data, index) => {
-                if (this.state.id_instituicao==null) {
+                if (this.state.id_instituicao == null) {
                     return (
                         <option key={'sele' + index} value={data.id}>{data.nome_instituicao}</option>
                     );
@@ -207,83 +180,93 @@ export default class Perfil extends Component {
                         );
                     }
                 }
-
             });
             return (
-                <div>
-                    <h4>Perfil</h4>
-                    <img src={'http://noticiarte.ddns.net' + this.state.imagem} />
-                    <div className="inputs">
-                        <div className="labelInput">Fotografia</div>
-                        <input className="input_text_perfil fotografia"
-                            type="file"
-                            onChange={this.onChangeImage}
-                        />
-                    </div>
-                    <div className="inputs">
-                        <div className="labelInput">Nome</div>
-                        <input className="input_text_perfil"
-                            type="text"
-                            placeholder="nome"
-                            onChange={this.onChangenome}
-                            value={this.state.nomeInput}
-                        />
-                    </div>
-                    <div className="inputs">
-                        <div className="labelInput">Username</div>
-                        <input className="input_text_perfil"
-                            type="text"
-                            placeholder="username"
-                            onChange={this.onChangeusername}
-                            value={this.state.userInput}
-                            disabled
-                        />
-                    </div>
+                <div id="perfil">
+                    <h1>Perfil</h1>
+                    <Link to={'/jornais'}>
+                        <button className="btn_back" onClick={this.changePage}>
+                            Voltar
+                            </button>
+                    </Link>
+                    <img id="editJornalFoto" src={'http://noticiarte.ddns.net/uploads/' + this.state.imagem} />
 
-                    <div className="inputs">
-                        <div className="labelInput">Email</div>
-                        <input className="input_text_perfil"
-                            type="email"
-                            placeholder="email"
-                            onChange={this.onChangeemail}
-                            value={this.state.emailInput}
-                            disabled
-                        />
-                    </div>
+                    <div id="inputsPerfil">
+                        <div className="inputs">
+                            <div className="labelInput">Fotografia</div>
+                            <input className="input_text_perfil"
+                                type="file"
+                                onChange={this.onChangeImage}
+                            />
+                        </div>
 
-                    <div className="inputs">
-                        <div className="labelInput bio">Biografia</div>
-                        <textarea className="input_text_perfil"
-                            type="email"
-                            placeholder="Escreve algo sobre ti"
-                            onChange={this.onChangebiografia}
-                            value={this.state.biografia}
-                        />
-                    </div>
-                    <div className="inputs">
-                        {teste}
-                        <div className="labelInput">Data de nascimento</div>
-                        <input className="input_text_perfil data"
-                            type="date"
-                            onChange={this.onChangedata}
-                            value={this.state.datanasci}
-                        />
-                    </div>
-                    <div className="inputs">
+                        <div className="inputs">
+                            <div className="labelInput">Nome</div>
+                            <input className="input_text_perfil"
+                                type="text"
+                                placeholder="nome"
+                                onChange={this.onChangenome}
+                                value={this.state.nomeInput}
+                            />
+                        </div>
 
-                        <div className="labelInput">Profissão</div>
-                        <select className="input_text_perfil select" onChange={this.onChangeprofissao}>
-                            {profissoes}
-                        </select>
-                    </div>
-                    <div className="inputs">
+                        <div className="inputs">
+                            <div className="labelInput">Username</div>
+                            <input className="input_text_perfil"
+                                type="text"
+                                placeholder="username"
+                                onChange={this.onChangeusername}
+                                value={this.state.userInput}
+                                disabled
+                            />
+                        </div>
 
-                        <div className="labelInput">Instituicao</div>
-                        <select className="input_text_perfil select"
-                            onChange={this.verificaOption}
-                        >
-                            {instituicoes}
-                        </select>
+                        <div className="inputs">
+                            <div className="labelInput">Email</div>
+                            <input className="input_text_perfil"
+                                type="email"
+                                placeholder="email"
+                                onChange={this.onChangeemail}
+                                value={this.state.emailInput}
+                                disabled
+                            />
+                        </div>
+
+                        <div className="inputs">
+                            <div className="labelInput bio">Biografia</div>
+                            <textarea className="input_text_perfil"
+                                type="email"
+                                placeholder="Escreve algo sobre ti"
+                                onChange={this.onChangebiografia}
+                                value={this.state.biografia}
+                            />
+                        </div>
+
+                        <div className="inputs">
+                            {teste}
+                            <div className="labelInput">Data de nascimento</div>
+                            <input className="input_text_perfil data"
+                                type="date"
+                                onChange={this.onChangedata}
+                                value={this.state.datanasci}
+                            />
+                        </div>
+
+                        <div className="inputs">
+                            <div className="labelInput">Profissão</div>
+                            <select className="input_text_perfil select" onChange={this.onChangeprofissao}>
+                                {profissoes}
+                            </select>
+                        </div>
+
+                        <div className="inputs">
+                            <div className="labelInput">Instituicao</div>
+                            <select className="input_text_perfil select"
+                                onChange={this.verificaOption}
+                            >
+                                {instituicoes}
+                            </select>
+                        </div>
                     </div>
 
                     <button onClick={this.formperfil} className="btn_normal">
@@ -292,6 +275,5 @@ export default class Perfil extends Component {
                 </div>
             )
         }
-
     }
 }

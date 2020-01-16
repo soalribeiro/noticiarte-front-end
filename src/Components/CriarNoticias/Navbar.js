@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 
 export default class Navbar extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -17,7 +16,6 @@ export default class Navbar extends Component {
 
 
     componentDidMount() {
-
         axios.get('http://noticiarte.ddns.net/api/cores/' + this.props.palete)
             .then((res) => {
                 this.setState({
@@ -30,23 +28,21 @@ export default class Navbar extends Component {
     }
 
 
-    refresh = (jornal,seccao, palete) => {
-        window.location.href='/vernoticiaseccao/' + jornal + '/'
-        + seccao + '/'
-        + palete;
+    refresh = (jornal, seccao, palete) => {
+        window.location.href = '/vernoticiaseccao/' + jornal + '/'
+            + seccao + '/'
+            + palete;
     }
 
     refreshtohome = (jornal) => {
-        window.location.href='/verjornal/' + jornal;
+        window.location.href = '/verjornal/' + jornal;
     }
 
     render() {
         if (!this.props.nomejornal || !this.props.imagejornal
             || !this.state.palete_cores || !this.state.seccao_id) {
             return (
-                <div>
-                    <h2>Carregando</h2>
-                </div>
+                <div id="carrega">A carregar...</div>
             )
         } else {
             let listItems = this.state.seccoes.map((data, index) => {
@@ -54,9 +50,9 @@ export default class Navbar extends Component {
                     return (
                         <li key={index} >
                             <Link to={'/vernoticiaseccao/' + this.state.id_jornal + '/'
-                                    + this.state.seccoes[index].seccao.id + '/'
-                                    + this.props.palete} 
-                                    style={{ color: this.state.palete_cores.cor3 }}>
+                                + this.state.seccoes[index].seccao.id + '/'
+                                + this.props.palete}
+                                style={{ color: this.state.palete_cores.cor3 }}>
                                 <b>{this.state.seccoes[index].seccao.nome_seccao}</b>
                             </Link>
                         </li>
@@ -65,9 +61,9 @@ export default class Navbar extends Component {
                     return (
                         <li key={index} >
                             <Link to={'/vernoticiaseccao/' + this.state.id_jornal + '/'
-                                    + this.state.seccoes[index].seccao.id + '/'
-                                    + this.props.palete} style={{ color: this.state.palete_cores.cor3 }}
-                                onClick={() => this.refresh(this.state.id_jornal,this.state.seccoes[index].seccao.id,this.props.palete)} >
+                                + this.state.seccoes[index].seccao.id + '/'
+                                + this.props.palete} style={{ color: this.state.palete_cores.cor3 }}
+                                onClick={() => this.refresh(this.state.id_jornal, this.state.seccoes[index].seccao.id, this.props.palete)} >
                                 {this.state.seccoes[index].seccao.nome_seccao}
                             </Link>
                         </li>

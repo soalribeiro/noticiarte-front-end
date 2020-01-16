@@ -89,9 +89,6 @@ export default class Notificacao extends Component {
                                 pathname: '/validarnoticia/' + notiNotic.id
                             }}>
                                 <p key={'option' + i} value={notiNotic.id}>A notícia <b>{notiNotic.titulo_noticia}</b> foi editada. Pretende publicar?</p>
-                                {/* <a className="noti_btn" onClick={() => this.publicarNoticia('sim', notiNotic.id)}>Sim</a>
-                                <a className="noti_btn_cance" onClick={() => this.publicarNoticia('nao', notiNotic.id)}>Não</a> */}
-
                             </Link>
                         </div>
                     )
@@ -110,6 +107,7 @@ export default class Notificacao extends Component {
                 }
 
             });
+
             const notiJOR = this.state.notifiJOR.map((notiJornal, i) => {
                 return (
                     <div className="divnoti">
@@ -117,10 +115,13 @@ export default class Notificacao extends Component {
                     </div>
                 )
             });
+
             return (
-                <div>
+                <div id="allNotif">
                     <button onClick={this.notificacaobtn} className="notificacao">
-                        <div className="notif_red">{this.state.contagem}</div>
+                        {this.state.contagem > 0 ?
+                            <div className="notif_red">{this.state.contagem}</div> :
+                            console.log('sem notificações')}
                         <img src={NotificacaoIcon} />
                     </button>
                     <div style={{ display: this.state.displaydiv }} className="corpoNotif">
