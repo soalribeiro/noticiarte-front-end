@@ -846,6 +846,10 @@ button#addPalavraChave {
   width: 100%;
 }
 
+#imageUploaded2 {
+  width: 100%;
+}
+
 #charCount {
   font-size: 0.8rem;
   font-family: Axiforma-Regular;
@@ -1194,6 +1198,16 @@ p.nomeRoleJornal {
   line-height: 3rem;
 }
 
+.seccoes .divImage {
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  border-radius: 50%;
+  margin: 10px 20px 20px 0;
+}
 
 
 

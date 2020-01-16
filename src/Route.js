@@ -23,7 +23,7 @@ export default class Routes extends React.Component {
                 <Route path='/redacao' component={Redacao} />
                 <Route path='/noticia' component={Noticia} />
                 <Route path='/jornalnot/:idjornal' component={JornalNot} />
-                <Route path='/noticiajornal/:id' component={EditarNoticia} />
+                <Route path='/editarnot/:id/:idjornal' component={EditarNoticia} />
                 <Route path='/escolhertiponot/' component={EscolherTipoNot} />
                 <Route path='/criarnoticia/:idjornal' component={CriarNoticia} />
                 <Route path='/ativrecente/:idjornal' component={AtividadeRecente} />

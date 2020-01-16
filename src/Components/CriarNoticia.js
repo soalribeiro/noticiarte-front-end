@@ -404,7 +404,7 @@ export default class CriarNoticia extends React.Component {
 
                             <div id="botoesRevGuarda">
                                 <button id="revisao" onClick={this.criaNoticia}>Enviar para revisão</button>
-                                <button id="guardar">Guardar</button>
+                                <button id="guardar" onClick={this.guardarNoticia}>Guardar</button>
                             </div>
                         </div>
                     </div>
