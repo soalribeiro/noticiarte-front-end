@@ -8,6 +8,7 @@ import Login from './Components/Login';
 import Jornais from './Components/Jornais';
 import MenuSemLogin from './Components/MenuSemLogin';
 import BotoesLateral from './Containers/BotoesLateral';
+import Registo from './Components/Registo';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -68,6 +69,7 @@ export default class App extends React.Component {
                 <Login isLoggedIn={this.callbackLogin} />
               </Route>
               <Route exact path='/jornais' component={Jornais} />
+              <Route exact path='/registo' component={Registo} />
             </Switch>
 
           </div>

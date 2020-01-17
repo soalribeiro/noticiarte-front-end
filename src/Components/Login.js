@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import password_img from '../images_app/mostrar_password.png';
 import nao_password_img from '../images_app/naomostrar_password.png';
@@ -149,7 +149,7 @@ export default class Login extends Component {
                     Entrar
                 </button>
                 <p className="p_login_membro">Ainda não és membro?</p>
-                <p className="p_registate">Regista-te <a href=""><b>aqui.</b></a></p>
+                <p className="p_registate">Regista-te <Link to={{pathname:'registo'}}><b>aqui.</b></Link></p>
             </div>
         );
     }
