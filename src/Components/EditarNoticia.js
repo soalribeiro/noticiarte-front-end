@@ -183,7 +183,7 @@ export default class EditarNoticia extends React.Component {
         const { redirect } = this.state;
 
         if (redirect) {
-            return <Redirect to={'/jornalnot/' + this.state.id_noticia} />;
+            return <Redirect to={'/jornalnot/' + this.state.id_jornal} />;
         }
         if (!this.state.noticia || !this.state.seccoesJor || !this.state.revisaotexto) {
             return (
