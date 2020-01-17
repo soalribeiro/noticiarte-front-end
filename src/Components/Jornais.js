@@ -84,8 +84,12 @@ export default class Jornais extends React.Component {
                                     pathname: '/verjornal/' + jornaisHasUsers[index].jornal.id,
                                     state: { jornal_id: jornaisHasUsers[index].jornal.id }
                                 }}><button className="ver" key={'btn' + index} onClick={this.login}>Ver</button></Link>
-                                <button className="aderir" key={'aderir' + index}
-                                    onClick={() => this.enviarPedido(jornaisHasUsers[index].jornal.id, jornaisHasUsers[index].user.id)}>Aderir</button>
+
+
+                                {sessionStorage.getItem('id_user') !== null ?
+                                    <button className="aderir" key={'aderir' + index}
+                                        onClick={() => this.enviarPedido(jornaisHasUsers[index].jornal.id, jornaisHasUsers[index].user.id)}>Aderir</button>
+                                    : ''}
                             </div>
                         </div>
                     );
@@ -96,10 +100,15 @@ export default class Jornais extends React.Component {
                     <h1>Jornal</h1>
 
                     <div id="card-outros-jornais">
-                        <h4>Outros jornais</h4>
-                        <Link to={'/criarjornais'}>
-                            <button id="criarJornal"> Criar jornal</button>
-                        </Link>
+                        <h4>Todos os jornais</h4>
+                        <p style={{ marginLeft: '5%', marginBottom: '40px' }}>Explora os jornais criados na plataforma!</p>
+                        {sessionStorage.getItem('id_user') !== null ?
+                            <Link to={'/criarjornais'}>
+                                <button id="criarJornal"> Criar jornal</button>
+                            </Link> :
+                            ''
+                        }
+
                         {listItems}
                     </div>
 

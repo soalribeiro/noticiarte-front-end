@@ -315,7 +315,7 @@ export default class CriarNoticia extends React.Component {
         const { redirect } = this.state;
 
         if (redirect) {
-            return <Redirect to="/jornais" />;
+            return <Redirect to={"/jornalnot/" + this.state.id_jornal} />;
         }
 
         if (!this.state.seccoesJor || !this.state.guias || !this.state.mostra) {

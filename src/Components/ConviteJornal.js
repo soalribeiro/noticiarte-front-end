@@ -48,7 +48,7 @@ export default class ConviteJornal extends Component {
                     data: bodyFormData
                 };
                 axios(options2).then((response) => {
-                    window.reload.refresh();
+                    window.location.reload();
                 }).catch((erro) => {
                     console.log(erro)
                 })
@@ -59,7 +59,7 @@ export default class ConviteJornal extends Component {
             axios.put('http://noticiarte.ddns.net/api/convitejornal/' + conviteid, {
                 estadoconvitejornal_id: 1
             }).then((res) => {
-                window.reload.refresh();
+                window.location.reload();
             }).catch((err) => {
                 console.log(err);
             })
@@ -116,10 +116,14 @@ export default class ConviteJornal extends Component {
                 return (
                     <div id="pedidosRecebidos" >
                         <h2>{this.state.nome_jornal}</h2>
+
                         <BotoesJornal jornal={this.state.idjornal} />
 
-                        <h4>Pedidos Recebido</h4>
-                        {convites}
+                        <h4>Pedidos Recebidos</h4>
+                        {this.state.data > 0 ?
+                            convites : <p style={{ textAlign: 'center' }}>Não recebeu pedidos para aderir ao seu jornal.</p>
+                        }
+
                     </div>
                 );
             }

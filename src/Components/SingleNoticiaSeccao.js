@@ -99,7 +99,11 @@ export default class SingleNoticiaSeccao extends Component {
                             seccoes={this.state.seccoes}
                             id_sec={this.props.match.params.idseccao}
                         />
-                        {listItems}
+                        <div style={{
+                            margin: '2%', minWidth: '45%'
+                        }}>
+                            {listItems}
+                        </div>
                     </div>
                 </div>
             );

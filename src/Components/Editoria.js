@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import BotoesJornal from '../Containers/BotoesJornal';
 
@@ -162,7 +162,7 @@ export default class Editoria extends React.Component {
 
                                     <div id="todaEquipa">
                                         <h4>Equipa</h4>
-                                        <button>Convidar</button>
+                                        <Link to="conviterecebido"><button>Convidar</button></Link>
                                         {users}
                                     </div>
                                 </div>

@@ -43,11 +43,11 @@ export default class Redacao extends React.Component {
                             </div>
                             <div className="botoesJornais">
                                 <Link key={'link' + index} to={'/ativrecente/' + jornal.jornal.id}>
-                                    <button className="entrar" key={'btn' + index}>Entrar</button>
+                                    <button className="ver" key={'btn' + index}>Entrar</button>
                                 </Link>
 
                                 <Link key={'link' + index} to={'/atualijornal/' + jornal.jornal.id}>
-                                    <button id="editJornal">Editar</button>
+                                    <button class="aderir">Editar</button>
                                 </Link>
                             </div>
                         </div>

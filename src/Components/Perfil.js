@@ -20,7 +20,7 @@ export default class Perfil extends Component {
             imagem: '',
             mudarImage: '',
             varimage: false,
-            varprof:false
+            varprof: false
         };
     }
     componentDidMount() {
@@ -39,7 +39,7 @@ export default class Perfil extends Component {
                     instituicao: response.data.instituicao
                 })
                 console.log(response.data);
-             
+
             });
     }
     onChangeusername = (e) => {
@@ -95,8 +95,8 @@ export default class Perfil extends Component {
     }
     onChangeprofissao = (e) => {
         this.setState({
-            profuser:  e.target.value,
-            varprof:true
+            profuser: e.target.value,
+            varprof: true
         });
     }
     verificaOption = (evt) => {
@@ -111,34 +111,35 @@ export default class Perfil extends Component {
         })
     }
     formperfil = () => {
-       console.log(this.state.id_instituicao)
-       console.log(this.state.profuser)
-            const formData = new FormData()
-            formData.append('nome', this.state.nomeInput)
-            formData.append('username', this.state.userInput)
-            formData.append('biografia', this.state.biografia)
-            formData.append('data_nascimento', this.state.datanasci)
-            formData.append('profissao_id', this.state.profuser)
-            formData.append('instituicao_id', this.state.id_instituicao)
-            formData.append('image', this.state.imagem)
-            formData.append('_method', "put");
-            const options2 = {
-                url: 'http://noticiarte.ddns.net/api/user/' + this.state.user_id,
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-                method: 'post',
-                data: formData
-            };
-            axios(options2).then((response) => {
-                window.location.reload();
-            }).catch((erro) => {
-                console.log(erro)
-            })
-        
+        console.log(this.state.id_instituicao)
+        console.log(this.state.profuser)
+        const formData = new FormData()
+        formData.append('nome', this.state.nomeInput)
+        formData.append('username', this.state.userInput)
+        formData.append('biografia', this.state.biografia)
+        formData.append('data_nascimento', this.state.datanasci)
+        formData.append('profissao_id', this.state.profuser)
+        formData.append('instituicao_id', this.state.id_instituicao)
+        formData.append('image', this.state.imagem)
+        formData.append('_method', "put");
+
+        const options2 = {
+            url: 'http://noticiarte.ddns.net/api/user/' + this.state.user_id,
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+            method: 'post',
+            data: formData
+        };
+        axios(options2).then((response) => {
+            window.location.reload();
+        }).catch((erro) => {
+            console.log(erro)
+        })
+
     }
     render() {
-        
+
         if (!this.state.profissao || !this.state.instituicao) {
             return (
                 <div>
@@ -189,7 +190,10 @@ export default class Perfil extends Component {
                             Voltar
                             </button>
                     </Link>
-                    <img id="editJornalFoto" src={'http://noticiarte.ddns.net/uploads/' + this.state.imagem} />
+                    
+                    <div id="editJornalFoto" style={{
+                        backgroundImage: `url(http://noticiarte.ddns.net/uploads/${this.state.imagem})`
+                    }}></div>
 
                     <div id="inputsPerfil">
                         <div className="inputs">

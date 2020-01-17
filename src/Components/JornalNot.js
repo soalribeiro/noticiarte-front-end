@@ -90,6 +90,7 @@ export default class JornalNot extends React.Component {
                     </div>
                 )
             } else {
+                console.log(this.state.noticias);
                 if (this.state.noticias.length > 0 || this.state.editor > 0) {
                     const noticias = this.state.noticias.map((noticia, i) => {
                         return (

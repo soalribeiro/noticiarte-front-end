@@ -124,9 +124,9 @@ h1 {
   font-family: Axiforma-Medium;
   color: white;
   opacity: 0.8;
-  font-size: 4.5rem;
+  font-size: 4rem;
   text-transform: uppercase;
-  margin: 5% 0 0 6%;
+  margin: 4.5% 0 0 6%;
 }
 
 h2 {
@@ -1343,7 +1343,7 @@ button#btnCriaJornal {
   background-color: #F2F2F2;
   border-radius: 30px;
   margin: 30px 3.8% 30px 4.5%;
-  min-height: 450px;
+  min-height: 508px;
   position: relative;
 }
 
@@ -1449,6 +1449,7 @@ button#btnCriaJornal {
 #singleJor {
   padding-top: 8%;
   padding-bottom: 80px;
+  overflow: hidden;
 }
 
 #singleJor h4 {
@@ -1587,6 +1588,11 @@ button#btnCriaJornal {
   overflow: hidden;
 }
 
+
+a.NotIndividual2 {
+  color: inherit;
+}
+
 .NotIndividual {
   -ms-flex: 0 0 30.5%;
   flex: 0 0 30.5%;
@@ -1665,40 +1671,51 @@ button#btnCriaJornal {
 }
 
 .noticia_img {
-  width: 100%;
-  height: 240px;
+  width: 60%;
+  max-width: 700px;
+  height: 260px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  margin-right: 25px;
+  margin: auto;
+  display: block;
 }
 
 .single_noticia h4 {
   float: none;
-  margin: 20px;
+  width: 60%;
+  max-width: 700px;
   padding-top: 10px;
   display: block;
-  text-align: center;
+  font-size: 2rem;
+  margin: auto;
 }
 
 .single_noticia h5 {
   clear: both;
-  color: #4d4d4d;
+  width: 60%;
+  max-width: 700px;
+  color: #585858;
   font-family: Axiforma-Semi;
-  font-size: 1.0rem;
+  font-size: 1rem;
+  margin: 10px auto;
+  text-align: left;
 }
 
 .single_noticia h6 {
   clear: both;
-  margin: auto;
-  margin: 20px 0px;
+  width: 60%;
+  max-width: 700px;
+  margin: 20px auto;
+  text-align: left;
   color: #0554F2;
   font-size: 0.9rem;
 }
 
 .single_noticia p {
-  margin: 20px;
-  justify-content: center;
+  width: 60%;
+  max-width: 700px;
+  margin: 40px auto 0;
   text-align: left;
 }
 
@@ -1884,8 +1901,8 @@ button#btnCriaJornal {
 #botoesLateral {
   position: absolute;
   top: 0;
-  right: 30px;
-  padding: 20px;
+  right: 20px;
+  padding: 18px;
 }
 
 #botoesLateral a {
@@ -1902,16 +1919,15 @@ button#btnCriaJornal {
 }
 
 .notificacao {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background-color: white;
   border-radius: 50px;
   background-repeat: no-repeat;
 }
 
 .notificacao img {
-  width: 15px;
-  height: auto;
+  height: 18px;
   background-color: white;
   border-radius: 50px;
   background-repeat: no-repeat;
@@ -1924,7 +1940,6 @@ button#btnCriaJornal {
 
 .notificacao .notif_red {
   position: absolute;
-  width: 20px;
   border-radius: 50%;
   background-color: #FC4747;
   text-align: center;
@@ -1933,9 +1948,9 @@ button#btnCriaJornal {
   padding: 0 3px;
   font-size: 0.7rem;
   top: -5px;
-  left: 70%;
+  right: -6px;
   font-family: Axiforma-Medium;
-  line-height: 1.8rem;
+  padding: 3px 8px;
 }
 
 .corpoNotif {
@@ -2015,8 +2030,8 @@ button#btnCriaJornal {
 }
 
 .perfil {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background-color: white;
   border-radius: 50px;
   background-repeat: no-repeat;
@@ -2024,8 +2039,7 @@ button#btnCriaJornal {
 }
 
 .perfil img {
-  width: 15px;
-  height: auto;
+  height: 18px;
   background-color: white;
   border-radius: 50px;
   background-repeat: no-repeat;
@@ -2036,8 +2050,8 @@ button#btnCriaJornal {
 }
 
 .pesquisa {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background-color: white;
   border-radius: 50px;
   background-repeat: no-repeat;
@@ -2045,8 +2059,7 @@ button#btnCriaJornal {
 }
 
 .pesquisa img {
-  width: 15px;
-  height: auto;
+  height: 18px;
   background-color: white;
   border-radius: 50px;
   background-repeat: no-repeat;
@@ -2286,8 +2299,7 @@ button#btnCriaJornal {
   color: white;
   font-family: Axiforma-Semi;
   background-color: #0554F2;
-  width: 40px;
-  height: 30px;
+  padding: 10px 20px;
   border: 1px solid transparent;
   border-radius: 20px;
   margin-right: 20px;
@@ -2295,11 +2307,10 @@ button#btnCriaJornal {
 }
 
 .btn_rejeitar {
+  background-color: #FC4747;
   color: white;
   font-family: Axiforma-Semi;
-  background-color: #FC4747;
-  width: 40px;
-  height: 30px;
+  padding: 10px 20px;
   border: 1px solid transparent;
   border-radius: 20px;
   margin-right: 20px;
@@ -2329,10 +2340,14 @@ button#btnCriaJornal {
 }
 
 #editJornalFoto {
-  height: 300px;
+  width: 250px;
+  height: 250px;
   border-radius: 30px;
   margin: auto;
   display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
 }
 
 

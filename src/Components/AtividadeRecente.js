@@ -96,7 +96,12 @@ export default class AtividadeRecente extends React.Component {
 
                                     <div class="blocoEsq">
                                         <h6>{ativ.nome}</h6>
-                                        <Link key={'link' + index} to={'/vernoticias/' + ativ.id}>
+                                        <Link key={'link' + index} to={{
+                                            pathname: '/vernoticias/' + ativ.id,
+                                            state: {
+                                                jornal_id: this.props.match.params.idjornal
+                                            }
+                                        }}>
                                             <p>A notícia <b>"{ativ.titulo_noticia}"</b> está a aguardar revisão.</p>
                                         </Link>
                                     </div>
