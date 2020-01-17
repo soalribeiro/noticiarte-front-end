@@ -7,7 +7,7 @@ export default class Menu extends React.Component {
 			<div id="menu">
 				<ul>
 					<li>
-						<NavLink to="/jornais" activeClassName="active" onlyActiveOnIndex>Jornais</NavLink>
+						<NavLink to="/jornais" activeClassName="active" onlyActiveOnIndex>Ver jornais</NavLink>
 					</li>
 					<li>
 						<NavLink to="/noticia" activeClassName="active" onlyActiveOnIndex>Criar notícia</NavLink>

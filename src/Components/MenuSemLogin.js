@@ -7,7 +7,7 @@ export default class MenuSemLogin extends React.Component {
 			<div id="menu">
 				<ul>
 					<li>
-						<NavLink to="/jornais" activeClassName="active" onlyActiveOnIndex>Jornais</NavLink>
+						<NavLink to="/jornais" activeClassName="active" onlyActiveOnIndex>Ver jornais</NavLink>
 					</li>
 				</ul>
 			</div>

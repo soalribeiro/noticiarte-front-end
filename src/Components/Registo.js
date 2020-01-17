@@ -20,18 +20,16 @@ export default class Registo extends Component {
         };
     }
 
-
-
     onChangenome = (e) => {
         this.setState({ nomeInput: e.target.value })
     }
 
     onChangeemail = (e) => {
-        this.setState({ userInput: e.target.value })
+        this.setState({ emailInput: e.target.value })
     }
 
     onChangeusername = (e) => {
-        this.setState({ emailInput: e.target.value })
+        this.setState({ userInput: e.target.value })
     }
 
     onChangepassword = (e) => {
@@ -46,7 +44,7 @@ export default class Registo extends Component {
         if (this.state.userInput != null || this.state.nomeInput != null
             || this.state.emailInput != null || this.state.password != null) {
             if (this.state.password2 == this.state.password) {
-                
+
                 var bodyFormData = new FormData();
                 bodyFormData.set('username', this.state.userInput);
                 bodyFormData.set('email', this.state.emailInput);
@@ -65,7 +63,7 @@ export default class Registo extends Component {
 
                 axios(options).then((response) => {
                     this.setState({
-                        redirect:true
+                        redirect: true
                     });
 
                 }).catch((erro) => {
@@ -76,9 +74,7 @@ export default class Registo extends Component {
                 this.setState({
                     message: 'A password tem de ser igual'
                 })
-
             }
-
         }
     }
 
@@ -91,7 +87,7 @@ export default class Registo extends Component {
             }, 5000);
         }
 
-        if(this.state.redirect){
+        if (this.state.redirect) {
             return <Redirect to='/' />
         }
         return (

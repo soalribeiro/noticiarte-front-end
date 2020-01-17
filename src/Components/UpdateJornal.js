@@ -82,8 +82,9 @@ export default class UpdateJornal extends Component {
                 <div>
                     <h1>Jornal</h1>
 
-                    <img id="editJornalFoto" onChange={this.mudaimagem} src={'http://noticiarte.ddns.net/uploads/' + this.state.jornais.imagem_jornal} />
-                    
+                    <div id="editJornalFoto" onChange={this.mudaimagem}
+                        style={{ backgroundImage: `url(http://noticiarte.ddns.net/uploads/${this.state.jornais.imagem_jornal})` }}></div>
+
                     <div id="inputsPerfil">
                         <div className="inputs">
                             <div className="labelInput">Fotografia</div>
@@ -112,7 +113,7 @@ export default class UpdateJornal extends Component {
                     <button onClick={this.updateJornal} className="btn_normal">
                         Atualizar
                     </button>
-                </div>
+                </div >
             )
         }
     }

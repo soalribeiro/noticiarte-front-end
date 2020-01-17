@@ -136,14 +136,15 @@ export default class Pesquisa extends Component {
         }
         if (this.state.data === null) {
             return (
-                <div className="home">
-                    <h2>A carregar...</h2>
+                <div id="pesquisaJor">
+                    <h1>Pesquisa</h1>
+                    <div id="carrega">A carregar...</div>
                 </div>
             );
         } else {
             return (
                 <div id="pesquisaJor">
-                    <h2>Jornais Pesquisados</h2>
+                    <h1>Pesquisa</h1>
 
                     <input className="input_text"
                         type="text"

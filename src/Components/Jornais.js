@@ -97,7 +97,7 @@ export default class Jornais extends React.Component {
 
             return (
                 <div>
-                    <h1>Jornal</h1>
+                    <h1>Jornais</h1>
 
                     <div id="card-outros-jornais">
                         <h4>Todos os jornais</h4>
