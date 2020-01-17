@@ -9,6 +9,9 @@ import Jornais from './Components/Jornais';
 import MenuSemLogin from './Components/MenuSemLogin';
 import BotoesLateral from './Containers/BotoesLateral';
 import Registo from './Components/Registo';
+import SingleJornal from './Components/SingleJornal';
+import SingleNoticia from './Components/SingleNoticia';
+import SingleNoticiaSeccao from './Components/SingleNoticiaSeccao';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -69,6 +72,9 @@ export default class App extends React.Component {
                 <Login isLoggedIn={this.callbackLogin} />
               </Route>
               <Route exact path='/jornais' component={Jornais} />
+              <Route path='/verjornal/:idjornal' component={SingleJornal}></Route>
+              <Route path='/vernoticias/:id' component={SingleNoticia}></Route>
+              <Route path='/vernoticiaseccao/:idjornal/:idseccao/:idpalete' component={SingleNoticiaSeccao}></Route>
               <Route exact path='/registo' component={Registo} />
             </Switch>
 
