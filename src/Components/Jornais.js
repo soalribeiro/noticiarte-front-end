@@ -8,7 +8,7 @@ export default class Jornais extends React.Component {
         this.state = {
             jornaishasusers: null,
             display: 'none',
-            user_id: 1,
+            user_id: sessionStorage.getItem('id_user'),
         };
     }
 

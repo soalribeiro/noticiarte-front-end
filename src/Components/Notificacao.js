@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import NotificacaoIcon from '../images_app/notificacao.png'
+import NotificacaoIcon from '../images_app/notificacao.png';
+
+var count = 0;
 export default class Notificacao extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            id_user: 1,
-            contagem: null,
+            id_user: sessionStorage.getItem('id_user'),
+            //contagem: null,
             notifiNOT: null,
             notifiJOR: null,
             displaydiv: 'none'
@@ -19,7 +21,7 @@ export default class Notificacao extends Component {
             .then((response) => {
                 this.setState({
                     notifiNOT: response.data.noticias,
-                    contagem: response.data.contagem
+                    //contagem: response.data.contagem
                 })
                 console.log(response.data.noticias)
 
@@ -29,7 +31,7 @@ export default class Notificacao extends Component {
             .then((response) => {
                 this.setState({
                     notifiJOR: response.data.convite,
-                    contagem: response.data.contagem + this.state.contagem
+                    //contagem: response.data.contagem + this.state.contagem
                 })
                 console.log(response.data.convite)
             });
@@ -83,6 +85,7 @@ export default class Notificacao extends Component {
         } else {
             const notiNot = this.state.notifiNOT.map((notiNotic, i) => {
                 if (notiNotic.estadonoticia_id == 3) {
+                    count++;
                     return (
                         <div className="divnoti">
                             <Link to={{
@@ -93,12 +96,14 @@ export default class Notificacao extends Component {
                         </div>
                     )
                 } else if (notiNotic.estadonoticia_id == 1) {
+                    count++;
                     return (
                         <div className="divnoti">
                             <p key={'option' + i} value={notiNotic.id}>A notícia <b>{notiNotic.titulo_noticia}</b> foi publicada.</p>
                         </div>
                     )
                 } else if (notiNotic.estadonoticia_id == 2) {
+                    count++;
                     return (
                         <div className="divnoti">
                             <p key={'option' + i} value={notiNotic.id}>A notícia <b>{notiNotic.titulo_noticia}</b> está aguardar revisão.</p>
@@ -109,19 +114,26 @@ export default class Notificacao extends Component {
             });
 
             const notiJOR = this.state.notifiJOR.map((notiJornal, i) => {
-                return (
-                    <div className="divnoti">
-                        <p key={'option' + i} value={notiJornal.id}>Foi aceite no jornal <b>{notiJornal.jornal.nome_jornal}</b>.</p>
-                    </div>
-                )
+
+                if (notiJornal.estadoconvitejornal_id == 4 && notiJornal.userconvidado_id == this.state.id_user) {
+                    count++;
+                    return (
+                        <div className="divnoti">
+                            <p key={'option' + i} value={notiJornal.id}>Foi aceite no jornal <b>{notiJornal.jornal.nome_jornal}</b>.</p>
+                        </div>
+                    )
+                } else {
+                    console.log('')
+                }
             });
 
             return (
                 <div id="allNotif">
                     <button onClick={this.notificacaobtn} className="notificacao">
-                        {this.state.contagem > 0 ?
-                            <div className="notif_red">{this.state.contagem}</div> :
+                        {count > 0 ?
+                            <div className="notif_red">{count}</div> :
                             console.log('sem notificações')}
+                        <div style={{ display: 'none' }}>{count = 0}</div>
                         <img src={NotificacaoIcon} />
                     </button>
                     <div style={{ display: this.state.displaydiv }} className="corpoNotif">

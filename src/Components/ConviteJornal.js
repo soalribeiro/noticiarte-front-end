@@ -87,6 +87,7 @@ export default class ConviteJornal extends Component {
             } else {
                 const convites = this.state.data.map((convitejornal, i) => {
                     if (convitejornal.estadoconvitejornal_id == 2) {
+                        console.log(true)
                         return (
                             <div>
                                 <div className="div_user">
@@ -120,7 +121,7 @@ export default class ConviteJornal extends Component {
                         <BotoesJornal jornal={this.state.idjornal} />
 
                         <h4>Pedidos Recebidos</h4>
-                        {this.state.data > 0 ?
+                        {this.state.data.length > 0 ?
                             convites : <p style={{ textAlign: 'center' }}>Não recebeu pedidos para aderir ao seu jornal.</p>
                         }
 
