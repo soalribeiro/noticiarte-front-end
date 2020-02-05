@@ -56,6 +56,13 @@ export default class Jornais extends React.Component {
         document.body.style.overflow = 'auto';
     }
 
+    showConversa = () => {
+        document.getElementById("chat_pop").style.display = "block";
+    }
+
+    fecharConversa = () => {
+        document.getElementById("chat_pop").style.display = "none";
+    }
 
     render() {
         if (!this.state.jornaishasusers) {
@@ -95,6 +102,8 @@ export default class Jornais extends React.Component {
                     );
             });
 
+
+
             return (
                 <div>
                     <h1>Jornais</h1>
@@ -110,6 +119,37 @@ export default class Jornais extends React.Component {
                         }
 
                         {listItems}
+
+                        <button className="bot_not" onClick={this.showConversa}>
+                            <svg height="50" width="50" >
+                                <circle cx="10" cy="20" r="5" fill="white" />
+                                <circle cx="25" cy="20" r="5" fill="white" style={{ marginLeft: '20px' }} />
+                            </svg>
+                        </button>
+
+                        <div id="chat_pop" class="chat-popup">
+                        <label for="msg"><b>Chat de apoio</b></label>
+                            <button type="button" class="btn_rejeitar" style={{ padding: '2px 4px', marginLeft: '100px'}} onClick={this.fecharConversa}>Fechar</button>
+
+
+                            
+                            <div class="all_messa_user">
+                                <p>Como crio notícias para o meu jornal? </p>
+                                <span class="time-right">11:02</span>
+
+                            </div>
+                            <div class="all_messa">
+                                <p>Basta ires até a  página <b>Criar Jornal </b></p>
+                                <span class="time-right">11:05</span>
+
+                            </div>
+                            <input className="inputChat" type="text" placeholder="Type message.." name="msg" required />
+
+                            <button type="submit" class="btn_aceitar" style={{ padding: '5px 10px',    
+                            display: 'block',
+                            margin: 'auto'}}>Enviar</button>
+
+                        </div>
                     </div>
 
                     <div id="modal" style={{ display: this.state.display }}>
