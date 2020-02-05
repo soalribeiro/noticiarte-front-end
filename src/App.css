@@ -1021,44 +1021,62 @@ button#btnCriaJornal {
   margin-bottom: 20px;
 }
 
-.bot_not{
+.bot_not {
   width: 40px;
   position: fixed;
   background-color: #0554F2;
-  right:30px;
-  top:450px;
-  border:2px solid transparent;
-  border-radius: 10px;
+  right: 22px;
+  bottom: 22px;
+  border: 2px solid transparent;
+  border-radius: 30%;
   cursor: pointer;
 }
 
-.chat-popup{
+.chat-popup {
   display: none;
   max-width: 300px;
   padding: 10px;
   background-color: white;
   position: fixed;
-  right:30px;
-  top:150px;
+  right: 20px;
+  bottom: 20px;
   border: 2px solid #b2b2b2;
   border-radius: 20px;
 }
 
-.all_messa{
-  border: 2px solid #0554F2;
+
+.chat-popup .btn_rejeitar {
+  padding: 4px 15px;
+  margin: 5px 0 2px 105px;
+}
+
+.all_messa {
+  width: 77%;
+  margin: 10px 0 10px 15%;
+  border: 0;
   background-color: #0554F2;
   border-radius: 5px;
   padding: 10px;
-  margin: 10px 0;
-  color:white;
-  font-family: Axiforma;
+  color: white;
 }
 
-.time-right{
+.all_messa p,
+.all_messa_user p {
+  font-family: Axiforma-Light;
+  font-size: 0.85rem;
+}
+
+.all_messa span,
+.all_messa_user span {
+  font-family: Axiforma-Medium;
+}
+
+.time-right {
   font-size: 10px;
 }
 
-.all_messa_user{
+.all_messa_user {
+  width: 85%;
   border: 2px solid #dedede;
   background-color: #ffffff;
   border-radius: 5px;
@@ -1070,15 +1088,15 @@ button#btnCriaJornal {
   width: 99%;
   display: block;
   margin: 15px auto 15px;
-  padding: 8px 0;
+  padding: 5px 0;
   background-color: white;
   border-radius: 30px;
   border: 2px solid #0554F2;
   font-family: Axiforma-Light;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #2b2b2b;
   text-align: center;
-  
+
 }
 
 .botoesJornais {
@@ -1308,6 +1326,7 @@ button#btnCriaJornal {
   overflow: hidden;
   clear: both;
   margin-bottom: 40px;
+  cursor: pointer;
 }
 
 #listaUsers p {

@@ -128,26 +128,28 @@ export default class Jornais extends React.Component {
                         </button>
 
                         <div id="chat_pop" class="chat-popup">
-                        <label for="msg"><b>Chat de apoio</b></label>
-                            <button type="button" class="btn_rejeitar" style={{ padding: '2px 4px', marginLeft: '100px'}} onClick={this.fecharConversa}>Fechar</button>
+                            <label for="msg"><b>Chat de apoio</b></label>
+                            <button type="button" class="btn_rejeitar" onClick={this.fecharConversa}>Fechar</button>
 
 
-                            
+
                             <div class="all_messa_user">
                                 <p>Como crio notícias para o meu jornal? </p>
                                 <span class="time-right">11:02</span>
 
                             </div>
                             <div class="all_messa">
-                                <p>Basta ires até a  página <b>Criar Jornal </b></p>
+                                <p>Através do botão <span>Criar Jornal </span> na página "Ver Jornais".</p>
                                 <span class="time-right">11:05</span>
 
                             </div>
-                            <input className="inputChat" type="text" placeholder="Type message.." name="msg" required />
+                            <input className="inputChat" type="text" placeholder="O que precisas de saber?" name="msg" required />
 
-                            <button type="submit" class="btn_aceitar" style={{ padding: '5px 10px',    
-                            display: 'block',
-                            margin: 'auto'}}>Enviar</button>
+                            <button type="submit" class="btn_aceitar" style={{
+                                padding: '8px 15px',
+                                display: 'block',
+                                margin: 'auto'
+                            }}>Enviar</button>
 
                         </div>
                     </div>
