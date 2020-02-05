@@ -521,6 +521,9 @@ p {
   width: 90%;
   margin: 0 auto 80px;
   overflow: hidden;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 .escolheJornal {
@@ -589,16 +592,19 @@ p {
 
 /* EscolherTipoNot.js */
 .escolheTipo {
-  width: 28%;
-  flex: 0 0 30.5%;
+  width: 29%;
+  -ms-flex: 0 0 29%;
+  flex: 0 0 29%;
   float: left;
-  max-width: 30.5%;
-  margin-right: 6.5%;
+  max-width: 29%;
+  margin-bottom: 20px;
+  margin-right: 3%;
   border: 3px solid #0554F2;
   border-radius: 25px;
   min-height: 220px;
   display: table;
   text-decoration: none;
+  background-color: #fff;
 }
 
 .escolheTipo:last-of-type {
@@ -2532,6 +2538,24 @@ a.NotIndividual2 {
     margin: 0 auto;
     padding-bottom: 20px;
   }
+
+  #todosJornais {
+    display: block;
+  }
+
+  .escolheJornal,
+  .escolheTipo {
+    float: none;
+    width: 75%;
+    max-width: 75%;
+    flex: 0 0 75%;
+    -ms-flex: 0 0 75%;
+    margin: 0 auto 80px;
+  }
+
+  .escolheJornal:last-of-type {
+    margin-right: auto;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -2619,13 +2643,13 @@ a.NotIndividual2 {
 
   h1 {
     font-size: 3rem;
-    margin: 20ox 0 0 6%;
+    margin: 20px 0 0 6%;
   }
 
   .logo_branco {
     width: 120px;
     display: block;
-    margin: 10px auto 0;
+    margin: 25px auto 0 25px;
     position: unset;
   }
 
@@ -2642,12 +2666,25 @@ a.NotIndividual2 {
     display: none;
   }
 
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin: auto;
+    color: #0554F2;
+    margin-top: 70px;
+  }
+
   h2 {
     font-size: 1.5rem;
     text-align: center;
     margin: auto;
     color: #2B2B2B;
     margin-top: 8%;
+    margin-bottom: 40px;
+  }
+
+  #notDiv h4 {
+    text-align: left;
   }
 
   #botoesJornal {

@@ -68,7 +68,7 @@ export default class Jornais extends React.Component {
         if (!this.state.jornaishasusers) {
             return (
                 <div>
-                    <h1>Jornal</h1>
+                    <h1>Jornais</h1>
                     <div id="carrega">A carregar...</div>
                 </div>
             );

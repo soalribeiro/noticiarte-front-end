@@ -23,8 +23,9 @@ export default class VerPerfil extends Component {
         if (!this.state.data) {
             return (
                 <div>
-                    A carregar informação
-              </div>
+                    <h1>Perfil</h1>
+                    <div id="carrega">A carregar...</div>
+                </div>
             );
         } else {
             let userprofi = this.state.data.user[0].profissao_id;
@@ -47,7 +48,10 @@ export default class VerPerfil extends Component {
                         <button className="btn_back" onClick={this.changePage}>Voltar</button>
                     </Link>
 
-                    <img id="fotoPerfil" src={'http://noticiarte.ddns.net/uploads/' + this.state.data.user[0].image} />
+                    <div id="editJornalFoto" style={{
+                        backgroundImage: `url(http://noticiarte.ddns.net/uploads/${this.state.data.user[0].image})`
+                    }}></div>
+                    {/* <img id="fotoPerfil" src={'http://noticiarte.ddns.net/uploads/' + this.state.data.user[0].image} /> */}
 
                     <div className="div_perfil">
                         <p id="nomePerfil">{this.state.data.user[0].nome}</p>
